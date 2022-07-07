@@ -21,11 +21,22 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenCentral()
+    //google()
 }
 
 extra["snippetsDir"] = file("build/generated-snippets")
 
 dependencies {
+
+    // https://mvnrepository.com/artifact/com.github.gavlyukovskiy/p6spy-spring-boot-starter
+    implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.8.0")
+    implementation("io.github.microutils:kotlin-logging:2.1.23")
+
+
+    // https://mvnrepository.com/artifact/io.github.serpro69/kotlin-faker
+    implementation("io.github.serpro69:kotlin-faker:1.11.0")
+
+
     //implementation("org.springframework.boot:spring-boot-starter-actuator")
     //implementation("org.springframework.boot:spring-boot-starter-cache")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")

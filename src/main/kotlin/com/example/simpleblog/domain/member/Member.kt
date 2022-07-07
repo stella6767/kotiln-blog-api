@@ -12,17 +12,22 @@ class Member(
         role: Role
 ): AuditingEntity() {
 
-    @Column(name = "title", nullable = false)
+    @Column(name = "email", nullable = false)
     var email:String =email
         protected set
 
-    @Column(name = "content")
+    @Column(name = "password")
     var password:String = password
         protected set
 
     @Enumerated(EnumType.STRING)
     var role: Role = role
         protected set
+
+    override fun toString(): String {
+        return "Member(email='$email', password='$password', role=$role)"
+    }
+
 
 }
 

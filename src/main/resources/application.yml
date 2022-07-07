@@ -9,6 +9,9 @@ server:
 
 
 spring:
+  output:
+    ansi:
+      enabled: always
   datasource:
     url: jdbc:mariadb://localhost:3306/kotilnblog?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8
     username: test
@@ -28,3 +31,8 @@ spring:
     show-sql: true
 
 
+
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true
