@@ -31,6 +31,8 @@ dependencies {
     // https://mvnrepository.com/artifact/com.github.gavlyukovskiy/p6spy-spring-boot-starter
     implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.8.0")
     implementation("io.github.microutils:kotlin-logging:2.1.23")
+// https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-hibernate5
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-hibernate5:2.13.3")
 
 
     // https://mvnrepository.com/artifact/io.github.serpro69/kotlin-faker

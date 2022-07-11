@@ -9,7 +9,7 @@ import javax.persistence.*
 class Member(
         email:String,
         password:String,
-        role: Role
+        role: Role = Role.USER
 ): AuditingEntity() {
 
     @Column(name = "email", nullable = false)
@@ -26,6 +26,14 @@ class Member(
 
     override fun toString(): String {
         return "Member(email='$email', password='$password', role=$role)"
+    }
+
+    companion object Factory {
+        fun createMember(memberId:Long): Member {
+            val member = Member("", "")
+            member.id = memberId
+            return member
+        }
     }
 
 
