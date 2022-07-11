@@ -31,9 +31,6 @@ class InitData(
         val posts = generatePosts()
         postRepository.saveAll(posts)
 
-
-
-
     }
 
     private fun generateMembers(): MutableList<Member> {
