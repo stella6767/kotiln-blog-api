@@ -13,7 +13,7 @@ import javax.annotation.PostConstruct
 
 @Configuration
 @EnableJpaAuditing
-class JpaConfig {
+class LoggingConfig {
 
 
     @PostConstruct
