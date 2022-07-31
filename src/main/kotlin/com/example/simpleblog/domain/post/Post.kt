@@ -26,9 +26,12 @@ class Post(
    var member:Member = member
       protected set
 
-
     override fun toString(): String {
         return "Post(id=$id, title='$title', content='$content', member=$member)"
+    }
+
+    companion object{
+
     }
 
 }
@@ -41,3 +44,5 @@ fun Post.toDto(): PostRes {
         member = this.member.toDto()
     )
 }
+
+

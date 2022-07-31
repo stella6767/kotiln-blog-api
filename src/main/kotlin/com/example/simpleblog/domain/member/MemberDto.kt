@@ -1,5 +1,7 @@
 package com.example.simpleblog.domain.member
 
+import javax.validation.constraints.NotNull
+
 
 /**
  * dto <=> entity 간의 맵핑할 때, 크게 스타일이 2개 있는 거 같더라구요.
@@ -11,16 +13,18 @@ package com.example.simpleblog.domain.member
 
 
 data class MemberSaveReq(
-    val email:String,
-    val password:String,
-    val role: Role
+    @field:NotNull(message = "require email")
+    val email:String?,
+
+    val password:String?,
+    val role: Role?
 )
 
 fun MemberSaveReq.toEntity(): Member {
     return Member(
-        email = this.email,
-        password = this.password,
-        role = this.role,
+        email = this.email ?: "",
+        password = this.password ?: "",
+        role = this.role ?: Role.USER,
     )
 }
 
