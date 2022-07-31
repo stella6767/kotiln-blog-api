@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable
 import org.springframework.data.web.PageableDefault
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
 
 
 //@RequestMapping("/post")
@@ -37,7 +38,7 @@ class PostController(
 
 
     @PostMapping("/post")
-    fun save(@RequestBody dto: PostSaveReq): CmResDto<*> {
+    fun save(@Valid @RequestBody dto: PostSaveReq): CmResDto<*> {
 
         return CmResDto(HttpStatus.OK, "save Post", postService.save(dto))
     }
