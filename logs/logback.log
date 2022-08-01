@@ -9233,3 +9233,851 @@ HeFormatSql(P6Spy sql,Hibernate format):
  22.08.01 02:33:30 | OperationTime : 0ms 
 [2022-08-01 02:33:30:7137][http-nio-9000-exec-1] [31mERROR[0;39m c.e.s.e.GlobalExceptionHandler [36mc.e.s.e.GlobalExceptionHandler[0;39m [32mhandleEntityNotFoundException[0;39m 
  handleMethodArgumentNotValidException com.example.simpleblog.exception.MemberNotFoundException: 1000 not found 
+[2022-08-01 03:12:30:2346792][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m34s395ms). 
+[2022-08-01 03:25:36:3133372][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12m6s545ms). 
+[2022-08-01 03:42:49:4166624][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m13s253ms). 
+[2022-08-01 04:09:02:5739583][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m42s812ms). 
+[2022-08-01 04:59:44:8781343][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m11s187ms). 
+[2022-08-01 05:25:42:10339663][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m28s200ms). 
+[2022-08-01 05:42:28:11345501][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m45s815ms). 
+[2022-08-01 05:58:32:12309473][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m33s969ms). 
+[2022-08-01 06:24:03:13840527][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m926ms). 
+[2022-08-01 06:40:22:14819040][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m48s500ms). 
+[2022-08-01 06:57:20:15836719][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m27s662ms). 
+[2022-08-01 07:23:16:17392759][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m25s867ms). 
+[2022-08-01 07:39:10:18347392][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m54s634ms). 
+[2022-08-01 07:55:24:19321058][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m43s647ms). 
+[2022-08-01 08:42:59:22176351][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m34s885ms). 
+[2022-08-01 09:10:28:23824864][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m58s397ms). 
+[2022-08-01 09:28:34:24911684][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m36s799ms). 
+[2022-08-01 09:46:01:25958264][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m26s580ms). 
+[2022-08-01 10:12:11:27528363][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m9s915ms). 
+[2022-08-01 10:30:20:28617350][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m38s927ms). 
+[2022-08-01 10:46:46:29602940][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m25s591ms). 
+[2022-08-01 11:12:51:31167977][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m34s912ms). 
+[2022-08-01 11:31:19:32276612][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m58s633ms). 
+[2022-08-01 11:48:04:33281135][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m14s499ms). 
+[2022-08-01 12:13:25:34802146][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m50s876ms). 
+[2022-08-01 12:31:40:35896985][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m44s824ms). 
+[2022-08-01 12:48:36:36913552][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m26s555ms). 
+[2022-08-01 13:37:11:39828265][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m4s219ms). 
+[2022-08-01 13:52:29:40745764][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m17s497ms). 
+[2022-08-01 14:09:22:41759478][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m53s692ms). 
+[2022-08-01 14:25:46:42743408][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m53s917ms). 
+[2022-08-01 14:55:49:44546090][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m32s434ms). 
+[2022-08-01 19:38:09:61485825][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m46s130ms). 
+[2022-08-01 19:57:43:62660017][HikariPool-1 housekeeper] [33m WARN[0;39m com.zaxxer.hikari.pool.HikariPool [36mc.z.h.p.HikariPool[0;39m [32mrun[0;39m 
+ HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m4s143ms). 
+[2022-08-01 21:36:27:68583966][SpringApplicationShutdownHook] [32m INFO[0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m [32mdestroy[0;39m 
+ Closing JPA EntityManagerFactory for persistence unit 'default' 
+[2022-08-01 21:36:27:68583993][SpringApplicationShutdownHook] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mclose[0;39m 
+ HikariPool-1 - Shutdown initiated... 
+[2022-08-01 21:36:27:68584051][SpringApplicationShutdownHook] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mclose[0;39m 
+ HikariPool-1 - Shutdown completed. 
+[2022-08-01 21:36:35:557][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStarting[0;39m 
+ Starting SimpleBlogApplicationKt using Java 11.0.13 on gangmingyuui-MacBookAir.local with PID 15486 (/Users/gangmingyu/Desktop/intellijwork/simple-blog/build/classes/kotlin/main started by gangmingyu in /Users/gangmingyu/Desktop/intellijwork/simple-blog) 
+[2022-08-01 21:36:35:559][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStartupProfileInfo[0;39m 
+ No active profile set, falling back to 1 default profile: "default" 
+[2022-08-01 21:36:35:562][background-preinit] [32m INFO[0;39m o.h.validator.internal.util.Version [36mo.h.v.i.u.Version[0;39m [32m<clinit>[0;39m 
+ HV000001: Hibernate Validator 6.2.3.Final 
+[2022-08-01 21:36:36:1488][main] [32m INFO[0;39m o.s.d.r.c.RepositoryConfigurationDelegate [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m [32mregisterRepositoriesIn[0;39m 
+ Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+[2022-08-01 21:36:36:1566][main] [32m INFO[0;39m o.s.d.r.c.RepositoryConfigurationDelegate [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m [32mregisterRepositoriesIn[0;39m 
+ Finished Spring Data repository scanning in 69 ms. Found 2 JPA repository interfaces. 
+[2022-08-01 21:36:37:2252][main] [32m INFO[0;39m o.s.b.w.e.tomcat.TomcatWebServer [36mo.s.b.w.e.t.TomcatWebServer[0;39m [32minitialize[0;39m 
+ Tomcat initialized with port(s): 9000 (http) 
+[2022-08-01 21:36:37:2261][main] [32m INFO[0;39m o.a.coyote.http11.Http11NioProtocol [36mo.a.c.h.Http11NioProtocol[0;39m [32mlog[0;39m 
+ Initializing ProtocolHandler ["http-nio-9000"] 
+[2022-08-01 21:36:37:2261][main] [32m INFO[0;39m o.a.catalina.core.StandardService [36mo.a.c.c.StandardService[0;39m [32mlog[0;39m 
+ Starting service [Tomcat] 
+[2022-08-01 21:36:37:2261][main] [32m INFO[0;39m o.a.catalina.core.StandardEngine [36mo.a.c.c.StandardEngine[0;39m [32mlog[0;39m 
+ Starting Servlet engine: [Apache Tomcat/9.0.64] 
+[2022-08-01 21:36:37:2346][main] [32m INFO[0;39m o.a.c.c.C.[Tomcat].[localhost].[/] [36mo.a.c.c.C.[.[.[/][0;39m [32mlog[0;39m 
+ Initializing Spring embedded WebApplicationContext 
+[2022-08-01 21:36:37:2346][main] [32m INFO[0;39m o.s.b.w.s.c.ServletWebServerApplicationContext [36mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m [32mprepareWebApplicationContext[0;39m 
+ Root WebApplicationContext: initialization completed in 1743 ms 
+[2022-08-01 21:36:37:2526][main] [32m INFO[0;39m o.h.jpa.internal.util.LogHelper [36mo.h.j.i.u.LogHelper[0;39m [32mlogPersistenceUnitInformation[0;39m 
+ HHH000204: Processing PersistenceUnitInfo [name: default] 
+[2022-08-01 21:36:37:2567][main] [32m INFO[0;39m org.hibernate.Version [36mo.h.Version[0;39m [32mlogVersion[0;39m 
+ HHH000412: Hibernate ORM core version 5.6.9.Final 
+[2022-08-01 21:36:38:2685][main] [32m INFO[0;39m o.h.annotations.common.Version [36mo.h.a.c.Version[0;39m [32m<clinit>[0;39m 
+ HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+[2022-08-01 21:36:38:2787][main] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mgetConnection[0;39m 
+ HikariPool-1 - Starting... 
+[2022-08-01 21:36:38:3065][main] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mgetConnection[0;39m 
+ HikariPool-1 - Start completed. 
+[2022-08-01 21:36:38:3091][main] [32m INFO[0;39m org.hibernate.dialect.Dialect [36mo.h.d.Dialect[0;39m [32m<init>[0;39m 
+ HHH000400: Using dialect: org.hibernate.dialect.MariaDB53Dialect 
+[2022-08-01 21:36:39:3625][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659357399030 | took 2ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Member` where 1=0
+select * from `kotilnblog`.`Member` where 1=0; 
+[2022-08-01 21:36:39:3632][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659357399037 | took 0ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Post` where 1=0
+select * from `kotilnblog`.`Post` where 1=0; 
+[2022-08-01 21:36:39:3636][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659357399041 | took 0ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Member` where 1=0
+select * from `kotilnblog`.`Member` where 1=0; 
+[2022-08-01 21:36:39:3637][main] [32m INFO[0;39m o.h.e.t.j.p.i.JtaPlatformInitiator [36mo.h.e.t.j.p.i.JtaPlatformInitiator[0;39m [32minitiateService[0;39m 
+ HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+[2022-08-01 21:36:39:3643][main] [32m INFO[0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m [32mbuildNativeEntityManagerFactory[0;39m 
+ Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[2022-08-01 21:36:39:4422][main] [32m INFO[0;39m o.a.coyote.http11.Http11NioProtocol [36mo.a.c.h.Http11NioProtocol[0;39m [32mlog[0;39m 
+ Starting ProtocolHandler ["http-nio-9000"] 
+[2022-08-01 21:36:39:4435][main] [32m INFO[0;39m o.s.b.w.e.tomcat.TomcatWebServer [36mo.s.b.w.e.t.TomcatWebServer[0;39m [32mstart[0;39m 
+ Tomcat started on port(s): 9000 (http) with context path '' 
+[2022-08-01 21:36:39:4440][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStarted[0;39m 
+ Started SimpleBlogApplicationKt in 4.308 seconds (JVM running for 4.682) 
+[2022-08-01 21:36:46:11084][http-nio-9000-exec-1] [32m INFO[0;39m o.a.c.c.C.[Tomcat].[localhost].[/] [36mo.a.c.c.C.[.[.[/][0;39m [32mlog[0;39m 
+ Initializing Spring DispatcherServlet 'dispatcherServlet' 
+[2022-08-01 21:36:46:11085][http-nio-9000-exec-1] [32m INFO[0;39m o.s.web.servlet.DispatcherServlet [36mo.s.w.s.DispatcherServlet[0;39m [32minitServletBean[0;39m 
+ Initializing Servlet 'dispatcherServlet' 
+[2022-08-01 21:36:46:11091][http-nio-9000-exec-1] [32m INFO[0;39m o.s.web.servlet.DispatcherServlet [36mo.s.w.s.DispatcherServlet[0;39m [32minitServletBean[0;39m 
+ Completed initialization in 6 ms 
+[2022-08-01 21:36:46:11217][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:36:46 | OperationTime : 6ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        member0_.`id` as id1_1_,
+        member0_.`create_at` as create_a2_1_,
+        member0_.`update_at` as update_a3_1_,
+        member0_.`email` as email4_1_,
+        member0_.`password` as password5_1_,
+        member0_.`role` as role6_1_ 
+    from
+        `Member` member0_ 
+    order by
+        member0_.`id` desc limit 10 
+[2022-08-01 21:36:46:11233][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:36:46 | OperationTime : 6ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        member0_.`id` as id1_1_,
+        member0_.`create_at` as create_a2_1_,
+        member0_.`update_at` as update_a3_1_,
+        member0_.`email` as email4_1_,
+        member0_.`password` as password5_1_,
+        member0_.`role` as role6_1_ 
+    from
+        `Member` member0_ 
+[2022-08-01 21:36:46:11252][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:36:46 | OperationTime : 5ms 
+[2022-08-01 21:37:53:77764][SpringApplicationShutdownHook] [32m INFO[0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m [32mdestroy[0;39m 
+ Closing JPA EntityManagerFactory for persistence unit 'default' 
+[2022-08-01 21:37:53:77767][SpringApplicationShutdownHook] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mclose[0;39m 
+ HikariPool-1 - Shutdown initiated... 
+[2022-08-01 21:37:53:77787][SpringApplicationShutdownHook] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mclose[0;39m 
+ HikariPool-1 - Shutdown completed. 
+[2022-08-01 21:38:19:365][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStarting[0;39m 
+ Starting SimpleBlogApplicationKt using Java 11.0.13 on gangmingyuui-MacBookAir.local with PID 15519 (/Users/gangmingyu/Desktop/intellijwork/simple-blog/build/classes/kotlin/main started by gangmingyu in /Users/gangmingyu/Desktop/intellijwork/simple-blog) 
+[2022-08-01 21:38:19:367][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStartupProfileInfo[0;39m 
+ No active profile set, falling back to 1 default profile: "default" 
+[2022-08-01 21:38:19:370][background-preinit] [32m INFO[0;39m o.h.validator.internal.util.Version [36mo.h.v.i.u.Version[0;39m [32m<clinit>[0;39m 
+ HV000001: Hibernate Validator 6.2.3.Final 
+[2022-08-01 21:38:19:836][main] [32m INFO[0;39m o.s.d.r.c.RepositoryConfigurationDelegate [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m [32mregisterRepositoriesIn[0;39m 
+ Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+[2022-08-01 21:38:19:864][main] [32m INFO[0;39m o.s.d.r.c.RepositoryConfigurationDelegate [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m [32mregisterRepositoriesIn[0;39m 
+ Finished Spring Data repository scanning in 23 ms. Found 2 JPA repository interfaces. 
+[2022-08-01 21:38:20:1184][main] [32m INFO[0;39m o.s.b.w.e.tomcat.TomcatWebServer [36mo.s.b.w.e.t.TomcatWebServer[0;39m [32minitialize[0;39m 
+ Tomcat initialized with port(s): 9000 (http) 
+[2022-08-01 21:38:20:1188][main] [32m INFO[0;39m o.a.coyote.http11.Http11NioProtocol [36mo.a.c.h.Http11NioProtocol[0;39m [32mlog[0;39m 
+ Initializing ProtocolHandler ["http-nio-9000"] 
+[2022-08-01 21:38:20:1188][main] [32m INFO[0;39m o.a.catalina.core.StandardService [36mo.a.c.c.StandardService[0;39m [32mlog[0;39m 
+ Starting service [Tomcat] 
+[2022-08-01 21:38:20:1188][main] [32m INFO[0;39m o.a.catalina.core.StandardEngine [36mo.a.c.c.StandardEngine[0;39m [32mlog[0;39m 
+ Starting Servlet engine: [Apache Tomcat/9.0.64] 
+[2022-08-01 21:38:20:1245][main] [32m INFO[0;39m o.a.c.c.C.[Tomcat].[localhost].[/] [36mo.a.c.c.C.[.[.[/][0;39m [32mlog[0;39m 
+ Initializing Spring embedded WebApplicationContext 
+[2022-08-01 21:38:20:1246][main] [32m INFO[0;39m o.s.b.w.s.c.ServletWebServerApplicationContext [36mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m [32mprepareWebApplicationContext[0;39m 
+ Root WebApplicationContext: initialization completed in 840 ms 
+[2022-08-01 21:38:20:1371][main] [32m INFO[0;39m o.h.jpa.internal.util.LogHelper [36mo.h.j.i.u.LogHelper[0;39m [32mlogPersistenceUnitInformation[0;39m 
+ HHH000204: Processing PersistenceUnitInfo [name: default] 
+[2022-08-01 21:38:20:1401][main] [32m INFO[0;39m org.hibernate.Version [36mo.h.Version[0;39m [32mlogVersion[0;39m 
+ HHH000412: Hibernate ORM core version 5.6.9.Final 
+[2022-08-01 21:38:20:1481][main] [32m INFO[0;39m o.h.annotations.common.Version [36mo.h.a.c.Version[0;39m [32m<clinit>[0;39m 
+ HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+[2022-08-01 21:38:20:1520][main] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mgetConnection[0;39m 
+ HikariPool-1 - Starting... 
+[2022-08-01 21:38:20:1561][main] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mgetConnection[0;39m 
+ HikariPool-1 - Start completed. 
+[2022-08-01 21:38:20:1571][main] [32m INFO[0;39m org.hibernate.dialect.Dialect [36mo.h.d.Dialect[0;39m [32m<init>[0;39m 
+ HHH000400: Using dialect: org.hibernate.dialect.MariaDB53Dialect 
+[2022-08-01 21:38:20:1906][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659357500908 | took 2ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Member` where 1=0
+select * from `kotilnblog`.`Member` where 1=0; 
+[2022-08-01 21:38:20:1911][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659357500913 | took 0ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Post` where 1=0
+select * from `kotilnblog`.`Post` where 1=0; 
+[2022-08-01 21:38:20:1916][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659357500918 | took 0ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Member` where 1=0
+select * from `kotilnblog`.`Member` where 1=0; 
+[2022-08-01 21:38:20:1916][main] [32m INFO[0;39m o.h.e.t.j.p.i.JtaPlatformInitiator [36mo.h.e.t.j.p.i.JtaPlatformInitiator[0;39m [32minitiateService[0;39m 
+ HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+[2022-08-01 21:38:20:1920][main] [32m INFO[0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m [32mbuildNativeEntityManagerFactory[0;39m 
+ Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[2022-08-01 21:38:21:2605][main] [32m INFO[0;39m o.a.coyote.http11.Http11NioProtocol [36mo.a.c.h.Http11NioProtocol[0;39m [32mlog[0;39m 
+ Starting ProtocolHandler ["http-nio-9000"] 
+[2022-08-01 21:38:21:2618][main] [32m INFO[0;39m o.s.b.w.e.tomcat.TomcatWebServer [36mo.s.b.w.e.t.TomcatWebServer[0;39m [32mstart[0;39m 
+ Tomcat started on port(s): 9000 (http) with context path '' 
+[2022-08-01 21:38:21:2623][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStarted[0;39m 
+ Started SimpleBlogApplicationKt in 2.504 seconds (JVM running for 2.989) 
+[2022-08-01 21:38:29:10955][http-nio-9000-exec-1] [32m INFO[0;39m o.a.c.c.C.[Tomcat].[localhost].[/] [36mo.a.c.c.C.[.[.[/][0;39m [32mlog[0;39m 
+ Initializing Spring DispatcherServlet 'dispatcherServlet' 
+[2022-08-01 21:38:29:10955][http-nio-9000-exec-1] [32m INFO[0;39m o.s.web.servlet.DispatcherServlet [36mo.s.w.s.DispatcherServlet[0;39m [32minitServletBean[0;39m 
+ Initializing Servlet 'dispatcherServlet' 
+[2022-08-01 21:38:29:10958][http-nio-9000-exec-1] [32m INFO[0;39m o.s.web.servlet.DispatcherServlet [36mo.s.w.s.DispatcherServlet[0;39m [32minitServletBean[0;39m 
+ Completed initialization in 3 ms 
+[2022-08-01 21:38:30:11112][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:38:30 | OperationTime : 2ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        member0_.`id` as id1_1_,
+        member0_.`create_at` as create_a2_1_,
+        member0_.`update_at` as update_a3_1_,
+        member0_.`email` as email4_1_,
+        member0_.`password` as password5_1_,
+        member0_.`role` as role6_1_ 
+    from
+        `Member` member0_ 
+    order by
+        member0_.`id` desc limit 10 
+[2022-08-01 21:38:30:11125][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:38:30 | OperationTime : 1ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        member0_.`id` as id1_1_,
+        member0_.`create_at` as create_a2_1_,
+        member0_.`update_at` as update_a3_1_,
+        member0_.`email` as email4_1_,
+        member0_.`password` as password5_1_,
+        member0_.`role` as role6_1_ 
+    from
+        `Member` member0_ 
+[2022-08-01 21:38:30:11137][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:38:30 | OperationTime : 0ms 
+[2022-08-01 21:39:06:47057][SpringApplicationShutdownHook] [32m INFO[0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m [32mdestroy[0;39m 
+ Closing JPA EntityManagerFactory for persistence unit 'default' 
+[2022-08-01 21:39:06:47062][SpringApplicationShutdownHook] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mclose[0;39m 
+ HikariPool-1 - Shutdown initiated... 
+[2022-08-01 21:39:06:47104][SpringApplicationShutdownHook] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mclose[0;39m 
+ HikariPool-1 - Shutdown completed. 
+[2022-08-01 21:39:08:268][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStarting[0;39m 
+ Starting SimpleBlogApplicationKt using Java 11.0.13 on gangmingyuui-MacBookAir.local with PID 15548 (/Users/gangmingyu/Desktop/intellijwork/simple-blog/build/classes/kotlin/main started by gangmingyu in /Users/gangmingyu/Desktop/intellijwork/simple-blog) 
+[2022-08-01 21:39:08:270][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStartupProfileInfo[0;39m 
+ No active profile set, falling back to 1 default profile: "default" 
+[2022-08-01 21:39:08:271][background-preinit] [32m INFO[0;39m o.h.validator.internal.util.Version [36mo.h.v.i.u.Version[0;39m [32m<clinit>[0;39m 
+ HV000001: Hibernate Validator 6.2.3.Final 
+[2022-08-01 21:39:08:624][main] [32m INFO[0;39m o.s.d.r.c.RepositoryConfigurationDelegate [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m [32mregisterRepositoriesIn[0;39m 
+ Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+[2022-08-01 21:39:08:651][main] [32m INFO[0;39m o.s.d.r.c.RepositoryConfigurationDelegate [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m [32mregisterRepositoriesIn[0;39m 
+ Finished Spring Data repository scanning in 23 ms. Found 2 JPA repository interfaces. 
+[2022-08-01 21:39:09:937][main] [32m INFO[0;39m o.s.b.w.e.tomcat.TomcatWebServer [36mo.s.b.w.e.t.TomcatWebServer[0;39m [32minitialize[0;39m 
+ Tomcat initialized with port(s): 9000 (http) 
+[2022-08-01 21:39:09:943][main] [32m INFO[0;39m o.a.coyote.http11.Http11NioProtocol [36mo.a.c.h.Http11NioProtocol[0;39m [32mlog[0;39m 
+ Initializing ProtocolHandler ["http-nio-9000"] 
+[2022-08-01 21:39:09:943][main] [32m INFO[0;39m o.a.catalina.core.StandardService [36mo.a.c.c.StandardService[0;39m [32mlog[0;39m 
+ Starting service [Tomcat] 
+[2022-08-01 21:39:09:943][main] [32m INFO[0;39m o.a.catalina.core.StandardEngine [36mo.a.c.c.StandardEngine[0;39m [32mlog[0;39m 
+ Starting Servlet engine: [Apache Tomcat/9.0.64] 
+[2022-08-01 21:39:09:995][main] [32m INFO[0;39m o.a.c.c.C.[Tomcat].[localhost].[/] [36mo.a.c.c.C.[.[.[/][0;39m [32mlog[0;39m 
+ Initializing Spring embedded WebApplicationContext 
+[2022-08-01 21:39:09:995][main] [32m INFO[0;39m o.s.b.w.s.c.ServletWebServerApplicationContext [36mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m [32mprepareWebApplicationContext[0;39m 
+ Root WebApplicationContext: initialization completed in 697 ms 
+[2022-08-01 21:39:09:1078][main] [32m INFO[0;39m o.h.jpa.internal.util.LogHelper [36mo.h.j.i.u.LogHelper[0;39m [32mlogPersistenceUnitInformation[0;39m 
+ HHH000204: Processing PersistenceUnitInfo [name: default] 
+[2022-08-01 21:39:09:1113][main] [32m INFO[0;39m org.hibernate.Version [36mo.h.Version[0;39m [32mlogVersion[0;39m 
+ HHH000412: Hibernate ORM core version 5.6.9.Final 
+[2022-08-01 21:39:09:1178][main] [32m INFO[0;39m o.h.annotations.common.Version [36mo.h.a.c.Version[0;39m [32m<clinit>[0;39m 
+ HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+[2022-08-01 21:39:09:1216][main] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mgetConnection[0;39m 
+ HikariPool-1 - Starting... 
+[2022-08-01 21:39:09:1245][main] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mgetConnection[0;39m 
+ HikariPool-1 - Start completed. 
+[2022-08-01 21:39:09:1254][main] [32m INFO[0;39m org.hibernate.dialect.Dialect [36mo.h.d.Dialect[0;39m [32m<init>[0;39m 
+ HHH000400: Using dialect: org.hibernate.dialect.MariaDB53Dialect 
+[2022-08-01 21:39:09:1556][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659357549789 | took 1ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Member` where 1=0
+select * from `kotilnblog`.`Member` where 1=0; 
+[2022-08-01 21:39:09:1565][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659357549798 | took 0ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Post` where 1=0
+select * from `kotilnblog`.`Post` where 1=0; 
+[2022-08-01 21:39:09:1567][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659357549800 | took 0ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Member` where 1=0
+select * from `kotilnblog`.`Member` where 1=0; 
+[2022-08-01 21:39:09:1568][main] [32m INFO[0;39m o.h.e.t.j.p.i.JtaPlatformInitiator [36mo.h.e.t.j.p.i.JtaPlatformInitiator[0;39m [32minitiateService[0;39m 
+ HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+[2022-08-01 21:39:09:1571][main] [32m INFO[0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m [32mbuildNativeEntityManagerFactory[0;39m 
+ Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[2022-08-01 21:39:10:2228][main] [32m INFO[0;39m o.a.coyote.http11.Http11NioProtocol [36mo.a.c.h.Http11NioProtocol[0;39m [32mlog[0;39m 
+ Starting ProtocolHandler ["http-nio-9000"] 
+[2022-08-01 21:39:10:2240][main] [32m INFO[0;39m o.s.b.w.e.tomcat.TomcatWebServer [36mo.s.b.w.e.t.TomcatWebServer[0;39m [32mstart[0;39m 
+ Tomcat started on port(s): 9000 (http) with context path '' 
+[2022-08-01 21:39:10:2253][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStarted[0;39m 
+ Started SimpleBlogApplicationKt in 2.181 seconds (JVM running for 2.559) 
+[2022-08-01 21:39:21:13385][http-nio-9000-exec-1] [32m INFO[0;39m o.a.c.c.C.[Tomcat].[localhost].[/] [36mo.a.c.c.C.[.[.[/][0;39m [32mlog[0;39m 
+ Initializing Spring DispatcherServlet 'dispatcherServlet' 
+[2022-08-01 21:39:21:13385][http-nio-9000-exec-1] [32m INFO[0;39m o.s.web.servlet.DispatcherServlet [36mo.s.w.s.DispatcherServlet[0;39m [32minitServletBean[0;39m 
+ Initializing Servlet 'dispatcherServlet' 
+[2022-08-01 21:39:21:13388][http-nio-9000-exec-1] [32m INFO[0;39m o.s.web.servlet.DispatcherServlet [36mo.s.w.s.DispatcherServlet[0;39m [32minitServletBean[0;39m 
+ Completed initialization in 3 ms 
+[2022-08-01 21:39:21:13591][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:39:21 | OperationTime : 0ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        member0_.`id` as id1_1_,
+        member0_.`create_at` as create_a2_1_,
+        member0_.`update_at` as update_a3_1_,
+        member0_.`email` as email4_1_,
+        member0_.`password` as password5_1_,
+        member0_.`role` as role6_1_ 
+    from
+        `Member` member0_ 
+    order by
+        member0_.`id` desc limit 10 
+[2022-08-01 21:39:21:13603][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:39:21 | OperationTime : 0ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        member0_.`id` as id1_1_,
+        member0_.`create_at` as create_a2_1_,
+        member0_.`update_at` as update_a3_1_,
+        member0_.`email` as email4_1_,
+        member0_.`password` as password5_1_,
+        member0_.`role` as role6_1_ 
+    from
+        `Member` member0_ 
+[2022-08-01 21:39:21:13616][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:39:21 | OperationTime : 0ms 
+[2022-08-01 21:39:49:41152][SpringApplicationShutdownHook] [32m INFO[0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m [32mdestroy[0;39m 
+ Closing JPA EntityManagerFactory for persistence unit 'default' 
+[2022-08-01 21:39:49:41156][SpringApplicationShutdownHook] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mclose[0;39m 
+ HikariPool-1 - Shutdown initiated... 
+[2022-08-01 21:39:49:41180][SpringApplicationShutdownHook] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mclose[0;39m 
+ HikariPool-1 - Shutdown completed. 
+[2022-08-01 21:39:52:313][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStarting[0;39m 
+ Starting SimpleBlogApplicationKt using Java 11.0.13 on gangmingyuui-MacBookAir.local with PID 15580 (/Users/gangmingyu/Desktop/intellijwork/simple-blog/build/classes/kotlin/main started by gangmingyu in /Users/gangmingyu/Desktop/intellijwork/simple-blog) 
+[2022-08-01 21:39:52:314][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStartupProfileInfo[0;39m 
+ No active profile set, falling back to 1 default profile: "default" 
+[2022-08-01 21:39:52:316][background-preinit] [32m INFO[0;39m o.h.validator.internal.util.Version [36mo.h.v.i.u.Version[0;39m [32m<clinit>[0;39m 
+ HV000001: Hibernate Validator 6.2.3.Final 
+[2022-08-01 21:39:53:707][main] [32m INFO[0;39m o.s.d.r.c.RepositoryConfigurationDelegate [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m [32mregisterRepositoriesIn[0;39m 
+ Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+[2022-08-01 21:39:53:730][main] [32m INFO[0;39m o.s.d.r.c.RepositoryConfigurationDelegate [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m [32mregisterRepositoriesIn[0;39m 
+ Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces. 
+[2022-08-01 21:39:53:1011][main] [32m INFO[0;39m o.s.b.w.e.tomcat.TomcatWebServer [36mo.s.b.w.e.t.TomcatWebServer[0;39m [32minitialize[0;39m 
+ Tomcat initialized with port(s): 9000 (http) 
+[2022-08-01 21:39:53:1015][main] [32m INFO[0;39m o.a.coyote.http11.Http11NioProtocol [36mo.a.c.h.Http11NioProtocol[0;39m [32mlog[0;39m 
+ Initializing ProtocolHandler ["http-nio-9000"] 
+[2022-08-01 21:39:53:1015][main] [32m INFO[0;39m o.a.catalina.core.StandardService [36mo.a.c.c.StandardService[0;39m [32mlog[0;39m 
+ Starting service [Tomcat] 
+[2022-08-01 21:39:53:1015][main] [32m INFO[0;39m o.a.catalina.core.StandardEngine [36mo.a.c.c.StandardEngine[0;39m [32mlog[0;39m 
+ Starting Servlet engine: [Apache Tomcat/9.0.64] 
+[2022-08-01 21:39:53:1059][main] [32m INFO[0;39m o.a.c.c.C.[Tomcat].[localhost].[/] [36mo.a.c.c.C.[.[.[/][0;39m [32mlog[0;39m 
+ Initializing Spring embedded WebApplicationContext 
+[2022-08-01 21:39:53:1059][main] [32m INFO[0;39m o.s.b.w.s.c.ServletWebServerApplicationContext [36mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m [32mprepareWebApplicationContext[0;39m 
+ Root WebApplicationContext: initialization completed in 721 ms 
+[2022-08-01 21:39:53:1139][main] [32m INFO[0;39m o.h.jpa.internal.util.LogHelper [36mo.h.j.i.u.LogHelper[0;39m [32mlogPersistenceUnitInformation[0;39m 
+ HHH000204: Processing PersistenceUnitInfo [name: default] 
+[2022-08-01 21:39:53:1158][main] [32m INFO[0;39m org.hibernate.Version [36mo.h.Version[0;39m [32mlogVersion[0;39m 
+ HHH000412: Hibernate ORM core version 5.6.9.Final 
+[2022-08-01 21:39:53:1228][main] [32m INFO[0;39m o.h.annotations.common.Version [36mo.h.a.c.Version[0;39m [32m<clinit>[0;39m 
+ HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+[2022-08-01 21:39:53:1263][main] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mgetConnection[0;39m 
+ HikariPool-1 - Starting... 
+[2022-08-01 21:39:53:1293][main] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mgetConnection[0;39m 
+ HikariPool-1 - Start completed. 
+[2022-08-01 21:39:53:1302][main] [32m INFO[0;39m org.hibernate.dialect.Dialect [36mo.h.d.Dialect[0;39m [32m<init>[0;39m 
+ HHH000400: Using dialect: org.hibernate.dialect.MariaDB53Dialect 
+[2022-08-01 21:39:53:1612][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659357593931 | took 9ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Member` where 1=0
+select * from `kotilnblog`.`Member` where 1=0; 
+[2022-08-01 21:39:53:1615][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659357593934 | took 0ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Post` where 1=0
+select * from `kotilnblog`.`Post` where 1=0; 
+[2022-08-01 21:39:53:1619][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659357593938 | took 0ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Member` where 1=0
+select * from `kotilnblog`.`Member` where 1=0; 
+[2022-08-01 21:39:53:1620][main] [32m INFO[0;39m o.h.e.t.j.p.i.JtaPlatformInitiator [36mo.h.e.t.j.p.i.JtaPlatformInitiator[0;39m [32minitiateService[0;39m 
+ HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+[2022-08-01 21:39:53:1624][main] [32m INFO[0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m [32mbuildNativeEntityManagerFactory[0;39m 
+ Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[2022-08-01 21:39:54:2280][main] [32m INFO[0;39m o.a.coyote.http11.Http11NioProtocol [36mo.a.c.h.Http11NioProtocol[0;39m [32mlog[0;39m 
+ Starting ProtocolHandler ["http-nio-9000"] 
+[2022-08-01 21:39:54:2293][main] [32m INFO[0;39m o.s.b.w.e.tomcat.TomcatWebServer [36mo.s.b.w.e.t.TomcatWebServer[0;39m [32mstart[0;39m 
+ Tomcat started on port(s): 9000 (http) with context path '' 
+[2022-08-01 21:39:54:2299][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStarted[0;39m 
+ Started SimpleBlogApplicationKt in 2.216 seconds (JVM running for 2.513) 
+[2022-08-01 21:39:59:6844][http-nio-9000-exec-1] [32m INFO[0;39m o.a.c.c.C.[Tomcat].[localhost].[/] [36mo.a.c.c.C.[.[.[/][0;39m [32mlog[0;39m 
+ Initializing Spring DispatcherServlet 'dispatcherServlet' 
+[2022-08-01 21:39:59:6844][http-nio-9000-exec-1] [32m INFO[0;39m o.s.web.servlet.DispatcherServlet [36mo.s.w.s.DispatcherServlet[0;39m [32minitServletBean[0;39m 
+ Initializing Servlet 'dispatcherServlet' 
+[2022-08-01 21:39:59:6852][http-nio-9000-exec-1] [32m INFO[0;39m o.s.web.servlet.DispatcherServlet [36mo.s.w.s.DispatcherServlet[0;39m [32minitServletBean[0;39m 
+ Completed initialization in 8 ms 
+[2022-08-01 21:39:59:6887][http-nio-9000-exec-1] [32m INFO[0;39m c.e.s.config.aop.LoggerAspect [36mc.e.s.c.a.LoggerAspect[0;39m [32mcontrollerLoggerAmdvice[0;39m 
+ 
+request url: /members
+type: com.example.simpleblog.api.MemberController
+method: findAll
+      
+[2022-08-01 21:39:59:6998][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:39:59 | OperationTime : 0ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        member0_.`id` as id1_1_,
+        member0_.`create_at` as create_a2_1_,
+        member0_.`update_at` as update_a3_1_,
+        member0_.`email` as email4_1_,
+        member0_.`password` as password5_1_,
+        member0_.`role` as role6_1_ 
+    from
+        `Member` member0_ 
+    order by
+        member0_.`id` desc limit 10 
+[2022-08-01 21:39:59:7011][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:39:59 | OperationTime : 0ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        member0_.`id` as id1_1_,
+        member0_.`create_at` as create_a2_1_,
+        member0_.`update_at` as update_a3_1_,
+        member0_.`email` as email4_1_,
+        member0_.`password` as password5_1_,
+        member0_.`role` as role6_1_ 
+    from
+        `Member` member0_ 
+[2022-08-01 21:39:59:7046][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:39:59 | OperationTime : 22ms 
+[2022-08-01 21:41:28:96622][http-nio-9000-exec-4] [32m INFO[0;39m c.e.s.config.aop.LoggerAspect [36mc.e.s.c.a.LoggerAspect[0;39m [32mcontrollerLoggerAmdvice[0;39m 
+ 
+request url: /posts
+type: com.example.simpleblog.api.PostController
+method: findPosts
+      
+[2022-08-01 21:41:28:96667][http-nio-9000-exec-4] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:41:28 | OperationTime : 5ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        post0_.`id` as id1_2_,
+        post0_.`create_at` as create_a2_2_,
+        post0_.`update_at` as update_a3_2_,
+        post0_.`content` as content4_2_,
+        post0_.`member_id` as member_i6_2_,
+        post0_.`title` as title5_2_ 
+    from
+        `Post` post0_ 
+    order by
+        post0_.`id` desc limit 10 
+[2022-08-01 21:41:29:96688][http-nio-9000-exec-4] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:41:29 | OperationTime : 6ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        post0_.`id` as id1_2_,
+        post0_.`create_at` as create_a2_2_,
+        post0_.`update_at` as update_a3_2_,
+        post0_.`content` as content4_2_,
+        post0_.`member_id` as member_i6_2_,
+        post0_.`title` as title5_2_ 
+    from
+        `Post` post0_ 
+[2022-08-01 21:41:29:96704][http-nio-9000-exec-4] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:41:29 | OperationTime : 3ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        member0_.`id` as id1_1_0_,
+        member0_.`create_at` as create_a2_1_0_,
+        member0_.`update_at` as update_a3_1_0_,
+        member0_.`email` as email4_1_0_,
+        member0_.`password` as password5_1_0_,
+        member0_.`role` as role6_1_0_ 
+    from
+        `Member` member0_ 
+    where
+        member0_.`id` in (
+            20, 6, 49, 92, 28, 84, 29, 79, 44, 30, 25, 45, 89, 15, 5, 63, 24, 58, 41, 74, 68, 81, 77, 10, 99, 22, 61, 67, 90, 42, 39, 78, 7, 34, 2, 35, 85, 71, 51, 36, 40, 100, 87, 23, 54, 16, 8, 76, 57, 98, 62, 75, 26, 86, 11, 64, 95, 88, 52, 13, 1, 17
+        ) 
+[2022-08-01 21:41:29:96713][http-nio-9000-exec-4] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:41:29 | OperationTime : 0ms 
+[2022-08-01 21:44:03:251415][SpringApplicationShutdownHook] [32m INFO[0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m [32mdestroy[0;39m 
+ Closing JPA EntityManagerFactory for persistence unit 'default' 
+[2022-08-01 21:44:03:251419][SpringApplicationShutdownHook] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mclose[0;39m 
+ HikariPool-1 - Shutdown initiated... 
+[2022-08-01 21:44:03:251442][SpringApplicationShutdownHook] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mclose[0;39m 
+ HikariPool-1 - Shutdown completed. 
+[2022-08-01 21:44:06:382][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStarting[0;39m 
+ Starting SimpleBlogApplicationKt using Java 11.0.13 on gangmingyuui-MacBookAir.local with PID 15651 (/Users/gangmingyu/Desktop/intellijwork/simple-blog/build/classes/kotlin/main started by gangmingyu in /Users/gangmingyu/Desktop/intellijwork/simple-blog) 
+[2022-08-01 21:44:06:384][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStartupProfileInfo[0;39m 
+ No active profile set, falling back to 1 default profile: "default" 
+[2022-08-01 21:44:06:386][background-preinit] [32m INFO[0;39m o.h.validator.internal.util.Version [36mo.h.v.i.u.Version[0;39m [32m<clinit>[0;39m 
+ HV000001: Hibernate Validator 6.2.3.Final 
+[2022-08-01 21:44:06:895][main] [32m INFO[0;39m o.s.d.r.c.RepositoryConfigurationDelegate [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m [32mregisterRepositoriesIn[0;39m 
+ Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+[2022-08-01 21:44:06:940][main] [32m INFO[0;39m o.s.d.r.c.RepositoryConfigurationDelegate [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m [32mregisterRepositoriesIn[0;39m 
+ Finished Spring Data repository scanning in 39 ms. Found 2 JPA repository interfaces. 
+[2022-08-01 21:44:07:1414][main] [32m INFO[0;39m o.s.b.w.e.tomcat.TomcatWebServer [36mo.s.b.w.e.t.TomcatWebServer[0;39m [32minitialize[0;39m 
+ Tomcat initialized with port(s): 9000 (http) 
+[2022-08-01 21:44:07:1420][main] [32m INFO[0;39m o.a.coyote.http11.Http11NioProtocol [36mo.a.c.h.Http11NioProtocol[0;39m [32mlog[0;39m 
+ Initializing ProtocolHandler ["http-nio-9000"] 
+[2022-08-01 21:44:07:1420][main] [32m INFO[0;39m o.a.catalina.core.StandardService [36mo.a.c.c.StandardService[0;39m [32mlog[0;39m 
+ Starting service [Tomcat] 
+[2022-08-01 21:44:07:1420][main] [32m INFO[0;39m o.a.catalina.core.StandardEngine [36mo.a.c.c.StandardEngine[0;39m [32mlog[0;39m 
+ Starting Servlet engine: [Apache Tomcat/9.0.64] 
+[2022-08-01 21:44:07:1480][main] [32m INFO[0;39m o.a.c.c.C.[Tomcat].[localhost].[/] [36mo.a.c.c.C.[.[.[/][0;39m [32mlog[0;39m 
+ Initializing Spring embedded WebApplicationContext 
+[2022-08-01 21:44:07:1481][main] [32m INFO[0;39m o.s.b.w.s.c.ServletWebServerApplicationContext [36mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m [32mprepareWebApplicationContext[0;39m 
+ Root WebApplicationContext: initialization completed in 1063 ms 
+[2022-08-01 21:44:07:1578][main] [32m INFO[0;39m o.h.jpa.internal.util.LogHelper [36mo.h.j.i.u.LogHelper[0;39m [32mlogPersistenceUnitInformation[0;39m 
+ HHH000204: Processing PersistenceUnitInfo [name: default] 
+[2022-08-01 21:44:07:1614][main] [32m INFO[0;39m org.hibernate.Version [36mo.h.Version[0;39m [32mlogVersion[0;39m 
+ HHH000412: Hibernate ORM core version 5.6.9.Final 
+[2022-08-01 21:44:07:1689][main] [32m INFO[0;39m o.h.annotations.common.Version [36mo.h.a.c.Version[0;39m [32m<clinit>[0;39m 
+ HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+[2022-08-01 21:44:07:1725][main] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mgetConnection[0;39m 
+ HikariPool-1 - Starting... 
+[2022-08-01 21:44:07:1763][main] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mgetConnection[0;39m 
+ HikariPool-1 - Start completed. 
+[2022-08-01 21:44:07:1772][main] [32m INFO[0;39m org.hibernate.dialect.Dialect [36mo.h.d.Dialect[0;39m [32m<init>[0;39m 
+ HHH000400: Using dialect: org.hibernate.dialect.MariaDB53Dialect 
+[2022-08-01 21:44:07:2071][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659357847960 | took 1ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Member` where 1=0
+select * from `kotilnblog`.`Member` where 1=0; 
+[2022-08-01 21:44:07:2074][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659357847963 | took 0ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Post` where 1=0
+select * from `kotilnblog`.`Post` where 1=0; 
+[2022-08-01 21:44:07:2079][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659357847968 | took 0ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Member` where 1=0
+select * from `kotilnblog`.`Member` where 1=0; 
+[2022-08-01 21:44:07:2079][main] [32m INFO[0;39m o.h.e.t.j.p.i.JtaPlatformInitiator [36mo.h.e.t.j.p.i.JtaPlatformInitiator[0;39m [32minitiateService[0;39m 
+ HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+[2022-08-01 21:44:07:2082][main] [32m INFO[0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m [32mbuildNativeEntityManagerFactory[0;39m 
+ Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[2022-08-01 21:44:08:2760][main] [32m INFO[0;39m o.a.coyote.http11.Http11NioProtocol [36mo.a.c.h.Http11NioProtocol[0;39m [32mlog[0;39m 
+ Starting ProtocolHandler ["http-nio-9000"] 
+[2022-08-01 21:44:08:2774][main] [32m INFO[0;39m o.s.b.w.e.tomcat.TomcatWebServer [36mo.s.b.w.e.t.TomcatWebServer[0;39m [32mstart[0;39m 
+ Tomcat started on port(s): 9000 (http) with context path '' 
+[2022-08-01 21:44:08:2779][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStarted[0;39m 
+ Started SimpleBlogApplicationKt in 2.64 seconds (JVM running for 3.062) 
+[2022-08-01 21:44:12:6708][http-nio-9000-exec-1] [32m INFO[0;39m o.a.c.c.C.[Tomcat].[localhost].[/] [36mo.a.c.c.C.[.[.[/][0;39m [32mlog[0;39m 
+ Initializing Spring DispatcherServlet 'dispatcherServlet' 
+[2022-08-01 21:44:12:6709][http-nio-9000-exec-1] [32m INFO[0;39m o.s.web.servlet.DispatcherServlet [36mo.s.w.s.DispatcherServlet[0;39m [32minitServletBean[0;39m 
+ Initializing Servlet 'dispatcherServlet' 
+[2022-08-01 21:44:12:6713][http-nio-9000-exec-1] [32m INFO[0;39m o.s.web.servlet.DispatcherServlet [36mo.s.w.s.DispatcherServlet[0;39m [32minitServletBean[0;39m 
+ Completed initialization in 4 ms 
+[2022-08-01 21:44:12:6737][http-nio-9000-exec-1] [32m INFO[0;39m c.e.s.config.aop.LoggerAspect [36mc.e.s.c.a.LoggerAspect[0;39m [32mcontrollerLoggerAmdvice[0;39m 
+ 
+request url: /posts
+type: com.example.simpleblog.api.PostController
+method: findPosts
+      
+[2022-08-01 21:44:12:6872][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:44:12 | OperationTime : 5ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        post0_.`id` as id1_2_0_,
+        member1_.`id` as id1_1_1_,
+        post0_.`create_at` as create_a2_2_0_,
+        post0_.`update_at` as update_a3_2_0_,
+        post0_.`content` as content4_2_0_,
+        post0_.`member_id` as member_i6_2_0_,
+        post0_.`title` as title5_2_0_,
+        member1_.`create_at` as create_a2_1_1_,
+        member1_.`update_at` as update_a3_1_1_,
+        member1_.`email` as email4_1_1_,
+        member1_.`password` as password5_1_1_,
+        member1_.`role` as role6_1_1_ 
+    from
+        `Post` post0_ 
+    inner join
+        `Member` member1_ 
+            on post0_.`member_id`=member1_.`id` 
+    order by
+        post0_.`id` desc limit 10 
+[2022-08-01 21:44:12:6884][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:44:12 | OperationTime : 0ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        post0_.`id` as id1_2_,
+        post0_.`create_at` as create_a2_2_,
+        post0_.`update_at` as update_a3_2_,
+        post0_.`content` as content4_2_,
+        post0_.`member_id` as member_i6_2_,
+        post0_.`title` as title5_2_ 
+    from
+        `Post` post0_ 
+[2022-08-01 21:44:12:6900][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:44:12 | OperationTime : 0ms 
+[2022-08-01 21:47:35:209116][SpringApplicationShutdownHook] [32m INFO[0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m [32mdestroy[0;39m 
+ Closing JPA EntityManagerFactory for persistence unit 'default' 
+[2022-08-01 21:47:35:209119][SpringApplicationShutdownHook] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mclose[0;39m 
+ HikariPool-1 - Shutdown initiated... 
+[2022-08-01 21:47:35:209149][SpringApplicationShutdownHook] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mclose[0;39m 
+ HikariPool-1 - Shutdown completed. 
+[2022-08-01 21:47:39:397][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStarting[0;39m 
+ Starting SimpleBlogApplicationKt using Java 11.0.13 on gangmingyuui-MacBookAir.local with PID 15795 (/Users/gangmingyu/Desktop/intellijwork/simple-blog/build/classes/kotlin/main started by gangmingyu in /Users/gangmingyu/Desktop/intellijwork/simple-blog) 
+[2022-08-01 21:47:39:398][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStartupProfileInfo[0;39m 
+ No active profile set, falling back to 1 default profile: "default" 
+[2022-08-01 21:47:39:401][background-preinit] [32m INFO[0;39m o.h.validator.internal.util.Version [36mo.h.v.i.u.Version[0;39m [32m<clinit>[0;39m 
+ HV000001: Hibernate Validator 6.2.3.Final 
+[2022-08-01 21:47:39:985][main] [32m INFO[0;39m o.s.d.r.c.RepositoryConfigurationDelegate [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m [32mregisterRepositoriesIn[0;39m 
+ Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+[2022-08-01 21:47:39:1027][main] [32m INFO[0;39m o.s.d.r.c.RepositoryConfigurationDelegate [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m [32mregisterRepositoriesIn[0;39m 
+ Finished Spring Data repository scanning in 37 ms. Found 2 JPA repository interfaces. 
+[2022-08-01 21:47:40:1593][main] [32m INFO[0;39m o.s.b.w.e.tomcat.TomcatWebServer [36mo.s.b.w.e.t.TomcatWebServer[0;39m [32minitialize[0;39m 
+ Tomcat initialized with port(s): 9000 (http) 
+[2022-08-01 21:47:40:1600][main] [32m INFO[0;39m o.a.coyote.http11.Http11NioProtocol [36mo.a.c.h.Http11NioProtocol[0;39m [32mlog[0;39m 
+ Initializing ProtocolHandler ["http-nio-9000"] 
+[2022-08-01 21:47:40:1600][main] [32m INFO[0;39m o.a.catalina.core.StandardService [36mo.a.c.c.StandardService[0;39m [32mlog[0;39m 
+ Starting service [Tomcat] 
+[2022-08-01 21:47:40:1600][main] [32m INFO[0;39m o.a.catalina.core.StandardEngine [36mo.a.c.c.StandardEngine[0;39m [32mlog[0;39m 
+ Starting Servlet engine: [Apache Tomcat/9.0.64] 
+[2022-08-01 21:47:40:1667][main] [32m INFO[0;39m o.a.c.c.C.[Tomcat].[localhost].[/] [36mo.a.c.c.C.[.[.[/][0;39m [32mlog[0;39m 
+ Initializing Spring embedded WebApplicationContext 
+[2022-08-01 21:47:40:1667][main] [32m INFO[0;39m o.s.b.w.s.c.ServletWebServerApplicationContext [36mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m [32mprepareWebApplicationContext[0;39m 
+ Root WebApplicationContext: initialization completed in 1224 ms 
+[2022-08-01 21:47:40:1762][main] [32m INFO[0;39m o.h.jpa.internal.util.LogHelper [36mo.h.j.i.u.LogHelper[0;39m [32mlogPersistenceUnitInformation[0;39m 
+ HHH000204: Processing PersistenceUnitInfo [name: default] 
+[2022-08-01 21:47:40:1789][main] [32m INFO[0;39m org.hibernate.Version [36mo.h.Version[0;39m [32mlogVersion[0;39m 
+ HHH000412: Hibernate ORM core version 5.6.9.Final 
+[2022-08-01 21:47:40:1873][main] [32m INFO[0;39m o.h.annotations.common.Version [36mo.h.a.c.Version[0;39m [32m<clinit>[0;39m 
+ HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+[2022-08-01 21:47:40:1925][main] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mgetConnection[0;39m 
+ HikariPool-1 - Starting... 
+[2022-08-01 21:47:40:1958][main] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mgetConnection[0;39m 
+ HikariPool-1 - Start completed. 
+[2022-08-01 21:47:40:1968][main] [32m INFO[0;39m org.hibernate.dialect.Dialect [36mo.h.d.Dialect[0;39m [32m<init>[0;39m 
+ HHH000400: Using dialect: org.hibernate.dialect.MariaDB53Dialect 
+[2022-08-01 21:47:40:2279][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659358060891 | took 1ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Member` where 1=0
+select * from `kotilnblog`.`Member` where 1=0; 
+[2022-08-01 21:47:40:2283][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659358060895 | took 0ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Post` where 1=0
+select * from `kotilnblog`.`Post` where 1=0; 
+[2022-08-01 21:47:40:2286][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659358060898 | took 0ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Member` where 1=0
+select * from `kotilnblog`.`Member` where 1=0; 
+[2022-08-01 21:47:40:2287][main] [32m INFO[0;39m o.h.e.t.j.p.i.JtaPlatformInitiator [36mo.h.e.t.j.p.i.JtaPlatformInitiator[0;39m [32minitiateService[0;39m 
+ HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+[2022-08-01 21:47:40:2290][main] [32m INFO[0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m [32mbuildNativeEntityManagerFactory[0;39m 
+ Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[2022-08-01 21:47:41:3010][main] [32m INFO[0;39m o.a.coyote.http11.Http11NioProtocol [36mo.a.c.h.Http11NioProtocol[0;39m [32mlog[0;39m 
+ Starting ProtocolHandler ["http-nio-9000"] 
+[2022-08-01 21:47:41:3023][main] [32m INFO[0;39m o.s.b.w.e.tomcat.TomcatWebServer [36mo.s.b.w.e.t.TomcatWebServer[0;39m [32mstart[0;39m 
+ Tomcat started on port(s): 9000 (http) with context path '' 
+[2022-08-01 21:47:41:3029][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStarted[0;39m 
+ Started SimpleBlogApplicationKt in 2.908 seconds (JVM running for 3.293) 
+[2022-08-01 21:47:48:9439][http-nio-9000-exec-1] [32m INFO[0;39m o.a.c.c.C.[Tomcat].[localhost].[/] [36mo.a.c.c.C.[.[.[/][0;39m [32mlog[0;39m 
+ Initializing Spring DispatcherServlet 'dispatcherServlet' 
+[2022-08-01 21:47:48:9442][http-nio-9000-exec-1] [32m INFO[0;39m o.s.web.servlet.DispatcherServlet [36mo.s.w.s.DispatcherServlet[0;39m [32minitServletBean[0;39m 
+ Initializing Servlet 'dispatcherServlet' 
+[2022-08-01 21:47:48:9446][http-nio-9000-exec-1] [32m INFO[0;39m o.s.web.servlet.DispatcherServlet [36mo.s.w.s.DispatcherServlet[0;39m [32minitServletBean[0;39m 
+ Completed initialization in 4 ms 
+[2022-08-01 21:47:48:9469][http-nio-9000-exec-1] [32m INFO[0;39m c.e.s.config.aop.LoggerAspect [36mc.e.s.c.a.LoggerAspect[0;39m [32mcontrollerLoggerAmdvice[0;39m 
+ 
+request url: /posts
+type: com.example.simpleblog.api.PostController
+method: findPosts
+      
+[2022-08-01 21:47:48:9566][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:47:48 | OperationTime : 6ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        post0_.`id` as id1_2_0_,
+        member1_.`id` as id1_1_1_,
+        post0_.`create_at` as create_a2_2_0_,
+        post0_.`update_at` as update_a3_2_0_,
+        post0_.`content` as content4_2_0_,
+        post0_.`member_id` as member_i6_2_0_,
+        post0_.`title` as title5_2_0_,
+        member1_.`create_at` as create_a2_1_1_,
+        member1_.`update_at` as update_a3_1_1_,
+        member1_.`email` as email4_1_1_,
+        member1_.`password` as password5_1_1_,
+        member1_.`role` as role6_1_1_ 
+    from
+        `Post` post0_ 
+    inner join
+        `Member` member1_ 
+            on post0_.`member_id`=member1_.`id` 
+    order by
+        post0_.`id` desc limit 10 
+[2022-08-01 21:47:48:9578][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:47:48 | OperationTime : 0ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        post0_.`id` as id1_2_,
+        post0_.`create_at` as create_a2_2_,
+        post0_.`update_at` as update_a3_2_,
+        post0_.`content` as content4_2_,
+        post0_.`member_id` as member_i6_2_,
+        post0_.`title` as title5_2_ 
+    from
+        `Post` post0_ 
+[2022-08-01 21:47:48:9593][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:47:48 | OperationTime : 0ms 
+[2022-08-01 21:47:48:9595][http-nio-9000-exec-1] [32m INFO[0;39m c.e.s.config.aop.LoggerAspect [36mc.e.s.c.a.LoggerAspect[0;39m [32mcontrollerLogAfter[0;39m 
+ findPosts  Method return value:  CmResDto(resultCode=200 OK, resultMsg=find posts, data=Page 1 of 11 containing com.example.simpleblog.domain.post.PostRes instances) 
+[2022-08-01 21:49:28:109563][SpringApplicationShutdownHook] [32m INFO[0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m [32mdestroy[0;39m 
+ Closing JPA EntityManagerFactory for persistence unit 'default' 
+[2022-08-01 21:49:28:109568][SpringApplicationShutdownHook] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mclose[0;39m 
+ HikariPool-1 - Shutdown initiated... 
+[2022-08-01 21:49:28:109580][SpringApplicationShutdownHook] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mclose[0;39m 
+ HikariPool-1 - Shutdown completed. 
+[2022-08-01 21:49:31:295][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStarting[0;39m 
+ Starting SimpleBlogApplicationKt using Java 11.0.13 on gangmingyuui-MacBookAir.local with PID 15826 (/Users/gangmingyu/Desktop/intellijwork/simple-blog/build/classes/kotlin/main started by gangmingyu in /Users/gangmingyu/Desktop/intellijwork/simple-blog) 
+[2022-08-01 21:49:31:297][background-preinit] [32m INFO[0;39m o.h.validator.internal.util.Version [36mo.h.v.i.u.Version[0;39m [32m<clinit>[0;39m 
+ HV000001: Hibernate Validator 6.2.3.Final 
+[2022-08-01 21:49:31:297][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStartupProfileInfo[0;39m 
+ No active profile set, falling back to 1 default profile: "default" 
+[2022-08-01 21:49:31:643][main] [32m INFO[0;39m o.s.d.r.c.RepositoryConfigurationDelegate [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m [32mregisterRepositoriesIn[0;39m 
+ Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+[2022-08-01 21:49:31:668][main] [32m INFO[0;39m o.s.d.r.c.RepositoryConfigurationDelegate [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m [32mregisterRepositoriesIn[0;39m 
+ Finished Spring Data repository scanning in 22 ms. Found 2 JPA repository interfaces. 
+[2022-08-01 21:49:32:955][main] [32m INFO[0;39m o.s.b.w.e.tomcat.TomcatWebServer [36mo.s.b.w.e.t.TomcatWebServer[0;39m [32minitialize[0;39m 
+ Tomcat initialized with port(s): 9000 (http) 
+[2022-08-01 21:49:32:959][main] [32m INFO[0;39m o.a.coyote.http11.Http11NioProtocol [36mo.a.c.h.Http11NioProtocol[0;39m [32mlog[0;39m 
+ Initializing ProtocolHandler ["http-nio-9000"] 
+[2022-08-01 21:49:32:959][main] [32m INFO[0;39m o.a.catalina.core.StandardService [36mo.a.c.c.StandardService[0;39m [32mlog[0;39m 
+ Starting service [Tomcat] 
+[2022-08-01 21:49:32:959][main] [32m INFO[0;39m o.a.catalina.core.StandardEngine [36mo.a.c.c.StandardEngine[0;39m [32mlog[0;39m 
+ Starting Servlet engine: [Apache Tomcat/9.0.64] 
+[2022-08-01 21:49:32:1004][main] [32m INFO[0;39m o.a.c.c.C.[Tomcat].[localhost].[/] [36mo.a.c.c.C.[.[.[/][0;39m [32mlog[0;39m 
+ Initializing Spring embedded WebApplicationContext 
+[2022-08-01 21:49:32:1005][main] [32m INFO[0;39m o.s.b.w.s.c.ServletWebServerApplicationContext [36mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m [32mprepareWebApplicationContext[0;39m 
+ Root WebApplicationContext: initialization completed in 683 ms 
+[2022-08-01 21:49:32:1096][main] [32m INFO[0;39m o.h.jpa.internal.util.LogHelper [36mo.h.j.i.u.LogHelper[0;39m [32mlogPersistenceUnitInformation[0;39m 
+ HHH000204: Processing PersistenceUnitInfo [name: default] 
+[2022-08-01 21:49:32:1116][main] [32m INFO[0;39m org.hibernate.Version [36mo.h.Version[0;39m [32mlogVersion[0;39m 
+ HHH000412: Hibernate ORM core version 5.6.9.Final 
+[2022-08-01 21:49:32:1177][main] [32m INFO[0;39m o.h.annotations.common.Version [36mo.h.a.c.Version[0;39m [32m<clinit>[0;39m 
+ HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+[2022-08-01 21:49:32:1212][main] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mgetConnection[0;39m 
+ HikariPool-1 - Starting... 
+[2022-08-01 21:49:32:1244][main] [32m INFO[0;39m com.zaxxer.hikari.HikariDataSource [36mc.z.h.HikariDataSource[0;39m [32mgetConnection[0;39m 
+ HikariPool-1 - Start completed. 
+[2022-08-01 21:49:32:1252][main] [32m INFO[0;39m org.hibernate.dialect.Dialect [36mo.h.d.Dialect[0;39m [32m<init>[0;39m 
+ HHH000400: Using dialect: org.hibernate.dialect.MariaDB53Dialect 
+[2022-08-01 21:49:32:1569][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659358172673 | took 1ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Member` where 1=0
+select * from `kotilnblog`.`Member` where 1=0; 
+[2022-08-01 21:49:32:1574][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659358172678 | took 0ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Post` where 1=0
+select * from `kotilnblog`.`Post` where 1=0; 
+[2022-08-01 21:49:32:1576][main] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ #1659358172680 | took 0ms | statement | connection 1| url jdbc:mariadb://localhost/kotilnblog?user=test&password=***&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+select * from `kotilnblog`.`Member` where 1=0
+select * from `kotilnblog`.`Member` where 1=0; 
+[2022-08-01 21:49:32:1577][main] [32m INFO[0;39m o.h.e.t.j.p.i.JtaPlatformInitiator [36mo.h.e.t.j.p.i.JtaPlatformInitiator[0;39m [32minitiateService[0;39m 
+ HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+[2022-08-01 21:49:32:1580][main] [32m INFO[0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m [32mbuildNativeEntityManagerFactory[0;39m 
+ Initialized JPA EntityManagerFactory for persistence unit 'default' 
+[2022-08-01 21:49:33:2298][main] [32m INFO[0;39m o.a.coyote.http11.Http11NioProtocol [36mo.a.c.h.Http11NioProtocol[0;39m [32mlog[0;39m 
+ Starting ProtocolHandler ["http-nio-9000"] 
+[2022-08-01 21:49:33:2311][main] [32m INFO[0;39m o.s.b.w.e.tomcat.TomcatWebServer [36mo.s.b.w.e.t.TomcatWebServer[0;39m [32mstart[0;39m 
+ Tomcat started on port(s): 9000 (http) with context path '' 
+[2022-08-01 21:49:33:2317][main] [32m INFO[0;39m c.e.s.SimpleBlogApplicationKt [36mc.e.s.SimpleBlogApplicationKt[0;39m [32mlogStarted[0;39m 
+ Started SimpleBlogApplicationKt in 2.236 seconds (JVM running for 2.6) 
+[2022-08-01 21:49:35:4777][http-nio-9000-exec-1] [32m INFO[0;39m o.a.c.c.C.[Tomcat].[localhost].[/] [36mo.a.c.c.C.[.[.[/][0;39m [32mlog[0;39m 
+ Initializing Spring DispatcherServlet 'dispatcherServlet' 
+[2022-08-01 21:49:35:4778][http-nio-9000-exec-1] [32m INFO[0;39m o.s.web.servlet.DispatcherServlet [36mo.s.w.s.DispatcherServlet[0;39m [32minitServletBean[0;39m 
+ Initializing Servlet 'dispatcherServlet' 
+[2022-08-01 21:49:35:4780][http-nio-9000-exec-1] [32m INFO[0;39m o.s.web.servlet.DispatcherServlet [36mo.s.w.s.DispatcherServlet[0;39m [32minitServletBean[0;39m 
+ Completed initialization in 2 ms 
+[2022-08-01 21:49:35:4810][http-nio-9000-exec-1] [32m INFO[0;39m c.e.s.config.aop.LoggerAspect [36mc.e.s.c.a.LoggerAspect[0;39m [32mcontrollerLoggerAmdvice[0;39m 
+ 
+request url: /posts
+type: com.example.simpleblog.api.PostController
+method: findPosts
+      
+[2022-08-01 21:49:36:4903][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:49:36 | OperationTime : 2ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        post0_.`id` as id1_2_0_,
+        member1_.`id` as id1_1_1_,
+        post0_.`create_at` as create_a2_2_0_,
+        post0_.`update_at` as update_a3_2_0_,
+        post0_.`content` as content4_2_0_,
+        post0_.`member_id` as member_i6_2_0_,
+        post0_.`title` as title5_2_0_,
+        member1_.`create_at` as create_a2_1_1_,
+        member1_.`update_at` as update_a3_1_1_,
+        member1_.`email` as email4_1_1_,
+        member1_.`password` as password5_1_1_,
+        member1_.`role` as role6_1_1_ 
+    from
+        `Post` post0_ 
+    inner join
+        `Member` member1_ 
+            on post0_.`member_id`=member1_.`id` 
+    order by
+        post0_.`id` desc limit 10 
+[2022-08-01 21:49:36:4918][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:49:36 | OperationTime : 0ms|
+HeFormatSql(P6Spy sql,Hibernate format):
+    select
+        post0_.`id` as id1_2_,
+        post0_.`create_at` as create_a2_2_,
+        post0_.`update_at` as update_a3_2_,
+        post0_.`content` as content4_2_,
+        post0_.`member_id` as member_i6_2_,
+        post0_.`title` as title5_2_ 
+    from
+        `Post` post0_ 
+[2022-08-01 21:49:36:4933][http-nio-9000-exec-1] [32m INFO[0;39m p6spy [36mp6spy[0;39m [32mlogSQL[0;39m 
+ 22.08.01 21:49:36 | OperationTime : 0ms 
+[2022-08-01 21:49:36:4963][http-nio-9000-exec-1] [32m INFO[0;39m c.e.s.config.aop.LoggerAspect [36mc.e.s.c.a.LoggerAspect[0;39m [32mcontrollerLogAfter[0;39m 
+ 
+findPosts  
+Method return value: {"resultCode":"OK","resultMsg":"find posts","data":{"content":[{"id":113,"title":"test_dec6e492a9c3","content":"test_ecb8e8d40e66","member":{"id":20,"email":"tennie.daugherty.i@gmail.test","password":"1234","role":"USER"}},{"id":112,"title":"test_dec6e492a9c3","content":"test_ecb8e8d40e66","member":{"id":20,"email":"tennie.daugherty.i@gmail.test","password":"1234","role":"USER"}},{"id":100,"title":"Lucien","content":"People are different. People choose different criteria. But if there is a better way among many alternatives, I want to encourage that way by making it comfortable. So that's what I've tried to do.","member":{"id":6,"email":"scott.erdman@yahoo.test","password":"1234","role":"USER"}},{"id":99,"title":"Kittur Chennamma","content":"I didn't work hard to make Ruby perfect for everyone, because you feel differently from me. No language can be perfect for everyone. I tried to make Ruby perfect for me, but maybe it's not perfect for you. The perfect language for Guido van Rossum is probably Python.","member":{"id":49,"email":"sen.adam.stracke@gmail.test","password":"1234","role":"USER"}},{"id":98,"title":"Anubis","content":"Plant a memory, plant a tree, do it today for tomorrow.","member":{"id":92,"email":"lolita.weimann@yahoo.test","password":"1234","role":"USER"}},{"id":97,"title":"S.A. Corey","content":"Man is driven to create; I know I really love to create things. And while I'm not good at painting, drawing, or music, I can write software.","member":{"id":6,"email":"scott.erdman@yahoo.test","password":"1234","role":"USER"}},{"id":96,"title":"Lucien","content":"I believe consistency and orthogonality are tools of design, not the primary goal in design.","member":{"id":28,"email":"tina.hickle@gmail.test","password":"1234","role":"USER"}},{"id":95,"title":"Knight","content":"Often people, especially computer engineers, focus on the machines. But in fact we need to focus on humans, on how humans care about doing programming or operating the application of the machines.","member":{"id":84,"email":"mr.lucio.gislason@gmail.test","password":"1234","role":"USER"}},{"id":94,"title":"Razorback","content":"Smart people underestimate the ordinarity of ordinary people.","member":{"id":29,"email":"ivan.osinski@hotmail.test","password":"1234","role":"USER"}},{"id":93,"title":"Donnager","content":"Imagine you are writing an email. You are in front of the computer. You are operating the computer, clicking a mouse and typing on a keyboard, but the message will be sent to a human over the internet. So you are working before the computer, but with a human behind the computer.","member":{"id":79,"email":"zina.hansen.jd@gmail.test","password":"1234","role":"USER"}}],"pageable":{"sort":{"empty":true,"unsorted":true,"sorted":false},"offset":0,"pageNumber":0,"pageSize":10,"paged":true,"unpaged":false},"last":false,"totalElements":102,"totalPages":11,"sort":{"empty":true,"unsorted":true,"sorted":false},"first":true,"size":10,"number":0,"numberOfElements":10,"empty":false}}    
+  

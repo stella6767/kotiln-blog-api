@@ -21,11 +21,6 @@ class LoggingConfig {
         P6SpyOptions.getActiveInstance().logMessageFormat = P6spyPrettySqlFormatter::class.java.name
     }
 
-
-
-
-
-
 }
 
 
