@@ -8,9 +8,12 @@ import org.springframework.data.web.PageableDefault
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import java.io.Serializable
+import java.lang.RuntimeException
+import javax.servlet.http.HttpSession
 import javax.validation.Valid
 
 
+@RequestMapping("/api")
 @RestController
 class MemberController(
         private val memberService: MemberService
@@ -18,7 +21,8 @@ class MemberController(
 
 
     @GetMapping("/members")
-    fun findAll(@PageableDefault(size = 10) pageable: Pageable): CmResDto<*> {
+    fun findAll(@PageableDefault(size = 10) pageable: Pageable, session: HttpSession): CmResDto<*> {
+
         return CmResDto(HttpStatus.OK, "find All Members", memberService.findAll(pageable))
     }
 
