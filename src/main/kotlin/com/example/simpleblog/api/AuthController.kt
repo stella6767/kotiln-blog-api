@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession
 
 @RequestMapping("/auth")
 @RestController
-class AuthController(
+class AuthController (
 
 ) {
 

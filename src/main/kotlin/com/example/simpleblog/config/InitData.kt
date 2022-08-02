@@ -1,9 +1,6 @@
 package com.example.simpleblog.config
 
-import com.example.simpleblog.domain.commenet.Comment
 import com.example.simpleblog.domain.commenet.CommentRepository
-import com.example.simpleblog.domain.commenet.CommentSaveReq
-import com.example.simpleblog.domain.commenet.toEntity
 import com.example.simpleblog.domain.member.*
 import com.example.simpleblog.domain.post.Post
 import com.example.simpleblog.domain.post.PostRepository
@@ -14,7 +11,6 @@ import mu.KotlinLogging
 import org.springframework.boot.context.event.ApplicationReadyEvent
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.event.EventListener
-import org.springframework.transaction.annotation.Transactional
 
 @Configuration
 class InitData(
@@ -64,7 +60,7 @@ class InitData(
 
 
 
-    private fun generateMember(): Member = MemberSaveReq(
+    private fun generateMember(): Member = LoginDto(
             email = faker.internet.safeEmail(),
             password = "1234",
             role = Role.USER

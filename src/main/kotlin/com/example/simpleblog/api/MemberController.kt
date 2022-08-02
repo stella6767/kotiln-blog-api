@@ -1,14 +1,12 @@
 package com.example.simpleblog.api
 
-import com.example.simpleblog.domain.member.MemberSaveReq
+import com.example.simpleblog.domain.member.LoginDto
 import com.example.simpleblog.service.MemberService
 import com.example.simpleblog.util.value.CmResDto
 import org.springframework.data.domain.Pageable
 import org.springframework.data.web.PageableDefault
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
-import java.io.Serializable
-import java.lang.RuntimeException
 import javax.servlet.http.HttpSession
 import javax.validation.Valid
 
@@ -42,7 +40,7 @@ class MemberController(
 
 
     @PostMapping("/member")
-    fun save(@Valid @RequestBody dto:MemberSaveReq): CmResDto<*> {
+    fun save(@Valid @RequestBody dto:LoginDto): CmResDto<*> {
 
         return CmResDto(HttpStatus.OK, "save member", memberService.saveMember(dto))
     }

@@ -1,6 +1,5 @@
 package com.example.simpleblog.api
 
-import com.example.simpleblog.domain.member.MemberSaveReq
 import com.example.simpleblog.domain.post.PostSaveReq
 import com.example.simpleblog.service.PostService
 import com.example.simpleblog.util.value.CmResDto

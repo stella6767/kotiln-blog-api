@@ -12,15 +12,14 @@ import javax.validation.constraints.NotNull
  */
 
 
-data class MemberSaveReq(
+data class LoginDto(
     @field:NotNull(message = "require email")
     val email:String?,
-
     val password:String?,
     val role: Role?
 )
 
-fun MemberSaveReq.toEntity(): Member {
+fun LoginDto.toEntity(): Member {
     return Member(
         email = this.email ?: "",
         password = this.password ?: "",

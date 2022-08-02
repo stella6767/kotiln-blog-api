@@ -28,6 +28,9 @@ extra["snippetsDir"] = file("build/generated-snippets")
 
 dependencies {
 
+    implementation("com.auth0:java-jwt:3.19.2")
+
+
     // https://mvnrepository.com/artifact/com.github.gavlyukovskiy/p6spy-spring-boot-starter
     implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.8.0")
     implementation("io.github.microutils:kotlin-logging:2.1.23")
@@ -46,7 +49,7 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     //implementation("org.springframework.boot:spring-boot-starter-data-redis")
-    //implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-web")
     //implementation("org.springframework.boot:spring-boot-starter-websocket")
