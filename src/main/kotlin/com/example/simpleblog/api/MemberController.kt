@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession
 import javax.validation.Valid
 
 
-@RequestMapping("/api")
+@RequestMapping("/v1")
 @RestController
 class MemberController(
         private val memberService: MemberService

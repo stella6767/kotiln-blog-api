@@ -23,9 +23,9 @@ class CustomBasicAuthenticationFilter(
     override fun doFilterInternal(request: HttpServletRequest, response: HttpServletResponse, chain: FilterChain) {
 
         log.info { "권한이나 인증이 필요한 요청이 들어옴" }
-        val token = request.getHeader(jwtManager.jwtHeader).replace("Bearer ", "")
-
+        val token = request.getHeader(jwtManager.jwtHeader)?.replace("Bearer ", "")
         if (token == null) {
+            log.info { "token이 없슴" }
             chain.doFilter(request, response)
             return
         }
@@ -35,9 +35,12 @@ class CustomBasicAuthenticationFilter(
 
         val member = memberRepository.findMemberByEmail(memberEmail)
         val principalDetails = PrincipalDetails(member)
+
+        //요게 문제였다.
         val authentication:Authentication = UsernamePasswordAuthenticationToken(
             principalDetails,
-            principalDetails.password
+            principalDetails.password,
+            principalDetails.authorities
         )
         SecurityContextHolder.getContext().authentication = authentication
         chain.doFilter(request, response)

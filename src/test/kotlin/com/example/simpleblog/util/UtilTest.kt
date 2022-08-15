@@ -26,6 +26,9 @@ class UtilTest {
 
         val encpassword = encoder.encode("1234")
 
+        val matches:Boolean = encoder.matches("1234", "\$2a\$10\$5pHCXu/JF3075RUiZ6Ina.ZG3TeuOPH6NB0/LrMWL7XLvu2rNJ3Ty")
+
+        log.info { matches }
         log.info { encpassword }
 
     }
