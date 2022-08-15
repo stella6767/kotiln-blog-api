@@ -4,6 +4,8 @@ import java.io.PrintWriter
 import javax.servlet.http.HttpServletResponse
 
 
+
+
 fun responseData(resp: HttpServletResponse, jsonData: String?) {
     val out: PrintWriter
     println("응답 데이터: $jsonData")

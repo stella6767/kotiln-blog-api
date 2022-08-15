@@ -29,6 +29,7 @@ extra["snippetsDir"] = file("build/generated-snippets")
 dependencies {
 
     implementation("com.auth0:java-jwt:3.19.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
 
 
     // https://mvnrepository.com/artifact/com.github.gavlyukovskiy/p6spy-spring-boot-starter

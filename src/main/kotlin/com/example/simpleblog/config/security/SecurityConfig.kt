@@ -42,16 +42,13 @@ class SecurityConfig(
     private val memberRepository: MemberRepository
 )  {
 
-
     private val log = KotlinLogging.logger {  }
 
     //@Bean
     fun webSecurityCustomizer(): WebSecurityCustomizer? {
-
         return WebSecurityCustomizer {
                 web: WebSecurity -> web.ignoring().antMatchers("/**")
         }
-
     }
 
 
@@ -78,8 +75,6 @@ class SecurityConfig(
             //.anyRequest().permitAll()
             .antMatchers("/**").authenticated()
 
-
-        
 
         return http.build()
     }
