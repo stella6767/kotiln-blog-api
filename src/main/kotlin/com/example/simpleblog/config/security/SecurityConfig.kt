@@ -12,6 +12,7 @@ import org.springframework.security.access.AccessDeniedException
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.builders.WebSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
@@ -35,7 +36,7 @@ import javax.servlet.http.HttpServletResponse
 
 @Configuration
 @EnableWebSecurity(debug = false)
-
+@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 class SecurityConfig(
     private val authenticationConfiguration: AuthenticationConfiguration,
     private val objectMapper: ObjectMapper,
@@ -61,7 +62,8 @@ class SecurityConfig(
             .and()
             .formLogin().disable()
             .httpBasic().disable()
-            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .sessionManagement()
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
             .cors().configurationSource(corsConfig())
             .and()
@@ -72,10 +74,10 @@ class SecurityConfig(
             .authenticationEntryPoint(CustomAuthenticationEntryPoint(objectMapper))
             .and()
             .authorizeRequests()
+            //.antMatchers("/**").authenticated()
             .antMatchers("/v1/posts").hasAnyRole("USER","ADMIN")
-
             .anyRequest().permitAll()
-        //.antMatchers("/**").authenticated()
+
 
 
         return http.build()
@@ -95,9 +97,6 @@ class SecurityConfig(
         ) {
             log.info { "??? access denied!!!!" }
             response.sendError(HttpStatus.UNAUTHORIZED.value(), HttpStatus.UNAUTHORIZED.reasonPhrase)
-            //val cmResDto = CmResDto(HttpStatus.UNAUTHORIZED, "access denied", authException)
-            //responseData(response, objectMapper.writeValueAsString(cmResDto))
-            //response.sendError(HttpServletResponse.SC_FORBIDDEN)
         }
 
     }

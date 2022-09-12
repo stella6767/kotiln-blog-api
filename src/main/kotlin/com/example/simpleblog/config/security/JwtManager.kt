@@ -60,7 +60,7 @@ class JwtManager(
         } catch (e: JWTVerificationException) {
             //Invalid signature/claims
             log.error { "error=>${e.stackTraceToString()}" }
-            
+
             throw RuntimeException("Invalid jwt")
         }
 
