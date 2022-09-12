@@ -19,7 +19,6 @@ fun main() {
 
 
         ints.map { prev ->
-
             async {
                 asyncFunc()
             }

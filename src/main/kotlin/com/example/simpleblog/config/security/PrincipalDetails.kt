@@ -1,24 +1,34 @@
 package com.example.simpleblog.config.security
 
 import com.example.simpleblog.domain.member.Member
+import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import mu.KotlinLogging
+import org.springframework.boot.jackson.JsonMixin
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 
+
 class PrincipalDetails(
-    member: Member
+    member: Member = Member.createFakeMember(0L),
 ) : UserDetails {
 
     var member: Member = member
-        private set
-
     private val log = KotlinLogging.logger {  }
 
-    override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
+    //@JsonDeserialize(using = CustomAuthorityDeserializer::class)
+    @JsonIgnore
+    val collection:MutableList<GrantedAuthority> = ArrayList()
+
+    init {
+        this.collection.add(GrantedAuthority { "ROLE_" +  member.role})
+    }
+
+
+    @JsonIgnore
+    override fun getAuthorities(): MutableList<GrantedAuthority> {
         log.info { "Role 검증" }
-        val collection:MutableCollection<GrantedAuthority> = ArrayList()
-        collection.add(GrantedAuthority { "ROLE_" +  member.role})
-        return collection
+        return this.collection
     }
 
     override fun getPassword(): String {
@@ -44,4 +54,7 @@ class PrincipalDetails(
     override fun isEnabled(): Boolean {
         return true
     }
+
+
+
 }

@@ -8,10 +8,11 @@ import javax.persistence.*
 @Entity
 @Table(name = "Member")
 class Member(
+        id:Long = 0,
         email:String,
         password:String,
-        role: Role
-): AuditingEntity() {
+        role: Role = Role.USER
+): AuditingEntity(id) {
 
     @Column(name = "email", nullable = false)
     var email:String =email
@@ -31,8 +32,7 @@ class Member(
 
     companion object {
         fun createFakeMember(memberId:Long): Member {
-            val member = Member("", "", Role.USER)
-            member.id = memberId
+            val member = Member(id=memberId, "admin@gmail.com", password = "1234")
             return member
         }
     }

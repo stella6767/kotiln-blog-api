@@ -72,8 +72,10 @@ class SecurityConfig(
             .authenticationEntryPoint(CustomAuthenticationEntryPoint(objectMapper))
             .and()
             .authorizeRequests()
-            //.anyRequest().permitAll()
-            .antMatchers("/**").authenticated()
+            .antMatchers("/v1/posts").hasAnyRole("USER","ADMIN")
+
+            .anyRequest().permitAll()
+        //.antMatchers("/**").authenticated()
 
 
         return http.build()
@@ -153,7 +155,8 @@ class SecurityConfig(
     fun authenticationFilter(): CustomBasicAuthenticationFilter {
         return CustomBasicAuthenticationFilter(
             authenticationManager = authenticationManager(),
-            memberRepository = memberRepository
+            memberRepository = memberRepository,
+            om = objectMapper
         )
     }
 

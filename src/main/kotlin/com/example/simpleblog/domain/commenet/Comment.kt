@@ -9,10 +9,11 @@ import javax.persistence.*
 @Entity
 @Table(name = "Comment")
 class Comment (
-        content:String,
+    id:Long = 0,
+    content:String,
         post: Post,
         member: Member
-) : AuditingEntity() {
+) : AuditingEntity(id) {
 
     @Column(name = "content", nullable = false, length = 1000)
     var content:String = content
