@@ -36,8 +36,6 @@ class CustomBasicAuthenticationFilter(
         val principalJsonData = jwtManager.getPrincipalStringByAccessToken(token) ?: throw RuntimeException("memberEmail을 찾을 수 없습니다")
 
         val principalDetails = om.readValue(principalJsonData, PrincipalDetails::class.java)
-
-
         //DB로 호출하잖아요.
         //val member = memberRepository.findMemberByEmail(details.member.email)
         //val principalDetails = PrincipalDetails(member)

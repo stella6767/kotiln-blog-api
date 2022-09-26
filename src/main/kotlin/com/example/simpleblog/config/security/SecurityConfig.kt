@@ -20,6 +20,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.AuthenticationException
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.web.AuthenticationEntryPoint
 import org.springframework.security.web.SecurityFilterChain
@@ -27,6 +28,7 @@ import org.springframework.security.web.access.AccessDeniedHandler
 import org.springframework.security.web.authentication.AuthenticationFailureHandler
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.CorsConfigurationSource
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
@@ -77,11 +79,40 @@ class SecurityConfig(
             //.antMatchers("/**").authenticated()
             .antMatchers("/v1/posts").hasAnyRole("USER","ADMIN")
             .anyRequest().permitAll()
-
-
+            .and()
+            .logout()
+            .logoutUrl("/logout")
+            .logoutSuccessHandler(CustomLogoutSuccessHandler(objectMapper))
 
         return http.build()
     }
+
+
+    class CustomLogoutSuccessHandler(
+        private val om:ObjectMapper
+    ):LogoutSuccessHandler {
+
+        private val log = KotlinLogging.logger {  }
+
+        override fun onLogoutSuccess(
+            request: HttpServletRequest,
+            response: HttpServletResponse,
+            authentication: Authentication?
+        ) {
+
+            log.info { "logout success" }
+            val context = SecurityContextHolder.getContext()
+            context.authentication = null
+            SecurityContextHolder.clearContext()
+
+
+            val cmResDto = CmResDto(HttpStatus.OK, "logout success", null)
+
+            responseData(response, om.writeValueAsString(cmResDto))
+        }
+
+    }
+
 
 
     class CustomAuthenticationEntryPoint(

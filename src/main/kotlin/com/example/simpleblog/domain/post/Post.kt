@@ -2,7 +2,6 @@ package com.example.simpleblog.domain.post
 
 import com.example.simpleblog.domain.AuditingEntity
 import com.example.simpleblog.domain.member.Member
-import com.example.simpleblog.domain.member.toDto
 import javax.persistence.*
 
 

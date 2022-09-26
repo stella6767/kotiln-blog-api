@@ -26,8 +26,20 @@ class Member(
     var role: Role = role
         protected set
 
+    fun toDto(): MemberRes {
+
+        return MemberRes(
+            id = this.id!!,
+            email = this.email,
+            password = this.password,
+            role = this.role,
+            createdAt = this.createAt,
+            updateAt = this.updateAt
+        )
+    }
+
     override fun toString(): String {
-        return "Member(id=$id, email='$email', password='$password', role=$role)"
+        return "Member(id=$id, email='$email', password='$password', role=$role, createdAt=$createAt)"
     }
 
     companion object {
@@ -39,14 +51,7 @@ class Member(
 }
 
 
-fun Member.toDto(): MemberRes {
-    return MemberRes(
-        id = this.id!!,
-        email = this.email,
-        password = this.password,
-        role = this.role
-    )
-}
+
 
 
 enum class Role {

@@ -1,5 +1,6 @@
 package com.example.simpleblog.domain.member
 
+import java.time.LocalDateTime
 import javax.validation.constraints.NotNull
 
 
@@ -31,7 +32,9 @@ data class MemberRes(
     val id:Long,
     val email:String,
     val password:String,
-    val role: Role
+    val role: Role,
+    val createdAt:LocalDateTime,
+    val updateAt:LocalDateTime,
 )
 
 
