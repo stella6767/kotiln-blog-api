@@ -2,6 +2,7 @@ package com.example.simpleblog.config.security
 
 import com.example.simpleblog.domain.member.LoginDto
 import com.example.simpleblog.util.CookieProvider
+import com.example.simpleblog.util.CookieProvider.CookieName
 import com.example.simpleblog.util.func.responseData
 import com.example.simpleblog.util.value.CmResDto
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -52,7 +53,7 @@ class CustomUserNameAuthenticationFilter(
         val refreshToken = jwtManager.generateRefreshToken(om.writeValueAsString(principalDetails))
 
         val refreshCookie = CookieProvider.createCookie(
-            "refreshCookie",
+            CookieName.REFRESH_COOKIE,
             refreshToken,
             TimeUnit.DAYS.toSeconds(jwtManager.refreshTokenExpireDay)
         )
@@ -60,7 +61,7 @@ class CustomUserNameAuthenticationFilter(
         response?.addHeader(jwtManager.authorizationHeader, jwtManager.jwtHeader + accessToken)
         response.addHeader(HttpHeaders.SET_COOKIE, refreshCookie.toString())
 
-        
+
 
 
         val jsonResult = om.writeValueAsString(CmResDto(HttpStatus.OK, "login success", principalDetails.member))

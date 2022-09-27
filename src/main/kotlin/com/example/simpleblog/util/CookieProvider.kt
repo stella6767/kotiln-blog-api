@@ -3,7 +3,6 @@ package com.example.simpleblog.util
 import mu.KotlinLogging
 import org.springframework.http.ResponseCookie
 import java.util.*
-import javax.servlet.http.Cookie
 import javax.servlet.http.HttpServletRequest
 
 object CookieProvider {
@@ -15,9 +14,9 @@ object CookieProvider {
     }
 
 
-    fun createCookie(cookieName: String, value:String, maxAge:Long): ResponseCookie {
+    fun createCookie(cookieName: CookieName, value:String, maxAge:Long): ResponseCookie {
 
-        return ResponseCookie.from(cookieName, value)
+        return ResponseCookie.from(cookieName.name, value)
             .httpOnly(true)
             .secure(false) //http 허용
             .path("/")
@@ -26,10 +25,10 @@ object CookieProvider {
     }
 
 
-    fun getCookie(req:HttpServletRequest, cookieName: String): Optional<String> {
+    fun getCookie(req:HttpServletRequest, cookieName: CookieName): Optional<String> {
 
         val cookieValue = req.cookies.filter { cookie ->
-            cookie.name == cookieName
+            cookie.name == cookieName.name
         }.map { cookie ->
             cookie.value
         }.firstOrNull()
@@ -40,6 +39,10 @@ object CookieProvider {
     }
 
 
+    enum class CookieName(
 
+    ){
+        REFRESH_COOKIE
+    }
 
 }

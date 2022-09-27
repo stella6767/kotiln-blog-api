@@ -21,7 +21,6 @@ class JwtManager(
     private val refreshSecretKey: String = "myRefreshSecretKey"
 
     val claimPrincipal = "principal"
-
     private val accessTokenExpireSecond: Long = accessTokenExpireSecond
     val refreshTokenExpireDay: Long = refreshTokenExpireDay
 
@@ -54,28 +53,59 @@ class JwtManager(
         .sign(Algorithm.HMAC512(secretKey))
 
 
+
+
     fun getPrincipalStringByAccessToken(accessToken: String): String {
-        val decodedJWT = validatedJwt(accessToken)
-        val principalString = decodedJWT.getClaim(claimPrincipal).asString()
-        return principalString
+        val decodedJWT = getDecodeJwt(secretKey = accessSecretKey, token = accessToken)
+        return decodedJWT.getClaim(claimPrincipal).asString()
+    }
+
+    fun getPrincipalStringByRefreshToken(refreshToken: String): String {
+        val decodedJWT = getDecodeJwt(secretKey = refreshSecretKey, token = refreshToken)
+        return decodedJWT.getClaim(claimPrincipal).asString()
     }
 
 
-    fun validatedJwt(accessToken: String): DecodedJWT {
-        try {
-            val verifier: JWTVerifier = JWT.require(Algorithm.HMAC512(accessSecretKey))
-                .build() //Reusable verifier instance
-            val jwt: DecodedJWT = verifier.verify(accessToken)
-            return jwt
+    private fun getDecodeJwt(secretKey: String, token: String): DecodedJWT {
+        val verifier: JWTVerifier = JWT.require(Algorithm.HMAC512(secretKey))
+            .build() //Reusable verifier instance
+        val decodedJWT: DecodedJWT = verifier.verify(token)
+        return decodedJWT
+    }
+
+
+    fun validAccessToken(token: String): TokenValidResult {
+        return validatedJwt(token, accessSecretKey)
+    }
+
+    fun validRefreshToken(token: String): TokenValidResult {
+        return validatedJwt(token, refreshSecretKey)
+    }
+
+
+    private fun validatedJwt(token: String, secretKey: String): TokenValidResult { // TRUE |  JWTVerificationException
+        return try {
+            getDecodeJwt(secretKey, token)
+            TokenValidResult.Success()
         } catch (e: JWTVerificationException) {
-
             //Invalid signature/claims
-            log.error { "error=>${e.stackTraceToString()}" }
-
-            throw RuntimeException("Invalid jwt")
+            //log.error { "error=>${e.stackTraceToString()}" }
+            TokenValidResult.Failure(e)
         }
-
     }
 
 
 }
+
+
+/**
+ * 코틀린으로 Union Type 같이 흉내
+ */
+
+
+sealed class TokenValidResult {
+    class Success(val successValue: Boolean = true) : TokenValidResult()
+    class Failure(val exception: JWTVerificationException) : TokenValidResult()
+}
+
+
