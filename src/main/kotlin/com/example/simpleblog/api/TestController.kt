@@ -14,5 +14,10 @@ class TestController(
 
 
 
+//    @GetMapping("/error") //시큐리티 Default error redirest 주소같애여.
+//    fun errorTest(): String {
+//        return "error"
+//    }
+
 
 }

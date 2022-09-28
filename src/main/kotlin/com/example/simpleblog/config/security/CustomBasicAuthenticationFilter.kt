@@ -26,8 +26,8 @@ class CustomBasicAuthenticationFilter(
     override fun doFilterInternal(request: HttpServletRequest, response: HttpServletResponse, chain: FilterChain) {
 
         log.info { "권한이나 인증이 필요한 요청이 들어옴" }
-        val accessToken = request.getHeader(jwtManager.authorizationHeader)?.replace("Bearer ", "")
 
+        val accessToken = request.getHeader(jwtManager.authorizationHeader)?.replace("Bearer ", "")
         if (accessToken == null) {
             log.info { "token이 없슴" }
             chain.doFilter(request, response)
@@ -38,60 +38,71 @@ class CustomBasicAuthenticationFilter(
 
         val accessTokenResult: TokenValidResult = jwtManager.validAccessToken(accessToken)
 
+
         if (accessTokenResult is TokenValidResult.Failure) {
-            if (accessTokenResult.exception is TokenExpiredException) {
+            handleTokenException(accessTokenResult) {
 
                 log.info { "getClass==>${accessTokenResult.exception.javaClass}" }
-
-                val refreshToken = CookieProvider.getCookie(request, CookieProvider.CookieName.REFRESH_COOKIE).orElseThrow()
+                val refreshToken =
+                    CookieProvider.getCookie(request, CookieProvider.CookieName.REFRESH_COOKIE).orElseThrow()
                 val refreshTokenResult = jwtManager.validRefreshToken(refreshToken)
                 if (refreshTokenResult is TokenValidResult.Failure) {
                     throw RuntimeException("invalid refreshToken")
                 }
-
                 val princpalString = jwtManager.getPrincipalStringByRefreshToken(refreshToken)
                 val details = om.readValue(princpalString, PrincipalDetails::class.java)
 
-                val accessToken = jwtManager.generateAccessToken(om.writeValueAsString(details))
-                response?.addHeader(jwtManager.authorizationHeader, jwtManager.jwtHeader + accessToken)
-
-                val authentication: Authentication = UsernamePasswordAuthenticationToken(
-                    details,
-                    details.password,
-                    details.authorities
-                )
-                SecurityContextHolder.getContext().authentication = authentication //인증 처리 끝
-                chain.doFilter(request, response)
-
-
-
-
-                return
-            } else {
-                log.error { accessTokenResult.exception.stackTraceToString() }
+                reissueAccessToken(details, response)
+                setAuthentication(details, chain, request, response)
             }
+            return
         }
 
+
         val principalJsonData = jwtManager.getPrincipalStringByAccessToken(accessToken)
-
         val principalDetails = om.readValue(principalJsonData, PrincipalDetails::class.java)
-        //DB로 호출하잖아요.
-        //val member = memberRepository.findMemberByEmail(details.member.email)
-        //val principalDetails = PrincipalDetails(member)
 
-        //요게 문제였다.
+        setAuthentication(principalDetails, chain, request, response)
+    }
+
+    private fun setAuthentication(
+        details: PrincipalDetails,
+        chain: FilterChain,
+        request: HttpServletRequest,
+        response: HttpServletResponse
+    ) {
         val authentication: Authentication = UsernamePasswordAuthenticationToken(
-            principalDetails,
-            principalDetails.password,
-            principalDetails.authorities
+            details,
+            details.password,
+            details.authorities
         )
-
         SecurityContextHolder.getContext().authentication = authentication //인증 처리 끝
         chain.doFilter(request, response)
     }
 
+    private fun reissueAccessToken(
+        details: PrincipalDetails?,
+        response: HttpServletResponse
+    ) {
+        log.info { "accessToken 재발급" }
+
+        val accessToken = jwtManager.generateAccessToken(om.writeValueAsString(details))
+        response?.addHeader(jwtManager.authorizationHeader, jwtManager.jwtHeader + accessToken)
+    }
 
 
+    private fun handleTokenException(tokenValidResult: TokenValidResult.Failure, func: () -> Unit) {
+        when (tokenValidResult.exception) {
+            is TokenExpiredException -> func()
+            else -> {
+
+                log.info { "여기 타는지 체크" }
+                log.error(tokenValidResult.exception.stackTraceToString())
+                throw tokenValidResult.exception
+            }
+        }
+
+    }
 
 
 }
