@@ -17,35 +17,22 @@ class MemberController(
         private val memberService: MemberService
 ) {
 
-
     @GetMapping("/members")
     fun findAll(@PageableDefault(size = 10) pageable: Pageable, session: HttpSession): CmResDto<*> {
-
         return CmResDto(HttpStatus.OK, "find All Members", memberService.findAll(pageable))
     }
 
 
     @GetMapping("/member/{id}")
     fun findById(@PathVariable id:Long): CmResDto<Any> {
-
         return CmResDto(HttpStatus.OK, "find Member by id", memberService.findMemberById(id))
     }
 
 
     @DeleteMapping("/member/{id}")
     fun deleteById(@PathVariable id:Long): CmResDto<Any> {
-
         return CmResDto(HttpStatus.OK, "delete Member by id", memberService.deleteMember(id))
     }
-
-
-    @PostMapping("/member")
-    fun save(@Valid @RequestBody dto:LoginDto): CmResDto<*> {
-
-        return CmResDto(HttpStatus.OK, "save member", memberService.saveMember(dto))
-    }
-
-
 
 
 }

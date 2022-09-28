@@ -1,5 +1,8 @@
 package com.example.simpleblog.domain.member
 
+import com.example.simpleblog.config.BeanAccesseor
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import org.springframework.security.crypto.password.PasswordEncoder
 import java.time.LocalDateTime
 import javax.validation.constraints.NotNull
 
@@ -16,17 +19,27 @@ import javax.validation.constraints.NotNull
 data class LoginDto(
     @field:NotNull(message = "require email")
     val email:String?,
-    val password:String?,
+    val rawPassword:String?,
     val role: Role?
-)
+){
 
-fun LoginDto.toEntity(): Member {
-    return Member(
-        email = this.email ?: "",
-        password = this.password ?: "",
-        role = this.role ?: Role.USER,
-    )
+    fun toEntity(): Member {
+        return Member(
+            email = this.email ?: "",
+            password = encodeRawPassword() ?: "",
+            role = this.role ?: Role.USER,
+        )
+    }
+
+
+    private fun encodeRawPassword(): String =
+        BeanAccesseor.getBean(PasswordEncoder::class)
+            .encode(this.rawPassword)
+
+
 }
+
+
 
 data class MemberRes(
     val id:Long,

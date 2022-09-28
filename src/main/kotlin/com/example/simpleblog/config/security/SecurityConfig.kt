@@ -78,6 +78,9 @@ class SecurityConfig(
             .authorizeRequests()
             //.antMatchers("/**").authenticated()
             .antMatchers("/v1/posts").hasAnyRole("USER","ADMIN")
+            .antMatchers("/v1/member/profile").hasAnyRole("USER","ADMIN")
+
+
             .anyRequest().permitAll()
             .and()
             .logout()

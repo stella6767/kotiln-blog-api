@@ -1,17 +1,19 @@
 package com.example.simpleblog.api
 
+import com.example.simpleblog.domain.member.LoginDto
+import com.example.simpleblog.service.AuthService
+import com.example.simpleblog.util.value.CmResDto
 import mu.KotlinLogging
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.*
 import javax.servlet.http.HttpSession
+import javax.validation.Valid
 
 
 @RequestMapping("/auth")
 @RestController
 class AuthController (
-
+    private val authService: AuthService
 ) {
 
     val log = KotlinLogging.logger {  }
@@ -19,6 +21,11 @@ class AuthController (
     @GetMapping("/login")
     fun login(session: HttpSession){
         session.setAttribute("principal", "pass")
+    }
+
+    @PostMapping("/member")
+    fun joinApp(@Valid @RequestBody dto: LoginDto): CmResDto<*> {
+        return CmResDto(HttpStatus.OK, "회원가입", authService.saveMember(dto))
     }
 
 }

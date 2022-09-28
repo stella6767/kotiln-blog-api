@@ -28,7 +28,7 @@ class Comment (
         protected set
 
     override fun toString(): String {
-        return "Comment(content='$content', post=$post, member=$member)"
+        return "Comment(id=$id, content='$content', post=$post, member=$member)"
     }
 
 

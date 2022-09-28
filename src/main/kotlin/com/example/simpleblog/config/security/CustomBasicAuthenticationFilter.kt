@@ -95,7 +95,6 @@ class CustomBasicAuthenticationFilter(
         when (tokenValidResult.exception) {
             is TokenExpiredException -> func()
             else -> {
-
                 log.info { "여기 타는지 체크" }
                 log.error(tokenValidResult.exception.stackTraceToString())
                 throw tokenValidResult.exception
