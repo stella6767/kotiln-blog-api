@@ -1,7 +1,5 @@
 package com.example.simpleblog.config
 
-import com.example.simpleblog.util.value.Cat
-import com.example.simpleblog.util.value.Dog
 import mu.KotlinLogging
 import org.springframework.context.ApplicationContext
 import org.springframework.context.ApplicationContextAware

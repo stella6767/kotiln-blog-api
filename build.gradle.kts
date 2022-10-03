@@ -41,6 +41,9 @@ dependencies {
     implementation("com.linecorp.kotlin-jdsl:spring-data-kotlin-jdsl-starter:2.0.4.RELEASE")
     implementation("net.jodah:expiringmap:0.5.10")
 
+    implementation("it.ozimov:embedded-redis:0.7.3") { exclude(group = "org.slf4j", module = "slf4j-simple") }
+
+
 
     // https://mvnrepository.com/artifact/io.github.serpro69/kotlin-faker
     implementation("io.github.serpro69:kotlin-faker:1.11.0")
@@ -50,7 +53,7 @@ dependencies {
     //implementation("org.springframework.boot:spring-boot-starter-cache")
 
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    //implementation("org.springframework.boot:spring-boot-starter-data-redis")
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-web")

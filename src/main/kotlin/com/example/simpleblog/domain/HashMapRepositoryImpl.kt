@@ -39,7 +39,7 @@ open class HashMapRepositoryImpl(
         }
     }
 
-    override fun findAll(): ArrayList<Any> {
+    override fun findAll(): MutableList<Any> {
         return ArrayList<Any>(store.values)
     }
 
