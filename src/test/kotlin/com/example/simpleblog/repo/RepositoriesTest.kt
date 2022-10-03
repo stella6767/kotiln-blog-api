@@ -53,7 +53,6 @@ class RepositoriesTest {
         }
 
         Assertions.assertThat(posts.size).isEqualTo(6)
-
     }
 
     private fun pageRequestSearchConditionPair(): Pair<PageRequest, SearchCondition> {

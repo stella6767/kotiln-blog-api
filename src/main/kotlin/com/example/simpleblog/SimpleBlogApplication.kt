@@ -19,6 +19,8 @@ fun main(args: Array<String>) {
  *
  * back: springboot + kotiln + JPA
  *
+ * 로그인 상태유지 + 계층형 DB+ 공통관심사 분리 + 로깅추적필터 + 멀티gradle + 스프링 배치
+ *
  * front: react + typescript + zustand
  *
  * JPA와 Kotiln의 궁합이 약간 좀 삐걱거린다..

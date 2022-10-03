@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
 
 
-@RequestMapping("/v1")
+
 @RestController
 class PostController(
     private val postService: PostService
