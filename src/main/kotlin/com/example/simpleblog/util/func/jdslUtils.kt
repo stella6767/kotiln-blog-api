@@ -2,7 +2,7 @@ package com.example.simpleblog.util.func
 
 import com.example.simpleblog.domain.member.Member
 import com.example.simpleblog.domain.post.Post
-import com.example.simpleblog.util.dto.SeachCondition
+import com.example.simpleblog.util.dto.SearchCondition
 import com.example.simpleblog.util.dto.SearchType
 import com.linecorp.kotlinjdsl.query.spec.predicate.PredicateSpec
 import com.linecorp.kotlinjdsl.querydsl.expression.column
@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory
 private val log = LoggerFactory.getLogger(object {}::class.java.`package`.name)
 
 fun <T> SpringDataCriteriaQueryDsl<T>.dynamicQuery(
-    condition: SeachCondition?
+    condition: SearchCondition?
 ): PredicateSpec {
 
     val keyword = condition?.keyword

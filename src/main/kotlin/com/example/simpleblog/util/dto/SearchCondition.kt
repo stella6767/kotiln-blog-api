@@ -3,7 +3,7 @@ package com.example.simpleblog.util.dto
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
-class SeachCondition(
+class SearchCondition(
     @JsonProperty("searchType") val searchType: SearchType?,
     @JsonProperty("keyword") val keyword:String?
 ) {

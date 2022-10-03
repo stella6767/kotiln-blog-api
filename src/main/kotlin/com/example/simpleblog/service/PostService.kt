@@ -1,7 +1,7 @@
 package com.example.simpleblog.service
 
 import com.example.simpleblog.domain.post.*
-import com.example.simpleblog.util.dto.SeachCondition
+import com.example.simpleblog.util.dto.SearchCondition
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
@@ -17,8 +17,8 @@ class PostService(
     //@PreAuthorize("hasRole('ADMIN')")
     //@Secured(*["ROLE_SUPER", "ROLE_ADMIN"])
     @Transactional(readOnly = true)
-    fun findPosts(pageable: Pageable, seachCondition: SeachCondition): Page<PostRes> {
-        return postRepository.findPosts(pageable, seachCondition).map { it.toDto() }
+    fun findPosts(pageable: Pageable, searchCondition: SearchCondition): Page<PostRes> {
+        return postRepository.findPosts(pageable, searchCondition).map { it.toDto() }
     }
 
     @Transactional

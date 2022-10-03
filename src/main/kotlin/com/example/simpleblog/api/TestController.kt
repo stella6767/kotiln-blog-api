@@ -1,6 +1,6 @@
 package com.example.simpleblog.api
 
-import com.example.simpleblog.util.dto.SeachCondition
+import com.example.simpleblog.util.dto.SearchCondition
 import com.example.simpleblog.util.dto.SearchType
 import mu.KotlinLogging
 import org.springframework.web.bind.annotation.GetMapping
@@ -25,7 +25,7 @@ class TestController(
 
 
     @GetMapping("/enum")
-    fun enumTest(searchcCondition: SeachCondition): String {
+    fun enumTest(searchcCondition: SearchCondition): String {
 
 
         log.info { """
