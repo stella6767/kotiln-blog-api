@@ -20,6 +20,11 @@ import org.springframework.web.context.request.ServletRequestAttributes
 @Aspect
 class LoggerAspect {
 
+    /**
+     * interceptor vs filter vs aspect aop
+     *
+     *
+     */
 
     val log = KotlinLogging.logger { }
 
