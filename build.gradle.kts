@@ -39,6 +39,7 @@ dependencies {
 
     // https://mvnrepository.com/artifact/com.linecorp.kotlin-jdsl/spring-data-kotlin-jdsl-starter
     implementation("com.linecorp.kotlin-jdsl:spring-data-kotlin-jdsl-starter:2.0.4.RELEASE")
+    implementation("net.jodah:expiringmap:0.5.10")
 
 
     // https://mvnrepository.com/artifact/io.github.serpro69/kotlin-faker

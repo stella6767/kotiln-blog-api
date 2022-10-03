@@ -28,11 +28,15 @@ class InitData(
     @EventListener(ApplicationReadyEvent::class)
     private fun init(){
 
-//        val members = generateMembers(100)
-//        memberRepository.saveAll(members)
-//        val posts = generatePost(100)
-//        postRepository.saveAll(posts)
+        //initMemberAndPosts()
 
+    }
+
+    private fun initMemberAndPosts() {
+        val members = generateMembers(100)
+        memberRepository.saveAll(members)
+        val posts = generatePost(100)
+        postRepository.saveAll(posts)
     }
 
     private fun generateMembers(cnt:Int): MutableList<Member> {

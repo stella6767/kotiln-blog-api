@@ -2,6 +2,8 @@ package com.example.simpleblog.util
 
 import com.example.simpleblog.config.security.JwtManager
 import com.example.simpleblog.config.security.PrincipalDetails
+import com.example.simpleblog.domain.HashMapRepositoryImpl
+import com.example.simpleblog.domain.InMemoryRepository
 import com.example.simpleblog.domain.member.Member
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -10,16 +12,47 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.KotlinFeature
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import mu.KotlinLogging
+import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.jackson2.CoreJackson2Module
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
 
 class UtilTest {
 
     private val log = KotlinLogging.logger {  }
 
     val mapper = ObjectMapper()
+
+
+    @Test
+    fun hashMapRepoTest(){
+
+        val repo: InMemoryRepository = HashMapRepositoryImpl()
+
+        val numberOfThreads = 1000
+
+        val service = Executors.newFixedThreadPool(10)
+        val latch = CountDownLatch(numberOfThreads)
+
+        for (index in 1..numberOfThreads){
+            service.submit{
+                repo.save(index.toString(), index)
+                latch.countDown()
+            }
+        }
+
+        latch.await()
+
+        Thread.sleep(1000)
+
+        val results = repo.findAll()
+        Assertions.assertThat(results.size).isEqualTo(numberOfThreads)
+
+    }
 
 
     @Test
@@ -78,20 +111,20 @@ class UtilTest {
 
         Thread.sleep(3000)
 
-        val decodedJWT = jwtManager.validatedJwt(accessToken)
-
-        val principalString = decodedJWT.getClaim(jwtManager.claimPrincipal).asString()
-        val principalDetails: PrincipalDetails = mapper.readValue(principalString, PrincipalDetails::class.java)
-
-        log.info { "result=>${principalDetails.member}" }
-
-        principalDetails.authorities.forEach {
-            println(it.authority)
-        }
-
-        details.authorities.forEach {
-            println(it.authority)
-        }
+//        val decodedJWT = jwtManager.validatedJwt(accessToken)
+//
+//        val principalString = decodedJWT.getClaim(jwtManager.claimPrincipal).asString()
+//        val principalDetails: PrincipalDetails = mapper.readValue(principalString, PrincipalDetails::class.java)
+//
+//        log.info { "result=>${principalDetails.member}" }
+//
+//        principalDetails.authorities.forEach {
+//            println(it.authority)
+//        }
+//
+//        details.authorities.forEach {
+//            println(it.authority)
+//        }
     }
 
 

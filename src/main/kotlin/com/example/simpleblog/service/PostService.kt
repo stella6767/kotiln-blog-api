@@ -17,7 +17,7 @@ class PostService(
 ) {
 
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     //@Secured(*["ROLE_SUPER", "ROLE_ADMIN"])
     @Transactional(readOnly = true)
     fun findPosts(pageable: Pageable): Page<PostRes> {

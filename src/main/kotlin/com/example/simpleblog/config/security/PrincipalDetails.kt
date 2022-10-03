@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails
 
 
 class PrincipalDetails(
-    member: Member = Member.createFakeMember(0L),
+    member: Member,
 ) : UserDetails {
 
     var member: Member = member
@@ -19,6 +19,7 @@ class PrincipalDetails(
     //@JsonDeserialize(using = CustomAuthorityDeserializer::class)
     @JsonIgnore
     val collection:MutableList<GrantedAuthority> = ArrayList()
+
 
     init {
         this.collection.add(GrantedAuthority { "ROLE_" +  member.role})

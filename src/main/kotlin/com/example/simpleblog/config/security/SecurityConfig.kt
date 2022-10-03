@@ -1,12 +1,16 @@
 package com.example.simpleblog.config.security
 
+import com.example.simpleblog.domain.HashMapRepositoryImpl
+import com.example.simpleblog.domain.InMemoryRepository
 import com.example.simpleblog.domain.member.MemberRepository
+import com.example.simpleblog.util.CookieProvider
 import com.example.simpleblog.util.func.responseData
 import com.example.simpleblog.util.value.CmResDto
 import com.fasterxml.jackson.databind.ObjectMapper
 import mu.KotlinLogging
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.security.access.AccessDeniedException
 import org.springframework.security.access.prepost.PreAuthorize
@@ -29,6 +33,7 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.CorsConfigurationSource
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
@@ -38,7 +43,7 @@ import javax.servlet.http.HttpServletResponse
 
 @Configuration
 @EnableWebSecurity(debug = false)
-@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
+//@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 class SecurityConfig(
     private val authenticationConfiguration: AuthenticationConfiguration,
     private val objectMapper: ObjectMapper,
@@ -70,7 +75,7 @@ class SecurityConfig(
             .cors().configurationSource(corsConfig())
             .and()
             .addFilter(loginFilter())
-            .addFilter(authenticationFilter())
+            .addFilterBefore(authenticationFilter(), BasicAuthenticationFilter::class.java)
             .exceptionHandling()
             .accessDeniedHandler(CustomAccessDeniedHandler())
             .authenticationEntryPoint(CustomAuthenticationEntryPoint(objectMapper))
@@ -78,9 +83,7 @@ class SecurityConfig(
             .authorizeRequests()
             //.antMatchers("/**").authenticated()
             .antMatchers("/v1/posts").hasAnyRole("USER","ADMIN")
-            .antMatchers("/v1/member/profile").hasAnyRole("USER","ADMIN")
-
-
+            //.antMatchers("/v1/member/profile").hasAnyRole("USER","ADMIN")
             .anyRequest().permitAll()
             .and()
             .logout()
@@ -109,8 +112,10 @@ class SecurityConfig(
             SecurityContextHolder.clearContext()
 
 
-            val cmResDto = CmResDto(HttpStatus.OK, "logout success", null)
+            val nullCookie = CookieProvider.createNullCookie(CookieProvider.CookieName.REFRESH_COOKIE)
 
+            response.addHeader(HttpHeaders.SET_COOKIE, nullCookie.toString())
+            val cmResDto = CmResDto(HttpStatus.OK, "logout success", null)
             responseData(response, om.writeValueAsString(cmResDto))
         }
 
@@ -185,11 +190,19 @@ class SecurityConfig(
 
 
     @Bean
+    fun inmemoryRepository(): InMemoryRepository {
+
+        return HashMapRepositoryImpl()
+    }
+
+
+    @Bean
     fun authenticationFilter(): CustomBasicAuthenticationFilter {
         return CustomBasicAuthenticationFilter(
             authenticationManager = authenticationManager(),
             memberRepository = memberRepository,
-            om = objectMapper
+            om = objectMapper,
+            memoryRepository = inmemoryRepository()
         )
     }
 
@@ -208,7 +221,7 @@ class SecurityConfig(
     @Bean
     fun loginFilter(): UsernamePasswordAuthenticationFilter {
 
-        val authenticationFilter = CustomUserNameAuthenticationFilter(objectMapper)
+        val authenticationFilter = CustomUserNameAuthenticationFilter(objectMapper, inmemoryRepository())
         authenticationFilter.setAuthenticationManager(authenticationManager())
         authenticationFilter.setFilterProcessesUrl("/login")
         authenticationFilter.setAuthenticationFailureHandler(CustomFailureHandler())

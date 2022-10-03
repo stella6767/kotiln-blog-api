@@ -1,5 +1,7 @@
 package com.example.simpleblog.config.security
 
+import com.example.simpleblog.domain.HashMapRepositoryImpl
+import com.example.simpleblog.domain.InMemoryRepository
 import com.example.simpleblog.domain.member.LoginDto
 import com.example.simpleblog.util.CookieProvider
 import com.example.simpleblog.util.CookieProvider.CookieName
@@ -18,7 +20,8 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
 class CustomUserNameAuthenticationFilter(
-    private val om: ObjectMapper
+    private val om: ObjectMapper,
+    private val memoryRepository: InMemoryRepository,
 ) : UsernamePasswordAuthenticationFilter() {
 
     private val log = KotlinLogging.logger {  }
@@ -60,10 +63,7 @@ class CustomUserNameAuthenticationFilter(
 
         response?.addHeader(jwtManager.authorizationHeader, jwtManager.jwtHeader + accessToken)
         response.addHeader(HttpHeaders.SET_COOKIE, refreshCookie.toString())
-
-
-
-
+        memoryRepository.save(refreshToken, principalDetails )
         val jsonResult = om.writeValueAsString(CmResDto(HttpStatus.OK, "login success", principalDetails.member))
         responseData(response, jsonResult)
     }

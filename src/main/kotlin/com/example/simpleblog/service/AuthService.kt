@@ -24,6 +24,9 @@ class AuthService(
     override fun loadUserByUsername(email: String): UserDetails {
         log.info { "loadUserByUsername 호출!" }
         val member = memberRepository.findMemberByEmail(email)
+
+        log.info { "???????=>$member" }
+
         return PrincipalDetails(member)
     }
 

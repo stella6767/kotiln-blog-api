@@ -20,9 +20,6 @@ class BeanAccesseor(
         log.info { "this BeanAccessor=>$this" }
     }
 
-
-
-
     override fun setApplicationContext(applicationContext: ApplicationContext) {
         BeanAccesseor.applicationContext = applicationContext
     }

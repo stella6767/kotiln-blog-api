@@ -1,6 +1,7 @@
 package com.example.simpleblog.config.security
 
 import com.auth0.jwt.exceptions.TokenExpiredException
+import com.example.simpleblog.domain.InMemoryRepository
 import com.example.simpleblog.domain.member.MemberRepository
 import com.example.simpleblog.util.CookieProvider
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletResponse
 
 class CustomBasicAuthenticationFilter(
     private val memberRepository: MemberRepository,
+    private val memoryRepository: InMemoryRepository,
     private val om: ObjectMapper,
     authenticationManager: AuthenticationManager
 ) : BasicAuthenticationFilter(authenticationManager) {
@@ -35,13 +37,9 @@ class CustomBasicAuthenticationFilter(
         }
 
         log.debug { "access token: $accessToken" }
-
         val accessTokenResult: TokenValidResult = jwtManager.validAccessToken(accessToken)
-
-
         if (accessTokenResult is TokenValidResult.Failure) {
             handleTokenException(accessTokenResult) {
-
                 log.info { "getClass==>${accessTokenResult.exception.javaClass}" }
                 val refreshToken =
                     CookieProvider.getCookie(request, CookieProvider.CookieName.REFRESH_COOKIE).orElseThrow()
@@ -49,9 +47,10 @@ class CustomBasicAuthenticationFilter(
                 if (refreshTokenResult is TokenValidResult.Failure) {
                     throw RuntimeException("invalid refreshToken")
                 }
-                val princpalString = jwtManager.getPrincipalStringByRefreshToken(refreshToken)
-                val details = om.readValue(princpalString, PrincipalDetails::class.java)
 
+                //val princpalString = jwtManager.getPrincipalStringByRefreshToken(refreshToken)
+                val details = memoryRepository.findByKey(refreshToken) as PrincipalDetails
+                //val details = om.readValue(princpalString, PrincipalDetails::class.java)
                 reissueAccessToken(details, response)
                 setAuthentication(details, chain, request, response)
             }

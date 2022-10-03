@@ -26,14 +26,14 @@ data class LoginDto(
     fun toEntity(): Member {
         return Member(
             email = this.email ?: "",
-            password = encodeRawPassword() ?: "",
+            password = encodeRawPassword(),
             role = this.role ?: Role.USER,
         )
     }
 
 
     private fun encodeRawPassword(): String =
-        BeanAccesseor.getBean(PasswordEncoder::class)
+        BeanAccesseor.getBean(BCryptPasswordEncoder::class )
             .encode(this.rawPassword)
 
 

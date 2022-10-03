@@ -9,8 +9,15 @@ object CookieProvider {
 
     private val log = KotlinLogging.logger {  }
 
-    fun createNullCookie(cookieName:String):String{
-        TODO()
+    fun createNullCookie(cookieName:CookieName): ResponseCookie {
+
+        return ResponseCookie
+            .from(cookieName.name, null.toString())
+            .httpOnly(false)
+            .maxAge(0)
+            .path("/")
+            .build()
+
     }
 
 
