@@ -1,12 +1,9 @@
 package com.example.simpleblog.service
 
-import com.example.simpleblog.domain.member.*
 import com.example.simpleblog.domain.post.*
+import com.example.simpleblog.util.dto.SeachCondition
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
-import org.springframework.security.access.annotation.Secured
-import org.springframework.security.access.prepost.PostAuthorize
-import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -20,8 +17,8 @@ class PostService(
     //@PreAuthorize("hasRole('ADMIN')")
     //@Secured(*["ROLE_SUPER", "ROLE_ADMIN"])
     @Transactional(readOnly = true)
-    fun findPosts(pageable: Pageable): Page<PostRes> {
-        return postRepository.findPosts(pageable).map { it.toDto() }
+    fun findPosts(pageable: Pageable, seachCondition: SeachCondition): Page<PostRes> {
+        return postRepository.findPosts(pageable, seachCondition).map { it.toDto() }
     }
 
     @Transactional

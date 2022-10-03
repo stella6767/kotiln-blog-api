@@ -49,10 +49,12 @@ class CustomBasicAuthenticationFilter(
                 }
 
                 //val princpalString = jwtManager.getPrincipalStringByRefreshToken(refreshToken)
-                val details = memoryRepository.findByKey(refreshToken) as PrincipalDetails
+                val jsonDetail = memoryRepository.findByKey(refreshToken) as String
                 //val details = om.readValue(princpalString, PrincipalDetails::class.java)
-                reissueAccessToken(details, response)
-                setAuthentication(details, chain, request, response)
+                val principalDetails = om.readValue(jsonDetail, PrincipalDetails::class.java)
+                reissueAccessToken(principalDetails, response)
+
+                setAuthentication(principalDetails, chain, request, response)
             }
             return
         }

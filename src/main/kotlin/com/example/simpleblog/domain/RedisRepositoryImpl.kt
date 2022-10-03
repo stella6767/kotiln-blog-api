@@ -37,7 +37,6 @@ open class RedisRepositoryImpl(
     }
 
 
-    @Transactional
     override fun findAll(): MutableList<Any> {
         val keys = redisTemplate.keys("*")
         val list = mutableListOf<Any>()
@@ -60,10 +59,7 @@ open class RedisRepositoryImpl(
 
     //@Transactional
     override fun save(key: String, value: Any) {
-        //redisTemplate.opsForValue().set(key,value, Duration.ofDays(JwtManager.getRefreshTokenDay()))
 
-        //log.info { "key=>$key  value==>$value" }
-        Thread.sleep(50)
-        redisTemplate.opsForValue().set(key,value)
+        redisTemplate.opsForValue().set(key,value, Duration.ofDays(JwtManager.getRefreshTokenDay()))
     }
 }

@@ -1,6 +1,7 @@
 package com.example.simpleblog.domain.post
 
-import com.example.simpleblog.domain.member.Member
+import com.example.simpleblog.util.dto.SeachCondition
+import com.example.simpleblog.util.func.dynamicQuery
 import com.linecorp.kotlinjdsl.query.spec.ExpressionOrderSpec
 import com.linecorp.kotlinjdsl.querydsl.expression.column
 import com.linecorp.kotlinjdsl.querydsl.from.fetch
@@ -18,19 +19,22 @@ interface PostRepository : JpaRepository<Post, Long>, PostCustomRepository {
 
 interface PostCustomRepository{
 
-    fun findPosts(pageable: Pageable): Page<Post>
+    fun findPosts(pageable: Pageable, seachCondition: SeachCondition): Page<Post>
 }
 
 class PostCustomRepositoryImpl(
     private val queryFactory: SpringDataQueryFactory
 ):PostCustomRepository{
 
-    override fun findPosts(pageable: Pageable): Page<Post> {
+    override fun findPosts(pageable: Pageable, seachCondition: SeachCondition): Page<Post> {
 
         val results = queryFactory.listQuery<Post> {
             select(entity(Post::class))
             from(entity(Post::class))
-            fetch(Post::member)
+            where(
+                dynamicQuery(seachCondition)
+            )
+            fetch(Post::member, joinType = JoinType.LEFT)
             limit(pageable.pageSize)
             offset(pageable.offset.toInt())
             orderBy(ExpressionOrderSpec(column(Post::id), false))
@@ -43,7 +47,8 @@ class PostCustomRepositoryImpl(
         return PageableExecutionUtils.getPage(results, pageable){
             countQuery.size.toLong()
         }
-
-
     }
+
+
+
 }

@@ -36,10 +36,8 @@ class RedisRepositoryTest {
     fun redisRepoTest(){
 
         val numberOfThreads = 1000
-
         val service = Executors.newFixedThreadPool(10)
         val latch = CountDownLatch(numberOfThreads)
-
         for (index in 1..numberOfThreads){
             service.submit{
                 this.redisRepositoryImpl.save(index.toString(), index)
@@ -48,20 +46,14 @@ class RedisRepositoryTest {
             //this.redisRepositoryImpl.save(index.toString(), index)
         }
 
-
         latch.await()
         val value = this.redisRepositoryImpl.findByKey(1.toString())
-
         println(value)
-
         val results = this.redisRepositoryImpl.findAll()
-
         for (result in results) {
             println("result===>" + result.toString())
         }
-
         Assertions.assertThat(results.size).isEqualTo(numberOfThreads)
-
     }
 
 
