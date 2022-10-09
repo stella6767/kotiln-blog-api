@@ -42,6 +42,8 @@ dependencies {
     implementation("net.jodah:expiringmap:0.5.10")
 
     implementation("it.ozimov:embedded-redis:0.7.3") { exclude(group = "org.slf4j", module = "slf4j-simple") }
+    implementation("org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE")
+
 
 
 

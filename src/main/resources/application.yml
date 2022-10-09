@@ -9,6 +9,9 @@ server:
 
 
 spring:
+  main:
+    allow-circular-references: false
+
   profiles:
     active: local
 
@@ -43,3 +46,6 @@ decorator:
   datasource:
     p6spy:
       enable-logging: true
+
+
+
