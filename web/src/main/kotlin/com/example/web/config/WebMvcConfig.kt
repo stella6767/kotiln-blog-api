@@ -7,6 +7,7 @@ import org.springframework.core.convert.converter.Converter
 import org.springframework.format.FormatterRegistry
 import org.springframework.web.method.HandlerTypePredicate
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 @Configuration
@@ -16,6 +17,8 @@ class WebMvcConfig(
 
     private val log = KotlinLogging.logger {  }
 
+
+
     override fun addFormatters(registry: FormatterRegistry) {
         registry.addConverter(StringToEnumConverter())
     }
@@ -24,11 +27,22 @@ class WebMvcConfig(
     override fun configurePathMatch(configurer: PathMatchConfigurer) {
 
         val apiVersion = "/v1"
-        val basePackage = "com.example.web.api"
+        val basePackage = "com.example.web.web"
 
         configurer.addPathPrefix(apiVersion, HandlerTypePredicate.forBasePackage(basePackage))
     }
 
+
+    override fun addResourceHandlers(registry: ResourceHandlerRegistry) {
+        super.addResourceHandlers(registry)
+        registry.addResourceHandler("//**").addResourceLocations("classpath:/static/");
+
+//        registry.addResourceHandler("/resources/**")
+//            .addResourceLocations( "classpath:/META-INF/resources/", "classpath:/resources/**",
+//            "classpath:/static/**", "classpath:/public/")
+
+        //.addResolver (PathResourceResolver())
+    }
 
     class StringToEnumConverter : Converter<String, SearchType> {
 
@@ -37,8 +51,9 @@ class WebMvcConfig(
 
             return SearchType.valueOf(source.uppercase())
         }
-
     }
+
+
 
 }
 

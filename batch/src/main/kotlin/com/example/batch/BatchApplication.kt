@@ -7,6 +7,11 @@ import org.springframework.boot.runApplication
 import org.springframework.stereotype.Component
 
 
+/**
+ * 쿼츠 추가
+ */
+
+
 @EnableBatchProcessing
 @SpringBootApplication
 class BatchApplication

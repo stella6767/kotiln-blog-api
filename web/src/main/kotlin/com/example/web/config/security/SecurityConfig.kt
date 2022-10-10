@@ -8,6 +8,7 @@ import com.example.web.util.CookieProvider
 import com.example.web.util.func.responseData
 import com.fasterxml.jackson.databind.ObjectMapper
 import mu.KotlinLogging
+import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.redis.core.RedisTemplate
@@ -53,10 +54,14 @@ class SecurityConfig(
 
     private val log = KotlinLogging.logger {  }
 
-    //@Bean
+    @Bean
     fun webSecurityCustomizer(): WebSecurityCustomizer? {
         return WebSecurityCustomizer {
-                web: WebSecurity -> web.ignoring().antMatchers("/**")
+                web: WebSecurity ->
+                    web
+                        .ignoring()
+                        .antMatchers("/h2-console/**").requestMatchers(EndpointRequest.toAnyEndpoint())
+                        .antMatchers("/resources/**")
         }
     }
 

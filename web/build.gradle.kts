@@ -11,8 +11,8 @@ dependencies {
 
     implementation("com.auth0:java-jwt:3.19.2")
     implementation("org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE")
-    //implementation("org.springframework.boot:spring-boot-starter-actuator")
-    //implementation("org.springframework.boot:spring-boot-starter-cache")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.boot:spring-boot-starter-cache")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-web")
     //implementation("org.springframework.boot:spring-boot-starter-websocket")

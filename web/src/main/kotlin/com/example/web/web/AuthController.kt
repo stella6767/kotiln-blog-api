@@ -1,4 +1,4 @@
-package com.example.web.api
+package com.example.web.web
 
 
 import com.example.common.domain.dto.CmResDto

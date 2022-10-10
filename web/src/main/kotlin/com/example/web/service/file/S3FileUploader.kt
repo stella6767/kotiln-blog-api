@@ -1,4 +1,4 @@
-package com.example.web.config.aws
+package com.example.web.service.file
 
 
 import com.amazonaws.services.s3.AmazonS3
@@ -14,10 +14,10 @@ import java.util.*
 import javax.annotation.PostConstruct
 
 
-@Component
+//@Component
 class S3FileUploader(
     private val amazonS3: AmazonS3
-) {
+) : FileUploader {
 
     private val log = KotlinLogging.logger {  }
 
@@ -29,9 +29,9 @@ class S3FileUploader(
     }
 
 
-    fun upload(
-        file:MultipartFile,
-    ): URL? {
+    override fun upload(
+        file: MultipartFile,
+    ): String {
 
         val uuid = UUID.randomUUID().toString()
         val fileName = "postImg" + "/" + uuid + file.originalFilename
@@ -39,7 +39,6 @@ class S3FileUploader(
         val objectMetadata = ObjectMetadata()
         objectMetadata.contentType = file.contentType
         objectMetadata.contentLength = file.size
-
         val objectRequest = PutObjectRequest(
             LocalS3Config.AwsBucket.KANGBLOG.code,
             fileName,
@@ -48,44 +47,8 @@ class S3FileUploader(
         )
 
         this.amazonS3.putObject(objectRequest.withCannedAcl(CannedAccessControlList.BucketOwnerFullControl))//
-        val url = this.amazonS3.getUrl(LocalS3Config.AwsBucket.KANGBLOG.code, "postImg/${file.originalFilename}")
-
-        return url
+        return amazonS3.getUrl(LocalS3Config.AwsBucket.KANGBLOG.code, fileName).toString()
     }
-
-//    fun upload(multipartFile: MultipartFile, dirName:String){
-//
-//        val uuid = UUID.randomUUID().toString()
-//        val convertFile = File(uuid + "--" +multipartFile.originalFilename)
-//
-//
-//        val uploadFile: File = when {
-//            convertFile.createNewFile() -> {
-//                FileOutputStream(convertFile).use { fos: FileOutputStream ->
-//                    fos.write(multipartFile.bytes)
-//                }
-//                Optional.of(convertFile)
-//            }
-//            else -> {
-//                log.warn { "file 생성실패" }
-//                convertFile.delete()
-//                Optional.empty<File>()
-//            }
-//        }.orElseThrow()
-//
-//        uploadFile?.let { file: File ->
-//
-//            val fileName = "$dirName/${file.name}"
-//
-//
-//
-//            //amazonS3.putObject()
-//
-//
-//        }
-//
-//    }
-
 
 
 

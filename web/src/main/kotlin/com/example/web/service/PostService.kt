@@ -1,10 +1,10 @@
 package com.example.web.service
 
 import com.example.common.domain.SearchCondition
-import com.example.web.config.aws.S3FileUploader
 import com.example.common.domain.post.*
 import com.example.common.domain.dto.PostRes
 import com.example.web.config.dto.PostSaveReq
+import com.example.web.service.file.FileUploader
 
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
@@ -18,7 +18,7 @@ import java.net.URL
 @Service
 class PostService(
     private val postRepository:PostRepository,
-    private val s3FileUploader: S3FileUploader
+    private val fileUploader: FileUploader,
 ) {
 
 
@@ -44,14 +44,14 @@ class PostService(
         return postRepository.findById(id).orElseThrow().toDto()
     }
 
-    fun savePostImg(image: MultipartFile): URL? {
+    fun savePostImg(image: MultipartFile): String {
 
         /**
          * AWS S3에 올릴 건데 지금 S3가 없죠.
          *
          */
 
-        return s3FileUploader.upload(image)
+        return fileUploader.upload(image)
     }
 
 
