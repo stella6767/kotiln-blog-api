@@ -59,6 +59,8 @@ subprojects {
         implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.8.0")
         implementation("io.github.microutils:kotlin-logging:2.1.23")
 
+        runtimeOnly("com.h2database:h2")
+        runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
 
 
         // https://mvnrepository.com/artifact/io.github.serpro69/kotlin-faker
