@@ -6,7 +6,6 @@ server:
       charset: utf-8
       enabled: true
 
-
 spring:
   profiles:
     active: local
@@ -14,6 +13,13 @@ spring:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+
   redis:
     host: localhost
     port: 6379
@@ -42,3 +48,37 @@ decorator:
     p6spy:
       enable-logging: true
 
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+  output:
+    ansi:
+      enabled: always
+  datasource:
+    url: jdbc:mariadb://blogdb:3306/kotilnblog?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: Test@12345678
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    open-in-view: false
+    properties:
+      hibernate:
+        default_batch_fetch_size: 1000
+        globally_quoted_identifiers: true
+
+
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true

@@ -32,13 +32,3 @@ object CustomAopObject {
 }
 
 
-fun main() {
-
-    doSomething()
-}
-
-
-
-fun doSomething() = CustomAopObject.highOrderFunc {
-    println("do something")
-}
