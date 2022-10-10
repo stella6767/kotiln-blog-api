@@ -24,6 +24,7 @@ import javax.cache.spi.CachingProvider
 class CacheConfig {
 
     //https://stackoverflow.com/questions/57909228/how-to-use-spring-boot-2-and-ehcache-3-without-xml
+    //https://prohannah.tistory.com/88
 
     @Bean
     fun getCacheManager(): CacheManager {
