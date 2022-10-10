@@ -2,6 +2,7 @@ package com.example.common.config
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.KotlinFeature
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import org.springframework.context.annotation.Bean
@@ -15,7 +16,9 @@ class ObjectMapperConfig {
     @Bean
     fun objectMapper(): ObjectMapper {
         val mapper = ObjectMapper()
-        //mapper.registerModule(JavaTimeModule())
+
+
+        mapper.registerModule(JavaTimeModule())
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
         mapper.registerModule(
             KotlinModule.Builder()

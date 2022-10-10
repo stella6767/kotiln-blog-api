@@ -24,7 +24,7 @@ class WebMvcConfig(
     override fun configurePathMatch(configurer: PathMatchConfigurer) {
 
         val apiVersion = "/v1"
-        val basePackage = "com.example.simpleblog.api"
+        val basePackage = "com.example.web.api"
 
         configurer.addPathPrefix(apiVersion, HandlerTypePredicate.forBasePackage(basePackage))
     }

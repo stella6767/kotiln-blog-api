@@ -51,7 +51,6 @@ subprojects {
 
 
     dependencies {
-        implementation("com.linecorp.kotlin-jdsl:spring-data-kotlin-jdsl-starter:2.0.4.RELEASE")
 
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
         implementation("org.springframework.boot:spring-boot-starter-validation")
@@ -59,7 +58,9 @@ subprojects {
         // https://mvnrepository.com/artifact/com.github.gavlyukovskiy/p6spy-spring-boot-starter
         implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.8.0")
         implementation("io.github.microutils:kotlin-logging:2.1.23")
-        implementation("com.fasterxml.jackson.datatype:jackson-datatype-hibernate5:2.13.3")
+
+
+
         // https://mvnrepository.com/artifact/io.github.serpro69/kotlin-faker
         implementation("io.github.serpro69:kotlin-faker:1.11.0")
         implementation("org.springframework.boot:spring-boot-starter-aop:2.7.0")

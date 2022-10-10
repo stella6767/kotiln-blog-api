@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull
 data class LoginDto(
     @field:NotNull(message = "require email")
     val email:String?,
-    val rawPassword:String?,
+    val password:String?,
     val role: Role?
 ){
 
@@ -24,7 +24,7 @@ data class LoginDto(
 
     private fun encodeRawPassword(): String =
         BeanAccesseor.getBean(BCryptPasswordEncoder::class )
-            .encode(this.rawPassword)
+            .encode(this.password)
 
 
 }
