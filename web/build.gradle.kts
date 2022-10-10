@@ -13,6 +13,14 @@ dependencies {
     implementation("org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-cache")
+    // https://mvnrepository.com/artifact/org.ehcache/ehcache
+    implementation("org.ehcache:ehcache:3.10.0")
+// https://mvnrepository.com/artifact/javax.cache/cache-api
+    implementation("javax.cache:cache-api:1.1.1")
+
+
+
+
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-web")
     //implementation("org.springframework.boot:spring-boot-starter-websocket")

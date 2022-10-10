@@ -34,6 +34,12 @@ class WebMvcConfig(
 
 
     override fun addResourceHandlers(registry: ResourceHandlerRegistry) {
+
+        /**
+         * 정적 리소스 이름 중 특수문자가 들어가면 에러가 발생..
+         */
+
+
         super.addResourceHandlers(registry)
         registry.addResourceHandler("//**").addResourceLocations("classpath:/static/");
 
