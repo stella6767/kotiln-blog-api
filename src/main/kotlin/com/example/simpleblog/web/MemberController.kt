@@ -1,6 +1,5 @@
-package com.example.simpleblog.api
+package com.example.simpleblog.web
 
-import com.example.simpleblog.domain.member.LoginDto
 import com.example.simpleblog.service.MemberService
 import com.example.simpleblog.util.value.CmResDto
 import org.springframework.data.domain.Pageable
@@ -8,8 +7,6 @@ import org.springframework.data.web.PageableDefault
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import javax.servlet.http.HttpSession
-import javax.validation.Valid
-
 
 
 @RestController

@@ -1,6 +1,8 @@
 package com.example.simpleblog.domain.member
 
 import com.example.simpleblog.config.BeanAccesseor
+import com.example.simpleblog.util.dto.BaseDto
+import com.fasterxml.jackson.annotation.JsonFormat
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import java.time.LocalDateTime
@@ -42,12 +44,12 @@ data class LoginDto(
 
 
 data class MemberRes(
-    val id:Long,
     val email:String,
     val password:String,
     val role: Role,
-    val createdAt:LocalDateTime,
-    val updateAt:LocalDateTime,
-)
+) : BaseDto() {
+
+
+}
 
 

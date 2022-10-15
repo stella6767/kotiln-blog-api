@@ -5,7 +5,6 @@ import com.example.simpleblog.domain.member.*
 import com.example.simpleblog.domain.post.Post
 import com.example.simpleblog.domain.post.PostRepository
 import com.example.simpleblog.domain.post.PostSaveReq
-import com.example.simpleblog.domain.post.toEntity
 import io.github.serpro69.kfaker.faker
 import mu.KotlinLogging
 import org.springframework.boot.context.event.ApplicationReadyEvent

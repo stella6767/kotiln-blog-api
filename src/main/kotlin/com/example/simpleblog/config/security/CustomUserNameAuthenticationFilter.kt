@@ -5,7 +5,8 @@ import com.example.simpleblog.domain.InMemoryRepository
 import com.example.simpleblog.domain.member.LoginDto
 import com.example.simpleblog.util.CookieProvider
 import com.example.simpleblog.util.CookieProvider.CookieName
-import com.example.simpleblog.util.func.responseData
+import com.example.simpleblog.util.Script
+
 import com.example.simpleblog.util.value.CmResDto
 import com.fasterxml.jackson.databind.ObjectMapper
 import mu.KotlinLogging
@@ -65,6 +66,6 @@ class CustomUserNameAuthenticationFilter(
         response.addHeader(HttpHeaders.SET_COOKIE, refreshCookie.toString())
         memoryRepository.save(refreshToken, om.writeValueAsString(principalDetails) )
         val jsonResult = om.writeValueAsString(CmResDto(HttpStatus.OK, "login success", principalDetails.member))
-        responseData(response, jsonResult)
+        Script.responseData(response, jsonResult)
     }
 }

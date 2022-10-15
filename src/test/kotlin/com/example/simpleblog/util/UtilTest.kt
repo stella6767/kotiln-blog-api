@@ -5,27 +5,54 @@ import com.example.simpleblog.config.security.PrincipalDetails
 import com.example.simpleblog.domain.HashMapRepositoryImpl
 import com.example.simpleblog.domain.InMemoryRepository
 import com.example.simpleblog.domain.member.Member
+import com.example.simpleblog.service.common.FileUploaderService
+import com.example.simpleblog.service.common.LocalFileUploaderServiceImpl
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.KotlinFeature
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import mu.KotlinLogging
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
-import org.springframework.security.core.userdetails.UserDetails
+import org.springframework.http.MediaType
+import org.springframework.mock.web.MockMultipartFile
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
-import org.springframework.security.jackson2.CoreJackson2Module
+import org.springframework.web.multipart.MultipartFile
+import java.io.IOException
+import java.nio.file.Files
+import java.nio.file.Paths
 import java.util.concurrent.CountDownLatch
-import java.util.concurrent.Executor
 import java.util.concurrent.Executors
+
 
 class UtilTest {
 
     private val log = KotlinLogging.logger {  }
 
     val mapper = ObjectMapper()
+
+
+    @Test
+    fun localFileUploaderTest(){
+
+        val fileUploader: FileUploaderService = LocalFileUploaderServiceImpl()
+        val path= Paths.get("src/test/resources/test/favicon.jpg")
+
+        val name = "favicon.jpg"
+        val originalFileName = "favicon.jpg"
+        val contentType = MediaType.IMAGE_JPEG_VALUE
+        val content = Files.readAllBytes(path)
+
+        val mockFile: MultipartFile = MockMultipartFile(
+            name,
+            originalFileName, contentType, content
+        )
+
+        fileUploader.upload(mockFile)
+
+    }
+
 
 
     @Test

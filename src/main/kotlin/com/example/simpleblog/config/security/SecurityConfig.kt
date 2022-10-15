@@ -5,7 +5,7 @@ import com.example.simpleblog.domain.InMemoryRepository
 import com.example.simpleblog.domain.RedisRepositoryImpl
 import com.example.simpleblog.domain.member.MemberRepository
 import com.example.simpleblog.util.CookieProvider
-import com.example.simpleblog.util.func.responseData
+import com.example.simpleblog.util.Script
 import com.example.simpleblog.util.value.CmResDto
 import com.fasterxml.jackson.databind.ObjectMapper
 import mu.KotlinLogging
@@ -119,7 +119,7 @@ class SecurityConfig(
 
             response.addHeader(HttpHeaders.SET_COOKIE, nullCookie.toString())
             val cmResDto = CmResDto(HttpStatus.OK, "logout success", null)
-            responseData(response, om.writeValueAsString(cmResDto))
+            Script.responseData(response, om.writeValueAsString(cmResDto))
         }
 
     }

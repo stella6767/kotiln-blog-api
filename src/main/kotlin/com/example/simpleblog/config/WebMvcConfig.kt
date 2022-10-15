@@ -27,19 +27,21 @@ class WebMvcConfig(
     override fun configurePathMatch(configurer: PathMatchConfigurer) {
 
         val apiVersion = "/v1"
-        val basePackage = "com.example.simpleblog.api"
+        val basePackage = "com.example.simpleblog.web"
 
         configurer.addPathPrefix(apiVersion, HandlerTypePredicate.forBasePackage(basePackage))
     }
-}
 
 
-class StringToEnumConverter : Converter<String, SearchType> {
+    class StringToEnumConverter : Converter<String, SearchType> {
 
-    override fun convert(source: String): SearchType? {
-        println("source==>$source")
+        override fun convert(source: String): SearchType? {
+            println("source==>$source")
 
-        return SearchType.valueOf(source.uppercase())
+            return SearchType.valueOf(source.uppercase())
+        }
     }
 
 }
+
+

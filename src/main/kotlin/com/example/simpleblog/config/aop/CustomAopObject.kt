@@ -19,26 +19,20 @@ object CustomAopObject {
      */
 
 
-    fun highOrderFunc(func:()->Unit){
-        log.info { "before" }
-        func()
-        log.info { "after" }
+
+
+    fun wrapTryCatchWithVoidFunc(func: ()->Unit) {
+        try {
+            func()
+        }catch (e:Exception){
+            log.error { e.stackTraceToString() }
+            //throw e
+        }
     }
 
 
 
 
-
 }
 
 
-fun main() {
-
-    doSomething()
-}
-
-
-
-fun doSomething() = CustomAopObject.highOrderFunc {
-    println("do something")
-}
