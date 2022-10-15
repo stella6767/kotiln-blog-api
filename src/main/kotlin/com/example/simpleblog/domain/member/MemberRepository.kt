@@ -1,57 +1,64 @@
 package com.example.simpleblog.domain.member
 
 import com.linecorp.kotlinjdsl.query.spec.ExpressionOrderSpec
-import com.linecorp.kotlinjdsl.query.spec.OrderSpec
-import com.linecorp.kotlinjdsl.query.spec.expression.ColumnSpec
 import com.linecorp.kotlinjdsl.querydsl.expression.column
-import com.linecorp.kotlinjdsl.querydsl.orderby.OrderByDsl
+import com.linecorp.kotlinjdsl.querydsl.from.fetch
 import com.linecorp.kotlinjdsl.spring.data.SpringDataQueryFactory
 import com.linecorp.kotlinjdsl.spring.data.listQuery
+import com.linecorp.kotlinjdsl.spring.data.singleQuery
+import mu.KotlinLogging
 import org.springframework.data.domain.Page
-import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.support.PageableExecutionUtils
 
-interface MemberRepository : JpaRepository<Member, Long>, MemberCustomRepository {
+interface MemberRepository : JpaRepository<Member, Long>, MemberCustomRepository{
 
 }
 
-interface MemberCustomRepository {
-    fun findAllByPage(pageable: Pageable): Page<Member>
-}
+interface MemberCustomRepository{
 
+
+    fun findMembers(pageable: Pageable): Page<Member>
+    fun findMemberByEmail(email: String): Member
+}
 
 class MemberCustomRepositoryImpl(
-        private val queryFactory: SpringDataQueryFactory,
-) : MemberCustomRepository {
+    private val queryFactory: SpringDataQueryFactory,
+):MemberCustomRepository{
 
-    override fun findAllByPage(pageable: Pageable): Page<Member> {
+    val log = KotlinLogging.logger {  }
 
+    override fun findMembers(pageable: Pageable): Page<Member> {
 
-        val members = queryFactory.listQuery<Member> {
+        val results = queryFactory.listQuery<Member> {
             select(entity(Member::class))
             from(entity(Member::class))
             limit(pageable.pageSize)
             offset(pageable.offset.toInt())
-            orderBy(ExpressionOrderSpec(expression = column(Member::id),
-                    ascending = false))
+            orderBy(ExpressionOrderSpec(column(Member::id), false))
         }
-
-//        queryFactory.listQuery<String> {
-//            select(column(Member::email))
-//            from(entity(Member::class))
-//        }
 
         val countQuery = queryFactory.listQuery<Member> {
             select(entity(Member::class))
             from(entity(Member::class))
         }
 
-
-//        return PageImpl( members.sortedByDescending { it.id}
-//                , pageable, countQuery.size.toLong())
-        return PageImpl(members, pageable, countQuery.size.toLong())
+        return PageableExecutionUtils.getPage(results, pageable){
+            countQuery.size.toLong()
+        }
     }
 
-}
+    override fun findMemberByEmail(email: String): Member {
 
+        return queryFactory.singleQuery {
+            select(entity(Member::class))
+            from(entity(Member::class))
+            where(
+                column(Member::email).equal(email)
+            )
+        }
+    }
+
+
+}

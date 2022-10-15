@@ -1,24 +1,26 @@
 <configuration scan="true" scanPeriod="60 seconds">
 
     <property name="LOGS_PATH" value="./logs"/>
-
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!-- encoders are assigned the type
              ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
         <withJansi>true</withJansi>
         <encoder>
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %green(%-5level) %logger{35} %cyan(%logger{15}) %green(%M) %n %msg %n
-            </pattern>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %clr(${LOG_LEVEL_PATTERN:-%5p}) %logger{35} %cyan(%logger{15}) %green(%M) %n %msg %n</pattern>
+<!--            <pattern>[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %green(%-5level) %logger{35} %cyan(%logger{15}) %green(%M) %n %msg %n</pattern>-->
             <charset>UTF-8</charset>
         </encoder>
     </appender>
+
 
     <!-- 파일에 로그 처리 -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOGS_PATH}/logback.log</file>
         <encoder>
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level%logger{35} %red(%M) - %msg%n</pattern>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %clr(${LOG_LEVEL_PATTERN:-%5p}) %logger{35} %cyan(%logger{15}) %green(%M) %n %msg %n</pattern>
+
             <charset>UTF-8</charset>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -34,9 +36,15 @@
         </rollingPolicy>
     </appender>
 
-
     <root level="info">
-        <appender-ref ref="STDOUT"/>
-        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT" />
+<!--        <appender-ref ref="FILE" />-->
     </root>
+
+    <logger name="com.example.simpleblog" level="debug" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+
+
 </configuration>

@@ -9,6 +9,13 @@ server:
 
 
 spring:
+  profiles:
+    active: local
+
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
   output:
     ansi:
       enabled: always
@@ -19,7 +26,7 @@ spring:
   jpa:
     hibernate:
 
-      ddl-auto: create
+      ddl-auto: update
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 

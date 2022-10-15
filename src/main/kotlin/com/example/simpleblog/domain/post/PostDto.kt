@@ -1,28 +1,33 @@
 package com.example.simpleblog.domain.post
 
 import com.example.simpleblog.domain.member.Member
-import java.time.LocalDateTime
-
-data class PostRes(
-        val title:String,
-        val content: String?,
-        val createAt: LocalDateTime
-)
+import com.example.simpleblog.domain.member.MemberRes
+import javax.validation.constraints.NotNull
 
 
 data class PostSaveReq(
-        val memberId:Long,
-        val title: String,
-        val content: String? = null
-){
 
-    fun toEntity():Post{
-        val member = Member.createMember(this.memberId)
-        return Post(
-                title=this.title,
-                content=this.content,
-                member = member
-        )
-    }
+    @field:NotNull(message = "require title")
+    val title:String?,
+    val content:String?,
 
+    @field:NotNull(message = "require memberId")
+    val memberId: Long?
+)
+
+
+fun PostSaveReq.toEntity(): Post {
+    return Post(
+        title = this.title ?: "",
+        content = this.content ?: "",
+        member = Member.createFakeMember(this.memberId!!)
+    )
 }
+
+
+data class PostRes(
+    val id:Long,
+    val title:String,
+    val content:String,
+    val member: MemberRes
+)

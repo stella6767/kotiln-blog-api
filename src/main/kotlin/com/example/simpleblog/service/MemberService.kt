@@ -1,9 +1,7 @@
 package com.example.simpleblog.service
 
-import com.example.simpleblog.domain.CommonJpaRepository
-import com.example.simpleblog.domain.GenericDao
-import com.example.simpleblog.domain.member.Member
-import com.example.simpleblog.domain.member.MemberRepository
+import com.example.simpleblog.domain.member.*
+import com.example.simpleblog.exception.MemberNotFoundException
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
@@ -11,19 +9,29 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 class MemberService(
-        private val memberRepository: MemberRepository,
-        private val dao: GenericDao,
+        private val memberRepository: MemberRepository
 ) {
 
 
     @Transactional(readOnly = true)
-    fun findAll(pageable: Pageable): Page<Member> {
-        return memberRepository.findAllByPage(pageable)
+    fun findAll(pageable: Pageable): Page<MemberRes> =
+        memberRepository.findMembers(pageable).map {
+            it.toDto()
+        }
+
+
+
+    @Transactional
+    fun deleteMember(id: Long){
+        return memberRepository.deleteById(id)
     }
 
-
-    fun test(){
-        dao.save(Member(email = "", password = ""))
+    @Transactional(readOnly = true)
+    fun findMemberById(id:Long): MemberRes {
+        return memberRepository.findById(id)
+            .orElseThrow{
+                throw MemberNotFoundException(id.toString())
+            }.toDto()
     }
 
 
