@@ -1,6 +1,6 @@
 package com.example.simpleblog.service.common
 
-import com.example.simpleblog.config.aop.CustomAopObject
+import com.example.simpleblog.config.aop.CurryingAopObject
 import mu.KotlinLogging
 import org.springframework.stereotype.Service
 import org.springframework.util.ResourceUtils
@@ -24,7 +24,7 @@ class LocalFileUploaderServiceImpl(
 
 
     @PostConstruct
-    fun init() = CustomAopObject.wrapTryCatchWithVoidFunc {
+    fun init() = CurryingAopObject.wrapTryCatchWithVoidFunc {
 
         val directory = File(localImgFolderPath)
 

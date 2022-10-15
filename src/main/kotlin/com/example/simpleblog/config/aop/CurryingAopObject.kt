@@ -3,7 +3,7 @@ package com.example.simpleblog.config.aop
 import mu.KotlinLogging
 
 
-object CustomAopObject {
+object CurryingAopObject {
 
     private val log = KotlinLogging.logger {  }
 
@@ -17,7 +17,6 @@ object CustomAopObject {
      * 고차함수를 통해서, AOP를 구현해볼게
      *
      */
-
 
 
 

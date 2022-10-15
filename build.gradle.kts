@@ -19,6 +19,10 @@ group = "com.example"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
+
+extra["ioCloudVersion"] = "2.4.2"
+
+
 repositories {
     mavenCentral()
     //google()
@@ -26,10 +30,19 @@ repositories {
 
 extra["snippetsDir"] = file("build/generated-snippets")
 
+dependencyManagement {
+    imports {
+        mavenBom("io.awspring.cloud:spring-cloud-aws-dependencies:${property("ioCloudVersion")}")
+    }
+}
+
+
+
 dependencies {
 
     implementation("com.auth0:java-jwt:3.19.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("io.awspring.cloud:spring-cloud-starter-aws")
 
 
     // https://mvnrepository.com/artifact/com.github.gavlyukovskiy/p6spy-spring-boot-starter
@@ -41,7 +54,7 @@ dependencies {
     implementation("com.linecorp.kotlin-jdsl:spring-data-kotlin-jdsl-starter:2.0.4.RELEASE")
     implementation("net.jodah:expiringmap:0.5.10")
 
-    implementation("it.ozimov:embedded-redis:0.7.3") { exclude(group = "org.slf4j", module = "slf4j-simple") }
+    implementation("io.findify:s3mock_2.13:0.2.6")
 
 
 // https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-hibernate5
@@ -67,6 +80,8 @@ dependencies {
     runtimeOnly("com.h2database:h2")
     runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("it.ozimov:embedded-redis:0.7.3") { exclude(group = "org.slf4j", module = "slf4j-simple") }
+
     //testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
     //testImplementation("org.springframework.security:spring-security-test")
 }

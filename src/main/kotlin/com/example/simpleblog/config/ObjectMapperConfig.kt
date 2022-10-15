@@ -21,15 +21,11 @@ import java.util.*
 @Configuration
 class ObjectMapperConfig {
 
-
-
-
-
     @Bean
     fun objectMapper(): ObjectMapper {
         val mapper = ObjectMapper()
-
         val javaTimeModule = JavaTimeModule()
+
         javaTimeModule.addSerializer(LocalDateTime::class, CustomLocalDateTimeSerializer() )
         mapper.registerModule(javaTimeModule)
 
@@ -42,7 +38,6 @@ class ObjectMapperConfig {
                 .configure(KotlinFeature.SingletonSupport, false)
                 .build()
         )
-
         return mapper
     }
 

@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile
 @Service
 class PostService(
     private val postRepository:PostRepository,
-    private val localFileUploaderServiceImpl: FileUploaderService
+    private val localS3FileUploaderServiceImpl: FileUploaderService,
 ) {
 
 
@@ -42,11 +42,8 @@ class PostService(
 
 
     fun savePostImg(image: MultipartFile): String {
-
-        return localFileUploaderServiceImpl.upload(image)
+        return localS3FileUploaderServiceImpl.upload(image)
     }
-
-
 
 
 }

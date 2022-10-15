@@ -16,21 +16,16 @@ import javax.persistence.*
 abstract class AuditingEntity(
     id:Long
 ) : AuditingEntityId(id) {
-
-
-
+    
     @CreatedDate
     @Column(name = "create_at", nullable = false, updatable = false)
     var createAt: LocalDateTime = LocalDateTime.now()
         protected set
 
-
-
     @LastModifiedDate
     @Column(name = "update_at")
     var updateAt: LocalDateTime = LocalDateTime.now()
         protected set
-
 
     protected fun setBaseDtoProperty(dto: BaseDto) {
         dto.id = this.id!!
