@@ -31,50 +31,50 @@ class InitData(
 
     }
 
-    private fun initMemberAndPosts() {
-        val members = generateMembers(100)
-        memberRepository.saveAll(members)
-        val posts = generatePost(100)
-        postRepository.saveAll(posts)
-    }
-
-    private fun generateMembers(cnt:Int): MutableList<Member> {
-        val members = mutableListOf<Member>()
-
-        for (i in 1..cnt) {
-            val member = generateMember()
-            log.info { "insert $member" }
-            members.add(member)
-        }
-        return members
-    }
-
-    private fun generatePost(cnt:Int): MutableList<Post> {
-        val posts = mutableListOf<Post>()
-
-        for (i in 1..cnt) {
-            val post = generatePost()
-            log.info { "insert $post" }
-            posts.add(post)
-        }
-        return posts
-    }
-
-
-
-    private fun generateMember(): Member = LoginDto(
-            email = faker.internet.safeEmail(),
-            rawPassword = "1234",
-            role = Role.USER
-        ).toEntity()
-
-
-    private fun generatePost():Post = PostSaveReq(
-        title = faker.theExpanse.ships(),
-        content = faker.quote.matz(),
-        memberId = (0..100).random().toLong(),
-    ).toEntity()
-
-
+//    private fun initMemberAndPosts() {
+//        val members = generateMembers(100)
+//        memberRepository.saveAll(members)
+//        val posts = generatePost(100)
+//        postRepository.saveAll(posts)
+//    }
+//
+//    private fun generateMembers(cnt:Int): MutableList<Member> {
+//        val members = mutableListOf<Member>()
+//
+//        for (i in 1..cnt) {
+//            val member = generateMember()
+//            log.info { "insert $member" }
+//            members.add(member)
+//        }
+//        return members
+//    }
+//
+//    private fun generatePost(cnt:Int): MutableList<Post> {
+//        val posts = mutableListOf<Post>()
+//
+//        for (i in 1..cnt) {
+//            val post = generatePost()
+//            log.info { "insert $post" }
+//            posts.add(post)
+//        }
+//        return posts
+//    }
+//
+//
+//
+//    private fun generateMember(): Member = LoginDto(
+//            email = faker.internet.safeEmail(),
+//            rawPassword = "1234",
+//            role = Role.USER
+//        ).toEntity()
+//
+//
+//    private fun generatePost():Post = PostSaveReq(
+//        title = faker.theExpanse.ships(),
+//        content = faker.quote.matz(),
+//        memberId = (0..100).random().toLong(),
+//    ).toEntity()
+//
+//
 
 }

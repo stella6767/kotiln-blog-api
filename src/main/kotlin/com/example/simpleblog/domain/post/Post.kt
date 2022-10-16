@@ -1,7 +1,11 @@
 package com.example.simpleblog.domain.post
 
+import com.example.simpleblog.config.jpa.converts.PostTypeConverter
 import com.example.simpleblog.domain.AuditingEntity
 import com.example.simpleblog.domain.member.Member
+import com.fasterxml.jackson.annotation.JsonCreator
+import java.time.LocalDateTime
+import java.util.*
 import javax.persistence.*
 
 
@@ -11,6 +15,8 @@ class Post(
     id: Long = 0,
     title: String ,
     content: String ,
+    reservateAt: LocalDateTime,
+    postType: PostType,
     member: Member
 ) : AuditingEntity(id) {
 
@@ -21,6 +27,16 @@ class Post(
     @Column(name = "content", length = 1000)
     var content: String = content
         protected set
+
+    @Convert(converter = PostTypeConverter::class)
+    @Column(name = "post_type")
+    var postType: PostType = postType
+        protected set
+
+    @Column(name = "resevate_at")
+    var reservateAt: LocalDateTime = reservateAt
+        protected set
+
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Member::class)
     var member: Member = member
@@ -53,4 +69,25 @@ class Post(
 }
 
 
+enum class PostType (
+    val info:String
+) {
 
+    GOSSIP("잡담"), TECH("기술");
+
+    @JsonCreator
+    fun from(s:String): PostType {
+        return PostType.valueOf(s.uppercase(Locale.KOREA))
+    }
+
+    companion object {
+
+        fun ofCode(dbData:String?): PostType {
+            return Arrays.stream(PostType.values()).filter{
+                it.name == dbData
+            }.findAny().orElse(GOSSIP)
+
+        }
+
+    }
+}
