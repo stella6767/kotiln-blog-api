@@ -26,6 +26,8 @@ class FilterConfig {
      * 9. restdoc 통한 API 문서 자동화
      * 10. gradle 멀티모듈을 통해서, domain을 공유하는 Batch 서버 작성
      * 11. 인메모리 concurrentHashmap을 통한 cache 적용
+     * 게시글 예약발행시간, 공개/비공개 처리,
+     *
      * 12. 계층형 테이블 전략
      * 13. 스프링 클라우드 모듈들을 활용해서 간단하게 MSA 환경 구축
      * 14. Docker 연동해서 배포

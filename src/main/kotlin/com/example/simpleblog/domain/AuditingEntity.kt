@@ -16,7 +16,7 @@ import javax.persistence.*
 abstract class AuditingEntity(
     id:Long
 ) : AuditingEntityId(id) {
-    
+
     @CreatedDate
     @Column(name = "create_at", nullable = false, updatable = false)
     var createAt: LocalDateTime = LocalDateTime.now()
@@ -45,7 +45,7 @@ abstract class AuditingEntityId(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = id
+    var id: Long = id
         protected set
 
 }

@@ -37,7 +37,7 @@ class Member(
     }
 
     override fun toString(): String {
-        return "Member(id=$id, email='$email', password='$password', role=$role, createdAt=$createAt)"
+        return "Member(id=$id, email='$email', password='$password', role=$role, createdAt=$createAt, updatedAt=$updateAt)"
     }
 
     companion object {

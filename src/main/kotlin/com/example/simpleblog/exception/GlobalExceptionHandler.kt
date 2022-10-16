@@ -19,19 +19,15 @@ class GlobalExceptionHandler {
     fun handleMethodArgumentNotValidException(e:MethodArgumentNotValidException): ResponseEntity<ErrorResponse> {
 
         log.error { "handleMethodArgumentNotValidException $e" }
-
         val of = ErrorResponse.of(ErrorCode.INVALID_INPUT_VALUE, e.bindingResult)
 
         return ResponseEntity(of, HttpStatus.BAD_REQUEST)
     }
 
     @ExceptionHandler(EntityNotFoundException::class)
-    fun handleEntityNotFoundException(e:EntityNotFoundException): ResponseEntity<ErrorResponse> {
-
-        log.error { "handleMethodArgumentNotValidException $e" }
-
-        val of = ErrorResponse.of(ErrorCode.ENTITY_NOT_FOUND)
-
+    fun handleEntityNotFoundException(e:BusinessException): ResponseEntity<ErrorResponse> {
+        log.error { "handleEntityNotFoundException $e" }
+        val of = ErrorResponse.of(e.errorCode)
         return ResponseEntity(of, HttpStatus.INTERNAL_SERVER_ERROR)
     }
 
