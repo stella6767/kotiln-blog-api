@@ -1,6 +1,6 @@
 package com.example.simpleblog.web
 
-import com.example.simpleblog.service.AutoCompleteService
+import com.example.simpleblog.service.PostService
 import com.example.simpleblog.util.dto.SearchCondition
 import com.example.simpleblog.util.dto.SearchType
 import mu.KotlinLogging
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class TestController(
-    private val autoCompleteService: AutoCompleteService
+    private val postService: PostService
 ) {
 
     private val log = KotlinLogging.logger {  }
@@ -19,7 +19,7 @@ class TestController(
     @GetMapping("/autocomplete")
     fun autoCompleteTest(@RequestParam word:String): MutableList<String> {
 
-        return autoCompleteService.autoCompletePostTitle(word)
+        return postService.autoCompletePostTitle(word)
     }
 
 

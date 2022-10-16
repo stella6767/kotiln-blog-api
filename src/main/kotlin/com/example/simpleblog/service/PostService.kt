@@ -16,8 +16,19 @@ import org.springframework.web.multipart.MultipartFile
 class PostService(
     private val postRepository:PostRepository,
     private val localS3FileUploaderServiceImpl: FileUploaderService,
+    private val cacheService: CacheService,
 ) {
 
+
+    @Transactional(readOnly = true)
+    fun autoCompletePostTitle(word:String): MutableList<String> {
+        val complete = cacheService.addAutoCompletePostTitle().complete(word)
+        val searchWords = mutableListOf<String>()
+        for (autocompleteData in complete) {
+            searchWords.add(autocompleteData.value)
+        }
+        return searchWords
+    }
 
     //@PreAuthorize("hasRole('ADMIN')")
     //@Secured(*["ROLE_SUPER", "ROLE_ADMIN"])

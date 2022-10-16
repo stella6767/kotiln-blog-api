@@ -1,14 +1,18 @@
 package com.example.simpleblog
 
 import com.example.simpleblog.domain.commenet.CommentSaveReq
+import com.example.simpleblog.service.CacheService
 import com.example.simpleblog.service.CommentService
 import com.example.simpleblog.setup.TestRedisConfiguration
+import mu.KotlinLogging
 import net.okihouse.autocomplete.repository.AutocompleteRepository
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.support.DefaultListableBeanFactory
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.cache.CacheManager
+import org.springframework.cache.caffeine.CaffeineCache
 import org.springframework.test.context.ActiveProfiles
 
 
@@ -19,8 +23,17 @@ class SimpleBlogApplicationTests(
     val df:DefaultListableBeanFactory
 ) {
 
+    private val log = KotlinLogging.logger {  }
+
+
     @Autowired
     private lateinit var commentService: CommentService
+
+    @Autowired
+    private lateinit var cacheManager: CacheManager
+
+    @Autowired
+    private lateinit var cacheService: CacheService
 
     @Autowired
     private lateinit var autocompleteRepository: AutocompleteRepository
@@ -28,6 +41,28 @@ class SimpleBlogApplicationTests(
 
     @Test
     fun contextLoads() {
+    }
+
+
+    @Test
+    fun cacheManagerTest(){
+
+        cacheService.addAutoCompletePostTitle()
+
+        cacheManager.cacheNames.map { cacheName->
+            log.info { "cacheName==>$cacheName" }
+            val caffeineCache = cacheManager.getCache(cacheName) as CaffeineCache
+            caffeineCache.nativeCache
+        }.forEach { cache->
+            log.info { "????===>${cache.asMap().keys}" }
+            cache.asMap().keys.forEach{
+                log.info { """                   
+                    key==> $it
+                    value ==> ${cache.getIfPresent(it).toString()}                    
+                """.trimIndent() }
+            }
+
+        }
     }
 
 
