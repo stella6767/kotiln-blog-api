@@ -47,9 +47,8 @@ class Post(
 
     companion object {
 
-
-
     }
+
 
 }
 

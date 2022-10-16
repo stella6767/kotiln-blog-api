@@ -13,13 +13,13 @@ class CommentClosure(
     depth:Int = 0,
 ) : AuditingEntity(id) {
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_ancestor", nullable = true)
     var idAncestor = idAncestor
         protected set
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_descendant", nullable = true)
+    @JoinColumn(name = "id_descendant", nullable = false)
     var idDescendant = idDescendant
         protected set
 

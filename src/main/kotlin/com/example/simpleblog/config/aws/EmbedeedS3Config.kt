@@ -33,7 +33,6 @@ class EmbedeedS3Config {
     @Bean
     fun amazonS3 (): AmazonS3 {
 
-
         val endpoint = EndpointConfiguration(serviceEndpoint, region)
         val client: AmazonS3 = AmazonS3ClientBuilder
             .standard()

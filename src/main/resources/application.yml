@@ -1,5 +1,6 @@
 
 server:
+
   port: 9000
   servlet:
     context-path: /
@@ -9,6 +10,10 @@ server:
 
 
 spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
   profiles:
     active: local
 
@@ -36,6 +41,7 @@ spring:
         default_batch_fetch_size: 1000
         globally_quoted_identifiers: true
     show-sql: true
+
 
 
 

@@ -38,6 +38,7 @@ class ObjectMapperConfig {
                 .configure(KotlinFeature.SingletonSupport, false)
                 .build()
         )
+
         return mapper
     }
 

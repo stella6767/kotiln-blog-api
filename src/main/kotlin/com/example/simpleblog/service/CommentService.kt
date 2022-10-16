@@ -25,15 +25,21 @@ class CommentService(
 
     @Transactional
     fun saveComment(dto: CommentSaveReq): CommentRes {
+
         val post =
             postRepository.findById(dto.postId).orElseThrow { throw PostNotFoundException(dto.postId.toString()) }
 
         val comment: Comment = commentRepository.saveComment(dto.toEntity(post = post))
-        //commentRepository.saveCommentClosure(comment.id, dto.idAncestor)
 
-        log.info { "comment ===> $comment,  post===>$post" }
-
+        commentRepository.saveCommentClosure(comment.id, dto.idAncestor)
         return comment.toDto()
+    }
+
+
+    @Transactional(readOnly = true)
+    fun findCommentByAncestorComment(idAncestor:Long): List<CommentRes> {
+
+        return commentRepository.findCommentByAncestorComment(idAncestor).map { it.toDto() }
     }
 
 

@@ -2,6 +2,8 @@ package com.example.simpleblog.setup
 
 import org.mockito.Mockito
 
+
+
 object MockitoHelper {
 
     fun <T> anyObject(): T {
@@ -11,4 +13,5 @@ object MockitoHelper {
 
     @Suppress("UNCHECKED_CAST")
     fun <T> uninitialized(): T = null as T
+
 }
