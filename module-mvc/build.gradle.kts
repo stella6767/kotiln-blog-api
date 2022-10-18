@@ -3,7 +3,7 @@
 
 dependencies {
 
-    api(project(":module-core"))
+    implementation(project(":module-core"))
 
     // https://mvnrepository.com/artifact/com.github.okihouse/autocomplete
     implementation("com.github.okihouse:autocomplete:1.0.2")

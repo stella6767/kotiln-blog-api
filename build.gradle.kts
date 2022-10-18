@@ -1,11 +1,18 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+//buildscript {
+//    dependencies {
+//        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.0.RELEASE")
+//    }
+//
+//}
+
 plugins {
     id("org.springframework.boot") version "2.7.1" apply false
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     id("org.asciidoctor.convert") version "1.5.8"
     kotlin("jvm") version "1.6.21"
-    kotlin("plugin.spring") version "1.6.21"
+    kotlin("plugin.spring") version "1.6.21" apply false
     kotlin("plugin.jpa") version "1.6.21" apply false
 }
 
@@ -74,9 +81,10 @@ allprojects {
 subprojects {
 
     dependencies {
+        implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
         implementation("io.awspring.cloud:spring-cloud-starter-aws")
-        implementation("org.springframework.boot:spring-boot-starter-data-jpa")
         implementation("io.github.microutils:kotlin-logging:2.1.23")
         implementation("org.springframework.boot:spring-boot-starter-aop:2.7.0")
         //implementation("org.springframework.boot:spring-boot-starter-actuator")
