@@ -15,7 +15,7 @@ class CacheService(
 
     private val log = KotlinLogging.logger { }
 
-    @Cacheable(cacheNames = [CacheType.postName], key = "T(CacheType).POST_NAME.cacheKey" )
+    @Cacheable(cacheNames = [CacheType.postName], key = "T(com.example.simpleblog.mvc.config.cache.CacheType).POST_NAME.cacheKey" )
     fun addAutoCompletePostTitle(): AutocompleteRepository {
         postRepository.findAll().forEach {
             autocompleteRepository.add(it.title)

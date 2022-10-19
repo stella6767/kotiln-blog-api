@@ -1,24 +1,24 @@
 package com.example.simpleblog.mvc.service
 
 
-import com.example.simpleblog.config.redis.repo.InMemoryRepository
-import com.example.simpleblog.setup.TestRedisConfiguration
+
+import com.example.simpleblog.mvc.config.redis.repo.InMemoryService
+import com.example.simpleblog.mvc.setup.TestRedisConfiguration
 import mu.KotlinLogging
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.context.annotation.Import
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.Executors
 
 
 @Import(TestRedisConfiguration::class)
-@SpringBootTest
 class RedisRepositoryTest {
 
     @Autowired
-    private lateinit var redisRepositoryImpl: InMemoryRepository
+    private lateinit var redisRepositoryImpl: InMemoryService
+
 
 
     private val log = KotlinLogging.logger {  }
@@ -30,7 +30,7 @@ class RedisRepositoryTest {
     }
 
 
-    @Test
+    //@Test
     fun redisRepoTest(){
 
         val numberOfThreads = 1000
@@ -53,6 +53,18 @@ class RedisRepositoryTest {
         }
         Assertions.assertThat(results.size).isEqualTo(numberOfThreads)
     }
+
+
+//    @TestConfiguration
+//    class config(
+//        @Autowired
+//        val redisTemplate: RedisTemplate<String, Any>
+//    ) {
+//        @Bean
+//        fun inMemoryRepository(): InMemoryRepository{
+//            return RedisRepositoryImpl(redisTemplate)
+//        }
+//    }
 
 
 

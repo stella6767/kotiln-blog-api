@@ -1,9 +1,13 @@
 package com.example.simpleblog.mvc
 
-import com.example.simpleblog.service.CacheService
-import com.example.simpleblog.service.CommentService
-import com.example.simpleblog.setup.TestRedisConfiguration
-import com.example.simpleblog.web.dto.CommentSaveReq
+
+
+
+
+import com.example.simpleblog.mvc.service.CacheService
+import com.example.simpleblog.mvc.service.CommentService
+import com.example.simpleblog.mvc.setup.TestRedisConfiguration
+import com.example.simpleblog.mvc.web.dto.CommentSaveReq
 import mu.KotlinLogging
 import net.okihouse.autocomplete.repository.AutocompleteRepository
 import org.junit.jupiter.api.Assertions
@@ -18,7 +22,7 @@ import org.springframework.test.context.ActiveProfiles
 
 @ActiveProfiles("test")
 @SpringBootTest(classes = [TestRedisConfiguration::class])
-internal class SimpleBlogApplicationTests(
+internal class SimpleBlogModuleMvcApplicationTests(
     @Autowired
     val df: DefaultListableBeanFactory
 ) {
@@ -41,6 +45,7 @@ internal class SimpleBlogApplicationTests(
 
     @Test
     fun contextLoads() {
+
     }
 
 

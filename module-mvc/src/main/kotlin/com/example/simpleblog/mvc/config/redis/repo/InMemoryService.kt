@@ -1,6 +1,6 @@
 package com.example.simpleblog.mvc.config.redis.repo
 
-interface InMemoryRepository {
+interface InMemoryService {
 
     fun clear()
     fun remove(key: String): Any?

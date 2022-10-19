@@ -1,8 +1,8 @@
 package com.example.simpleblog.mvc.config.security
 
-import com.example.simpleblog.mvc.config.redis.repo.InMemoryRepository
-import com.example.simpleblog.mvc.config.redis.repo.RedisRepositoryImpl
 import com.example.simpleblog.core.domain.member.MemberRepository
+import com.example.simpleblog.mvc.config.redis.repo.InMemoryService
+import com.example.simpleblog.mvc.config.redis.repo.RedisServiceImpl
 import com.example.simpleblog.mvc.util.CookieProvider
 import com.example.simpleblog.mvc.util.Script
 import com.example.simpleblog.mvc.web.dto.common.CmResDto
@@ -191,8 +191,8 @@ class SecurityConfig(
 
 
     @Bean
-    fun inmemoryRepository(): InMemoryRepository {
-        return RedisRepositoryImpl(this.redisTemplate)
+    fun inmemoryRepository(): InMemoryService {
+        return RedisServiceImpl(this.redisTemplate)
     }
 
 

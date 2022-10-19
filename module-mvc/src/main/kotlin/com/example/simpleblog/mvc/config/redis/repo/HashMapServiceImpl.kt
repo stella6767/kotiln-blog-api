@@ -7,14 +7,14 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 
 
-open class HashMapRepositoryImpl(
+open class HashMapServiceImpl(
 
-) : InMemoryRepository {
+) : InMemoryService {
 
     private val log = KotlinLogging.logger {  }
     //private val store = ConcurrentHashMap<String, Any>()
     private val store:MutableMap<String, Any> = ExpiringMap.builder()
-        .expiration(1000, TimeUnit.MILLISECONDS)
+        .expiration(1000, TimeUnit.DAYS)
         .expirationPolicy(ExpirationPolicy.CREATED)
         .expirationListener{ key:String, value:Any ->
             log.info { "key: $key  , value: $value expired" }

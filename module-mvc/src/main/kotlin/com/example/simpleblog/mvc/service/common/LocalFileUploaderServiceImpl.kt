@@ -21,7 +21,7 @@ class LocalFileUploaderServiceImpl(
     private val log = KotlinLogging.logger {  }
 
 
-    val localImgFolderPath = "src/main/resources/static/postImg"
+    val localImgFolderPath = "module-mvc/src/main/resources/static/postImg"
 
 
     @PostConstruct

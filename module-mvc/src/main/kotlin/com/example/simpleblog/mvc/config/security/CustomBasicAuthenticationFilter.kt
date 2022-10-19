@@ -1,8 +1,8 @@
 package com.example.simpleblog.mvc.config.security
 
 import com.auth0.jwt.exceptions.TokenExpiredException
-import com.example.simpleblog.mvc.config.redis.repo.InMemoryRepository
 import com.example.simpleblog.core.domain.member.MemberRepository
+import com.example.simpleblog.mvc.config.redis.repo.InMemoryService
 import com.example.simpleblog.mvc.util.CookieProvider
 import com.fasterxml.jackson.databind.ObjectMapper
 import mu.KotlinLogging
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse
 
 class CustomBasicAuthenticationFilter(
     private val memberRepository: MemberRepository,
-    private val memoryRepository: InMemoryRepository,
+    private val memoryRepository: InMemoryService,
     private val om: ObjectMapper,
     authenticationManager: AuthenticationManager
 ) : BasicAuthenticationFilter(authenticationManager) {

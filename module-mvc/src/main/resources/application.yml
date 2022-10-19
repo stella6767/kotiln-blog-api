@@ -10,6 +10,13 @@ server:
 
 
 spring:
+  data:
+    redis:
+      repositories:
+        enabled: false
+  main:
+    allow-bean-definition-overriding: false
+
   servlet:
     multipart:
       max-file-size: 100MB

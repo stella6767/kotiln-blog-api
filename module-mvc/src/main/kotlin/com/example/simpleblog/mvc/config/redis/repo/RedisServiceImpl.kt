@@ -7,9 +7,9 @@ import java.time.Duration
 import java.util.*
 
 
-open class RedisRepositoryImpl(
+open class RedisServiceImpl(
     private val redisTemplate: RedisTemplate<String,Any>
-) : InMemoryRepository{
+) : InMemoryService{
 
     private val log = KotlinLogging.logger {  }
 

@@ -6,6 +6,7 @@ import com.example.simpleblog.core.domain.post.PostRes
 import com.example.simpleblog.core.util.dto.SearchCondition
 import com.example.simpleblog.mvc.exception.PostNotFoundException
 import com.example.simpleblog.mvc.service.common.FileUploaderService
+import com.example.simpleblog.mvc.service.common.LocalFileUploaderServiceImpl
 import com.example.simpleblog.mvc.web.dto.PostSaveReq
 
 import org.springframework.data.domain.Page
@@ -18,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile
 @Service
 class PostService(
     private val postRepository: PostRepository,
-    private val localS3FileUploaderServiceImpl: FileUploaderService,
+    private val localFileUploaderServiceImpl:  FileUploaderService,
     private val cacheService: CacheService,
 ) {
 
@@ -58,7 +59,7 @@ class PostService(
 
 
     fun savePostImg(image: MultipartFile): String {
-        return localS3FileUploaderServiceImpl.upload(image)
+        return localFileUploaderServiceImpl.upload(image)
     }
 
 

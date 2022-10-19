@@ -13,14 +13,15 @@ import org.springframework.data.support.PageableExecutionUtils
 
 interface MemberRepository : JpaRepository<Member, Long>, MemberCustomRepository {
 
+
 }
 
 interface MemberCustomRepository{
 
-
     fun findMembers(pageable: Pageable): Page<Member>
     fun findMemberByEmail(email: String): Member
 }
+
 
 class MemberCustomRepositoryImpl(
     private val queryFactory: SpringDataQueryFactory,

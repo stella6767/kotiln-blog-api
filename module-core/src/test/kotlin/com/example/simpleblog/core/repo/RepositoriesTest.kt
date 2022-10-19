@@ -1,6 +1,6 @@
-package com.example.simpleblog.mvc.repo
+package com.example.simpleblog.core.repo
 
-import com.example.simpleblog.core.config.P6spyPrettySqlFormatter
+import com.example.simpleblog.core.config.P6SpyLoggingConfig
 import com.example.simpleblog.core.domain.commenet.CommentRepository
 import com.example.simpleblog.core.domain.commenet.CommentRepositoryImpl
 import com.example.simpleblog.core.domain.post.PostRepository
@@ -96,7 +96,7 @@ class RepositoriesTest {
 
         @Bean
         fun springDataQueryFactory(): SpringDataQueryFactory {
-            P6SpyOptions.getActiveInstance().logMessageFormat = P6spyPrettySqlFormatter::class.java.name
+            P6SpyOptions.getActiveInstance().logMessageFormat = P6SpyLoggingConfig.P6spyPrettySqlFormatter::class.java.name
             return SpringDataQueryFactoryImpl(
                 criteriaQueryCreator = CriteriaQueryCreatorImpl(
                     em

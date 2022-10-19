@@ -1,18 +1,13 @@
 package com.example.simpleblog.mvc.util
 
-import com.example.simpleblog.config.redis.repo.HashMapRepositoryImpl
-import com.example.simpleblog.config.redis.repo.InMemoryRepository
-import com.example.simpleblog.config.security.JwtManager
-import com.example.simpleblog.config.security.PrincipalDetails
-import com.example.simpleblog.core.domain.member.Member
 
-import com.example.simpleblog.service.common.FileUploaderService
-import com.example.simpleblog.service.common.LocalFileUploaderServiceImpl
-import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import com.fasterxml.jackson.module.kotlin.KotlinFeature
-import com.fasterxml.jackson.module.kotlin.KotlinModule
+import com.example.simpleblog.mvc.config.redis.repo.HashMapServiceImpl
+import com.example.simpleblog.mvc.config.redis.repo.InMemoryService
+import com.example.simpleblog.mvc.service.common.FileUploaderService
+import com.example.simpleblog.mvc.service.common.LocalFileUploaderServiceImpl
+
+
+
 import mu.KotlinLogging
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
@@ -30,7 +25,7 @@ class UtilTest {
 
     private val log = KotlinLogging.logger {  }
 
-    val mapper = ObjectMapper()
+
 
 
     @Test
@@ -58,10 +53,8 @@ class UtilTest {
     @Test
     fun hashMapRepoTest(){
 
-        val repo: InMemoryRepository = HashMapRepositoryImpl()
-
+        val repo: InMemoryService = HashMapServiceImpl()
         val numberOfThreads = 1000
-
         val service = Executors.newFixedThreadPool(10)
         val latch = CountDownLatch(numberOfThreads)
 
@@ -105,53 +98,9 @@ class UtilTest {
 
 
     @Test
-    fun generateJwtTest(){
-
-        mapper.registerModule(JavaTimeModule())
-        mapper.registerModule(
-            KotlinModule.Builder()
-                .configure(KotlinFeature.StrictNullChecks, false)
-                .configure(KotlinFeature.NullIsSameAsDefault, false)
-                .configure(KotlinFeature.NullToEmptyMap, false)
-                .configure(KotlinFeature.NullToEmptyCollection, false)
-                .configure(KotlinFeature.SingletonSupport, false)
-                .build()
-        )
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-//        mapper.registerModule(CoreJackson2Module())
-//        mapper.addMixIn(Member.javaClass, PrincipalDetails::class.java)
-//        val deserialization = SimpleModule()
-//        deserialization.addDeserializer(PrincipalDetails::class.java, PrincipalDetails())
-//        mapper.registerModule(deserialization)
-
-//        var simpleModule = SimpleModule()
-//            .addAbstractTypeMapping(UserDetails.class, PrincipalDetails.class )
+    fun generateJwtTest() {
 
 
-        val jwtManager = JwtManager(accessTokenExpireSecond = 1)
-
-
-        val details = PrincipalDetails(Member.createFakeMember(1))
-        val jsonPrincipal = mapper.writeValueAsString(details)
-        val accessToken = jwtManager.generateAccessToken(jsonPrincipal)
-
-
-        Thread.sleep(3000)
-
-//        val decodedJWT = jwtManager.validatedJwt(accessToken)
-//
-//        val principalString = decodedJWT.getClaim(jwtManager.claimPrincipal).asString()
-//        val principalDetails: PrincipalDetails = mapper.readValue(principalString, PrincipalDetails::class.java)
-//
-//        log.info { "result=>${principalDetails.member}" }
-//
-//        principalDetails.authorities.forEach {
-//            println(it.authority)
-//        }
-//
-//        details.authorities.forEach {
-//            println(it.authority)
-//        }
     }
 
 

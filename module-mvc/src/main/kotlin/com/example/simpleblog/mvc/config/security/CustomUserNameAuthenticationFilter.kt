@@ -1,7 +1,7 @@
 package com.example.simpleblog.mvc.config.security
 
 
-import com.example.simpleblog.mvc.config.redis.repo.InMemoryRepository
+import com.example.simpleblog.mvc.config.redis.repo.InMemoryService
 import com.example.simpleblog.mvc.util.CookieProvider
 import com.example.simpleblog.mvc.util.CookieProvider.CookieName
 import com.example.simpleblog.mvc.util.Script
@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse
 
 class CustomUserNameAuthenticationFilter(
     private val om: ObjectMapper,
-    private val memoryRepository: InMemoryRepository,
+    private val memoryRepository: InMemoryService,
 ) : UsernamePasswordAuthenticationFilter() {
 
     private val log = KotlinLogging.logger {  }

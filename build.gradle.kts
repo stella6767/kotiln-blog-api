@@ -18,10 +18,14 @@ plugins {
 
 java.sourceCompatibility = JavaVersion.VERSION_11
 
+val projectGroup: String by project
+val applicationVersion: String by project
+
+
 allprojects {
 
-    group = "com.example"
-    version = "0.0.1-SNAPSHOT"
+    group = projectGroup
+    version = applicationVersion
 
     extra["snippetsDir"] = file("build/generated-snippets")
     extra["ioCloudVersion"] = "2.4.2"
