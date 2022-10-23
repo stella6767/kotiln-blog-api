@@ -15,7 +15,6 @@ class OrderNoInitListner {
 
     @PostPersist
     fun postInsert(entity: AuditingEntity) {
-
         log.info { "after persist=>${entity.id}" }
         CoreBeanAccesseor.getBean(JDBCTemplateRepository::class).updatePostOrderNo(entity.id)
     }

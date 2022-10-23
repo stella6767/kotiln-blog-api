@@ -21,13 +21,17 @@ data class PostSaveReq(
 
     fun toEntity(): Post {
 
-        return Post(
+        val post = Post(
             title = this.title ?: "",
             content = this.content ?: "",
             member = Member.createFakeMember(this.memberId!!),
             reservateAt = this.reservateAt,
             postType = this.postType
         )
+
+        if (post.reservateAt != null) post.closedEntity()
+
+        return post
     }
 
 

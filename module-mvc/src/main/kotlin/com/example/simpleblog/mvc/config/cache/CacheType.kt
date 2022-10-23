@@ -8,7 +8,7 @@ enum class CacheType(
 ) {
 
     POST_NAME(Constant.postName, 100, 10_000, "postNameKey");
-    
+
     object Constant {
         const val postName = "postName"
     }

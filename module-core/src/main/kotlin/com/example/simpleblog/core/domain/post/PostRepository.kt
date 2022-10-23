@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.support.PageableExecutionUtils
+import java.time.LocalDateTime
 import javax.persistence.criteria.JoinType
 
 interface PostRepository : JpaRepository<Post, Long>, PostCustomRepository {
@@ -22,7 +23,8 @@ interface PostRepository : JpaRepository<Post, Long>, PostCustomRepository {
 interface PostCustomRepository{
 
     fun findPosts(pageable: Pageable, searchCondition: SearchCondition): Page<Post>
-    fun updateOrderNo(orderNo: Long)
+
+    fun updateDeleteAtByReservateAt(ids: List<Long>): Int
 }
 
 class PostCustomRepositoryImpl(
@@ -58,14 +60,14 @@ class PostCustomRepositoryImpl(
     }
 
 
-    override fun updateOrderNo(orderNo: Long){
+    override fun updateDeleteAtByReservateAt(ids: List<Long>): Int {
 
         val updateQuery = queryFactory.updateQuery<Post> {
-            where(col(Post::id).equal(orderNo))
-            setParams(col(Post::orderNo) to orderNo)
+            where(col(Post::id).`in`(ids))
+            setParams(col(Post::deleteAt) to null)
         }
 
-        updateQuery.executeUpdate()
+        return updateQuery.executeUpdate()
     }
 
 
