@@ -1,12 +1,14 @@
 package com.example.simpleblog.core.domain.post
 
 import com.example.simpleblog.config.jpa.converts.PostTypeConverter
+import com.example.simpleblog.core.config.jpa.OrderNoInitListner
 import com.example.simpleblog.core.domain.AuditingEntity
 import com.example.simpleblog.core.domain.member.Member
 import com.fasterxml.jackson.annotation.JsonCreator
 import java.time.LocalDateTime
 import java.util.*
 import javax.persistence.*
+
 
 
 @Entity

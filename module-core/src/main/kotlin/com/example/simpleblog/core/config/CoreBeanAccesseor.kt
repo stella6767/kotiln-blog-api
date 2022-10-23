@@ -1,4 +1,4 @@
-package com.example.simpleblog.mvc.config
+package com.example.simpleblog.core.config
 
 import mu.KotlinLogging
 import org.springframework.context.ApplicationContext
@@ -8,7 +8,7 @@ import kotlin.reflect.KClass
 
 
 @Configuration(proxyBeanMethods = false)
-class BeanAccesseor(
+class CoreBeanAccesseor(
 ) : ApplicationContextAware {
 
     private val log = KotlinLogging.logger {  }
@@ -18,7 +18,7 @@ class BeanAccesseor(
     }
 
     override fun setApplicationContext(applicationContext: ApplicationContext) {
-        BeanAccesseor.applicationContext = applicationContext
+        CoreBeanAccesseor.applicationContext = applicationContext
     }
 
     companion object{

@@ -5,7 +5,11 @@ import javax.persistence.*
 
 
 @Entity
-@Table(name = "Comment_closure")
+@Table(name = "Comment_closure",
+    uniqueConstraints = [
+        UniqueConstraint(columnNames = ["id_ancestor","id_descendant"])
+    ]
+)
 class CommentClosure(
     id:Long = 0,
     idAncestor: Comment? = null,
@@ -30,6 +34,5 @@ class CommentClosure(
     override fun toString(): String {
         return "CommentClosure(id=$id, idAncestor=$idAncestor, idDescendant=$idDescendant, depth=$depth)"
     }
-
 
 }

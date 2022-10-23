@@ -2,7 +2,7 @@ package com.example.simpleblog.mvc.web.dto
 
 import com.example.simpleblog.core.domain.member.Member
 import com.example.simpleblog.core.domain.member.Role
-import com.example.simpleblog.mvc.config.BeanAccesseor
+import com.example.simpleblog.mvc.config.MVCBeanAccesseor
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import javax.validation.constraints.NotNull
 
@@ -33,7 +33,7 @@ data class LoginDto(
 
 
     private fun encodeRawPassword(): String =
-        BeanAccesseor.getBean(BCryptPasswordEncoder::class )
+        MVCBeanAccesseor.getBean(BCryptPasswordEncoder::class )
             .encode(this.rawPassword)
 
 }

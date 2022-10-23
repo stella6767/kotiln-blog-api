@@ -7,11 +7,11 @@ enum class CacheType(
     val cacheKey:String,
 ) {
 
-    POST_NAME("postName", 100, 10_000, "postTitleKey");
-
-
-    companion object {
+    POST_NAME(Constant.postName, 100, 10_000, "postNameKey");
+    
+    object Constant {
         const val postName = "postName"
-
     }
+
+
 }
