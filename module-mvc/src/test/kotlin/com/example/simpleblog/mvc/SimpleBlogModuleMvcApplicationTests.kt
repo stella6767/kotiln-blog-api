@@ -5,42 +5,35 @@ package com.example.simpleblog.mvc
 
 
 import com.example.simpleblog.mvc.service.CacheService
-import com.example.simpleblog.mvc.service.CommentService
+import com.example.simpleblog.mvc.service.comment.CommentService
 import com.example.simpleblog.mvc.setup.TestRedisConfiguration
 import com.example.simpleblog.mvc.web.dto.CommentSaveReq
 import mu.KotlinLogging
 import net.okihouse.autocomplete.repository.AutocompleteRepository
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.support.DefaultListableBeanFactory
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.cache.CacheManager
 import org.springframework.cache.caffeine.CaffeineCache
-import org.springframework.test.context.ActiveProfiles
+import org.springframework.test.context.TestConstructor
 
 
-@ActiveProfiles("test")
-@SpringBootTest(classes = [TestRedisConfiguration::class])
+@SpringBootTest(
+    classes = [TestRedisConfiguration::class],
+    properties = ["spring.profiles.active=test"]
+)
+@TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
 internal class SimpleBlogModuleMvcApplicationTests(
-    @Autowired
-    val df: DefaultListableBeanFactory
+    private val df: DefaultListableBeanFactory,
+    private val commentService: CommentService,
+    private val cacheManager: CacheManager,
+    private val cacheService: CacheService,
+    private val autocompleteRepository: AutocompleteRepository,
 ) {
 
+
     private val log = KotlinLogging.logger {  }
-
-
-    @Autowired
-    private lateinit var commentService: CommentService
-
-    @Autowired
-    private lateinit var cacheManager: CacheManager
-
-    @Autowired
-    private lateinit var cacheService: CacheService
-
-    @Autowired
-    private lateinit var autocompleteRepository: AutocompleteRepository
 
 
     @Test

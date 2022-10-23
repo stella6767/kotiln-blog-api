@@ -1,4 +1,4 @@
-package com.example.simpleblog.mvc.service.common
+package com.example.simpleblog.mvc.service.file
 
 import com.amazonaws.services.s3.AmazonS3
 import com.amazonaws.services.s3.model.ObjectMetadata

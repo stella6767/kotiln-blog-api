@@ -1,7 +1,8 @@
 package com.example.simpleblog.mvc.web
 
 
-import com.example.simpleblog.mvc.service.CommentService
+import com.example.simpleblog.mvc.service.comment.CommentQueryService
+import com.example.simpleblog.mvc.service.comment.CommentService
 import com.example.simpleblog.mvc.web.dto.CommentSaveReq
 import com.example.simpleblog.mvc.web.dto.common.CmResDto
 import org.springframework.http.HttpStatus
@@ -12,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class CommentController(
-    private val commentService: CommentService
+    private val commentService: CommentService,
+    private val commentQueryService: CommentQueryService,
 ) {
 
 
@@ -28,7 +30,7 @@ class CommentController(
         return CmResDto(
             HttpStatus.OK,
             "find comment By idAncestor",
-            commentService.findCommentByAncestorComment(idAncestor)
+            commentQueryService.findCommentByAncestorComment(idAncestor)
         )
     }
 

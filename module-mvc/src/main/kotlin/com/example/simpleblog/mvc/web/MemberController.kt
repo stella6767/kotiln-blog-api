@@ -1,6 +1,7 @@
 package com.example.simpleblog.mvc.web
 
-import com.example.simpleblog.mvc.service.MemberService
+import com.example.simpleblog.mvc.service.member.MemberQueryService
+import com.example.simpleblog.mvc.service.member.MemberService
 import com.example.simpleblog.mvc.web.dto.common.CmResDto
 import org.springframework.data.domain.Pageable
 import org.springframework.data.web.PageableDefault
@@ -14,18 +15,19 @@ import javax.servlet.http.HttpSession
 
 @RestController
 class MemberController(
-        private val memberService: MemberService
+        private val memberService: MemberService,
+        private val memberQueryService: MemberQueryService,
 ) {
 
     @GetMapping("/members")
     fun findAll(@PageableDefault(size = 10) pageable: Pageable, session: HttpSession): CmResDto<*> {
-        return CmResDto(HttpStatus.OK, "find All Members", memberService.findAll(pageable))
+        return CmResDto(HttpStatus.OK, "find All Members", memberQueryService.findAll(pageable))
     }
 
 
     @GetMapping("/member/{id}")
     fun findById(@PathVariable id:Long): CmResDto<Any> {
-        return CmResDto(HttpStatus.OK, "find Member by id", memberService.findMemberById(id))
+        return CmResDto(HttpStatus.OK, "find Member by id", memberQueryService.findMemberById(id))
     }
 
 

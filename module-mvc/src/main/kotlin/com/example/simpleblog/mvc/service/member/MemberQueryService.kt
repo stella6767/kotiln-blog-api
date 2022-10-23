@@ -1,4 +1,4 @@
-package com.example.simpleblog.mvc.service
+package com.example.simpleblog.mvc.service.member
 
 import com.example.simpleblog.core.domain.member.MemberRepository
 import com.example.simpleblog.core.domain.member.MemberRes
@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-class MemberService(
+@Transactional(readOnly = true)
+class MemberQueryService(
         private val memberRepository: MemberRepository
 ) {
 
 
-    @Transactional(readOnly = true)
     fun findAll(pageable: Pageable): Page<MemberRes> =
         memberRepository.findMembers(pageable).map {
             it.toDto()
@@ -23,12 +23,6 @@ class MemberService(
 
 
 
-    @Transactional
-    fun deleteMember(id: Long){
-        return memberRepository.deleteById(id)
-    }
-
-    @Transactional(readOnly = true)
     fun findMemberById(id:Long): MemberRes {
         return memberRepository.findById(id)
             .orElseThrow{

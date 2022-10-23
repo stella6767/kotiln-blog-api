@@ -1,4 +1,4 @@
-package com.example.simpleblog.mvc.service.common
+package com.example.simpleblog.mvc.service.file
 
 import org.springframework.web.multipart.MultipartFile
 

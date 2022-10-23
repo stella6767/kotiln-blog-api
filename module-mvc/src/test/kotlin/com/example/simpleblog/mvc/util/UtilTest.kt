@@ -3,8 +3,8 @@ package com.example.simpleblog.mvc.util
 
 import com.example.simpleblog.mvc.config.redis.repo.HashMapServiceImpl
 import com.example.simpleblog.mvc.config.redis.repo.InMemoryService
-import com.example.simpleblog.mvc.service.common.FileUploaderService
-import com.example.simpleblog.mvc.service.common.LocalFileUploaderServiceImpl
+import com.example.simpleblog.mvc.service.file.FileUploaderService
+import com.example.simpleblog.mvc.service.file.LocalFileUploaderServiceImpl
 
 
 

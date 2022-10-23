@@ -2,7 +2,8 @@ package com.example.simpleblog.mvc.web
 
 
 import com.example.simpleblog.core.util.dto.SearchCondition
-import com.example.simpleblog.mvc.service.PostService
+import com.example.simpleblog.mvc.service.post.PostQueryService
+import com.example.simpleblog.mvc.service.post.PostService
 import com.example.simpleblog.mvc.web.dto.PostSaveReq
 import com.example.simpleblog.mvc.web.dto.common.CmResDto
 import org.springframework.data.domain.Pageable
@@ -15,7 +16,8 @@ import javax.validation.Valid
 
 @RestController
 class PostController(
-    private val postService: PostService
+    private val postService: PostService,
+    private val postQueryService: PostQueryService,
 ) {
 
 
@@ -23,13 +25,13 @@ class PostController(
     fun findPosts(@PageableDefault(size = 10) pageable: Pageable,
                   searchCondition: SearchCondition
     ): CmResDto<*> {
-        return CmResDto(HttpStatus.OK, "find posts", postService.findPosts(pageable,searchCondition))
+        return CmResDto(HttpStatus.OK, "find posts", postQueryService.findPosts(pageable,searchCondition))
     }
 
     @GetMapping("/post/{id}")
     fun findById(@PathVariable id:Long): CmResDto<Any> {
 
-        return CmResDto(HttpStatus.OK, "find Post by id", postService.findById(id))
+        return CmResDto(HttpStatus.OK, "find Post by id", postQueryService.findById(id))
     }
 
 

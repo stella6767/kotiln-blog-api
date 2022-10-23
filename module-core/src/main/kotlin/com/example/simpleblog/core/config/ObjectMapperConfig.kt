@@ -50,9 +50,6 @@ class ObjectMapperConfig {
 
     class CustomLocalDateTimeSerializer(): JsonSerializer<LocalDateTime>() {
 
-        private val dateTimeFormat = "yyyy-MM-dd HH:mm:ss"
-        private val formatter = DateTimeFormatter.ofPattern(dateTimeFormat, Locale.KOREA)
-
         override fun serialize(value: LocalDateTime, gen: JsonGenerator, serializers: SerializerProvider) {
             gen.writeString(formatter.format(value))
         }
@@ -61,14 +58,16 @@ class ObjectMapperConfig {
 
     class CustomLocalDateTimeDeSerializer(): JsonDeserializer<LocalDateTime>(){
 
-        private val dateTimeFormat = "yyyy-MM-dd HH:mm:ss"
-        private val formatter = DateTimeFormatter.ofPattern(dateTimeFormat, Locale.KOREA)
-
         override fun deserialize(p: JsonParser, ctxt: DeserializationContext): LocalDateTime {
             return LocalDateTime.parse(p.text, formatter)
         }
 
     }
 
+
+    companion object {
+        private val dateTimeFormat = "yyyy-MM-dd HH:mm:ss"
+        private val formatter = DateTimeFormatter.ofPattern(dateTimeFormat, Locale.KOREA)
+    }
 
 }

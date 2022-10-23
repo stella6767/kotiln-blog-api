@@ -1,4 +1,4 @@
-package com.example.simpleblog.mvc.service
+package com.example.simpleblog.mvc.service.comment
 
 import com.example.simpleblog.core.domain.commenet.Comment
 import com.example.simpleblog.core.domain.commenet.CommentRepository
@@ -13,25 +13,12 @@ import org.springframework.transaction.annotation.Transactional
 
 
 @Service
-class CommentService(
+@Transactional(readOnly = true)
+class CommentQueryService(
     private val commentRepository: CommentRepository,
-    private val postRepository: PostRepository,
 ) {
 
     private val log = KotlinLogging.logger { }
-
-    @Transactional
-    fun saveComment(dto: CommentSaveReq): CommentRes {
-
-        val post =
-            postRepository.findById(dto.postId).orElseThrow { throw PostNotFoundException(dto.postId.toString()) }
-
-        val comment: Comment = commentRepository.saveComment(dto.toEntity(post = post))
-
-        commentRepository.saveCommentClosure(comment.id, dto.idAncestor)
-        return comment.toDto()
-    }
-
 
     @Transactional(readOnly = true)
     fun findCommentByAncestorComment(idAncestor:Long): List<CommentRes> {

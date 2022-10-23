@@ -6,6 +6,7 @@ import com.example.simpleblog.core.domain.member.Member
 import com.example.simpleblog.core.domain.post.Post
 import com.example.simpleblog.core.domain.post.PostRepository
 import com.example.simpleblog.core.domain.post.PostType
+import com.example.simpleblog.mvc.service.comment.CommentService
 import com.example.simpleblog.mvc.setup.MockitoHelper
 import com.example.simpleblog.mvc.web.dto.CommentSaveReq
 

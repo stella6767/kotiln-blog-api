@@ -1,4 +1,4 @@
-package com.example.simpleblog.mvc.service.common
+package com.example.simpleblog.mvc.service.file
 
 
 import com.example.simpleblog.mvc.config.aop.CurryingAopObject
