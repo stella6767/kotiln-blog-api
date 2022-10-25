@@ -39,3 +39,12 @@ decorator:
   datasource:
     p6spy:
       enable-logging: true
+
+
+jwt:
+  access:
+    secretKey: myAccessSecretKey
+    expireSecond: 30
+  refresh:
+    secretKey: myRefreshSecretKey
+    expireDay: 7

@@ -54,6 +54,6 @@ open class RedisServiceImpl(
     //@Transactional
     override fun save(key: String, value: Any) {
 
-        redisTemplate.opsForValue().set(key,value, Duration.ofDays(JwtManager.getRefreshTokenDay()))
+        redisTemplate.opsForValue().set(key,value, Duration.ofDays(7))
     }
 }

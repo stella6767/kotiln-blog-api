@@ -24,10 +24,10 @@ import javax.servlet.http.HttpServletResponse
 class CustomUserNameAuthenticationFilter(
     private val om: ObjectMapper,
     private val memoryRepository: InMemoryService,
+    private val jwtManager: JwtManager
 ) : UsernamePasswordAuthenticationFilter() {
 
     private val log = KotlinLogging.logger {  }
-    private val jwtManager = JwtManager()
 
     override fun attemptAuthentication(request: HttpServletRequest?, response: HttpServletResponse?): Authentication {
 
@@ -60,7 +60,7 @@ class CustomUserNameAuthenticationFilter(
         val refreshCookie = CookieProvider.createCookie(
             CookieName.REFRESH_COOKIE,
             refreshToken,
-            TimeUnit.DAYS.toSeconds(jwtManager.refreshTokenExpireDay)
+            jwtManager.jwtProperties.refresh.getExpireDayToSeconds()
         )
 
         response.addHeader(jwtManager.authorizationHeader, jwtManager.jwtHeader + accessToken)

@@ -83,6 +83,13 @@ allprojects {
 
 
 subprojects {
+    
+    configurations {
+        compileOnly {
+            extendsFrom(configurations.annotationProcessor.get())
+        }
+    }
+
 
     dependencies {
         implementation("org.springframework.boot:spring-boot-starter-data-jpa")
@@ -92,9 +99,13 @@ subprojects {
         implementation("io.github.microutils:kotlin-logging:2.1.23")
         implementation("org.springframework.boot:spring-boot-starter-aop:2.7.0")
         //implementation("org.springframework.boot:spring-boot-starter-actuator")
+
+
         implementation("org.springframework.boot:spring-boot-starter-cache")
         implementation("org.jetbrains.kotlin:kotlin-reflect")
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
+        annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
     }
 

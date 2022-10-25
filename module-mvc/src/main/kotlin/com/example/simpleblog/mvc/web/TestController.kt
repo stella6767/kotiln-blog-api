@@ -39,12 +39,9 @@ class TestController(
 
 
         log.info { """
-            $searchcCondition
-           
+            $searchcCondition          
             ${searchcCondition.searchType}                    
-            ${searchcCondition.keyword}                    
-            
-            
+            ${searchcCondition.keyword}                                          
         """.trimIndent() }
 
         return "test"

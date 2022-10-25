@@ -49,6 +49,7 @@ class SecurityConfig(
     private val objectMapper: ObjectMapper,
     private val memberRepository: MemberRepository,
     private val redisTemplate: RedisTemplate<String, Any>,
+    private val jwtManager: JwtManager
 )  {
 
     private val log = KotlinLogging.logger {  }
@@ -204,7 +205,8 @@ class SecurityConfig(
             authenticationManager = authenticationManager(),
             memberRepository = memberRepository,
             om = objectMapper,
-            memoryRepository = inmemoryRepository()
+            memoryRepository = inmemoryRepository(),
+            jwtManager = jwtManager
         )
     }
 
@@ -223,7 +225,7 @@ class SecurityConfig(
     @Bean
     fun loginFilter(): UsernamePasswordAuthenticationFilter {
 
-        val authenticationFilter = CustomUserNameAuthenticationFilter(objectMapper, inmemoryRepository())
+        val authenticationFilter = CustomUserNameAuthenticationFilter(objectMapper, inmemoryRepository(),jwtManager = jwtManager)
         authenticationFilter.setAuthenticationManager(authenticationManager())
         authenticationFilter.setFilterProcessesUrl("/login")
         authenticationFilter.setAuthenticationFailureHandler(CustomFailureHandler())

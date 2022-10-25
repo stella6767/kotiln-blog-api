@@ -5,41 +5,42 @@ import com.auth0.jwt.algorithms.Algorithm
 import com.auth0.jwt.exceptions.JWTVerificationException
 import com.auth0.jwt.interfaces.DecodedJWT
 import com.auth0.jwt.interfaces.JWTVerifier
+import com.example.simpleblog.mvc.config.properties.JwtProperties
 import mu.KotlinLogging
+import org.springframework.beans.factory.annotation.Value
+import org.springframework.stereotype.Component
 import java.util.*
 import java.util.concurrent.TimeUnit
+import javax.annotation.PostConstruct
 
 
+@Component
 class JwtManager(
-    accessTokenExpireSecond: Long = 30, //1분
-    refreshTokenExpireDay: Long = 7 //1분
+    val jwtProperties: JwtProperties
 ) {
 
     private val log = KotlinLogging.logger { }
-
-    private val accessSecretKey: String = "myAccessSecretKey"
-    private val refreshSecretKey: String = "myRefreshSecretKey"
-
-    val claimPrincipal = "principal"
-    private val accessTokenExpireSecond: Long = accessTokenExpireSecond
-    val refreshTokenExpireDay: Long = refreshTokenExpireDay
-
+    private val claimPrincipal = "principal"
     val authorizationHeader = "Authorization"
     val jwtHeader = "Bearer "
     private val jwtSubject = "my-token"
 
+    @PostConstruct
+    fun init(){
+        log.info { "???? ${jwtProperties.access.secretKey}" }
+    }
 
     fun generateRefreshToken(principal: String): String {
-        val expireDate = Date(System.currentTimeMillis() + TimeUnit.DAYS.toMillis(refreshTokenExpireDay))
+        val expireDate = Date(System.currentTimeMillis() + jwtProperties.refresh.getExpireDayToMillis())
         log.info { "refreshToken ExpireDate=>$expireDate" }
-        return doGenerateToken(expireDate, principal, refreshSecretKey)
+        return doGenerateToken(expireDate, principal, jwtProperties.refresh.secretKey)
     }
 
 
     fun generateAccessToken(principal: String): String {
-        val expireDate = Date(System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(accessTokenExpireSecond))
+        val expireDate = Date(System.currentTimeMillis() + jwtProperties.access.expireSecond)
         log.info { "accessToken ExpireDate=>$expireDate" }
-        return doGenerateToken(expireDate, principal, accessSecretKey)
+        return doGenerateToken(expireDate, principal, jwtProperties.access.secretKey)
     }
 
     private fun doGenerateToken(
@@ -56,12 +57,12 @@ class JwtManager(
 
 
     fun getPrincipalStringByAccessToken(accessToken: String): String {
-        val decodedJWT = getDecodeJwt(secretKey = accessSecretKey, token = accessToken)
+        val decodedJWT = getDecodeJwt(secretKey = jwtProperties.access.secretKey, token = accessToken)
         return decodedJWT.getClaim(claimPrincipal).asString()
     }
 
     fun getPrincipalStringByRefreshToken(refreshToken: String): String {
-        val decodedJWT = getDecodeJwt(secretKey = refreshSecretKey, token = refreshToken)
+        val decodedJWT = getDecodeJwt(secretKey = jwtProperties.refresh.secretKey, token = refreshToken)
         return decodedJWT.getClaim(claimPrincipal).asString()
     }
 
@@ -75,11 +76,11 @@ class JwtManager(
 
 
     fun validAccessToken(token: String): TokenValidResult {
-        return validatedJwt(token, accessSecretKey)
+        return validatedJwt(token, jwtProperties.access.secretKey)
     }
 
     fun validRefreshToken(token: String): TokenValidResult {
-        return validatedJwt(token, refreshSecretKey)
+        return validatedJwt(token, jwtProperties.refresh.secretKey)
     }
 
 
@@ -93,16 +94,6 @@ class JwtManager(
             TokenValidResult.Failure(e)
         }
     }
-
-
-    companion object {
-
-        fun getRefreshTokenDay(): Long {
-            val jwtManager = JwtManager()
-            return jwtManager.refreshTokenExpireDay
-        }
-    }
-
 
 }
 

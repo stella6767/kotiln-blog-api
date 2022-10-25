@@ -21,7 +21,7 @@ class SchedulerService(
     private val log = KotlinLogging.logger {  }
 
     @Transactional
-    @Scheduled(cron = MyCronExpression.tenSecond)
+    @Scheduled(cron = MyCronExpression.oneHour)
     fun schedulerTest(){
         log.info { "event 발행" }
         eventPublisher.publishEvent(PostDeleteAtUpdateEvent(LocalDateTime.now()))

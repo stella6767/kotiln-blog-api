@@ -19,11 +19,12 @@ class CustomBasicAuthenticationFilter(
     private val memberRepository: MemberRepository,
     private val memoryRepository: InMemoryService,
     private val om: ObjectMapper,
-    authenticationManager: AuthenticationManager
+    authenticationManager: AuthenticationManager,
+    private val jwtManager: JwtManager
 ) : BasicAuthenticationFilter(authenticationManager) {
 
     val log = KotlinLogging.logger { }
-    private val jwtManager = JwtManager()
+
 
     override fun doFilterInternal(request: HttpServletRequest, response: HttpServletResponse, chain: FilterChain) {
 
