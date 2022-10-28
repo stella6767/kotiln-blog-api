@@ -2,6 +2,7 @@ package com.example.batch.config
 
 import com.example.batch.dto.MemberWithPost
 import com.example.batch.mapper.jdbc.MemberWithPostMapper
+import com.example.batch.processor.MemberWithPostProcessor
 import com.example.simpleblog.core.domain.member.Member
 import mu.KotlinLogging
 import org.springframework.batch.core.Job
@@ -46,11 +47,12 @@ class JdbcBatchConfig(
     }
 
     @Bean
-    @JobScope
+    //@JobScope
     fun jdbcPagingItemReaderStep(): Step {
         return stepBuilderFactory["jdbcPagingItemReaderStep"]
-            .chunk<Member, Member>(chunkSize)
+            .chunk<Member, MemberWithPost>(chunkSize)
             .reader(jdbcPagingItemReader())
+            .processor(MemberWithPostProcessor())
             .writer(jdbcPagingItemWriter())
             .build()
     }
@@ -69,10 +71,10 @@ class JdbcBatchConfig(
             .pageSize(chunkSize)
             .fetchSize(chunkSize)
             .dataSource(dataSource)
-            .rowMapper(BeanPropertyRowMapper(Member::class.java))
+            .rowMapper(BeanPropertyRowMapper(Member::class.javaObjectType))
             //.rowMapper(MemberWithPostMapper())
             .queryProvider(createQueryProvider())
-            .parameterValues(parameterValues)
+            //.parameterValues(parameterValues)
             .name("jdbcPagingItemReader")
             .build()
     }
@@ -85,7 +87,8 @@ class JdbcBatchConfig(
         //queryProvider.setSelectClause("m.id, m.email, m.password, m.create_at, m.update_at, m.email, m.password, m.role, GROUP_CONCAT(p.title) as postTitles")
         //queryProvider.setFromClause("from Member m inner join Post p on m.id = p.member_id group by m.id")
 
-        queryProvider.setSelectClause("m.id, m.email, m.password, m.create_at, m.update_at, m.email, m.password, m.role")
+        //queryProvider.setSelectClause("m.id, m.email, m.password, m.create_at, m.update_at, m.email, m.password, m.role")
+        queryProvider.setSelectClause("*")
         queryProvider.setFromClause("from Member m ")
 
         //queryProvider.setWhereClause("where amount >= :amount")
@@ -97,13 +100,16 @@ class JdbcBatchConfig(
     }
 
 
+//
 
+    private fun jdbcPagingItemWriter(): ItemWriter<MemberWithPost> {
+        return ItemWriter<MemberWithPost> { list ->
 
-    private fun jdbcPagingItemWriter(): ItemWriter<Member> {
-        return ItemWriter<Member> { list ->
-            for (memberWithPost in list) {
-                log.debug ("Current MemberWithPost={}", memberWithPost)
-            }
+            log.debug { "????=> $list" }
+
+//            for (memberWithPost in list) {
+//                log.debug ("Current MemberWithPost={}", memberWithPost)
+//            }
         }
     }
 
