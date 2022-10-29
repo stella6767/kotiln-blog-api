@@ -1,10 +1,11 @@
 package com.example.batch.mapper.csv
 
-import com.example.batch.dto.CustomMember
+import com.example.batch.dto.CsvMember
 
-class CustomMemberCsvMapper(
 
-) : CsvLineAggregator<CustomMember> {
+class CustomMemberCsvAggregator(
+
+) : CsvLineAggregator<CsvMember> {
 
     override val headerNames: Array<String> =
         arrayOf("id", "email", "password", "role", "createAt", "updateAt", "deleteAt", "orderNo", "postTitles" )

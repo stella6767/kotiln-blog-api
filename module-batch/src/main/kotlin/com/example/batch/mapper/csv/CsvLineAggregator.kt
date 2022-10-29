@@ -8,7 +8,7 @@ interface CsvLineAggregator<T> {
     val headerNames: Array<String>
 
     fun delimitedLineAggregator(
-        delimiter: String = ","
+         delimiter: String = ","
     ) =
         object : DelimitedLineAggregator<T>() {
             init {

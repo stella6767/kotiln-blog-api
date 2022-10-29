@@ -1,10 +1,11 @@
 package com.example.batch.config.jdbc
 
+import com.example.batch.dto.CsvMember
 import com.example.batch.dto.CustomMember
-import com.example.batch.listner.job.DBToCsvJobListner
+import com.example.batch.listner.job.CommonJobListner
 import com.example.batch.listner.step.StepListner
-import com.example.batch.mapper.csv.CustomMemberCsvMapper
-import com.example.batch.processor.CustomMemberProcessor
+import com.example.batch.mapper.csv.CustomMemberCsvAggregator
+import com.example.batch.processor.CustomMemberToCsvMemberProcessor
 import mu.KotlinLogging
 import org.springframework.batch.core.Job
 import org.springframework.batch.core.Step
@@ -18,15 +19,21 @@ import org.springframework.batch.item.database.Order
 import org.springframework.batch.item.database.PagingQueryProvider
 import org.springframework.batch.item.database.builder.JdbcPagingItemReaderBuilder
 import org.springframework.batch.item.database.support.SqlPagingQueryProviderFactoryBean
+import org.springframework.batch.item.file.FlatFileItemReader
 import org.springframework.batch.item.file.FlatFileItemWriter
+import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder
 import org.springframework.batch.item.file.builder.FlatFileItemWriterBuilder
+import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.core.io.ClassPathResource
 import org.springframework.core.io.FileSystemResource
 import org.springframework.core.io.ResourceLoader
 import org.springframework.jdbc.core.DataClassRowMapper
+import org.springframework.jdbc.core.JdbcTemplate
 import java.nio.charset.StandardCharsets
 import javax.sql.DataSource
+
 
 /**
  * @JobScope는 Step 선언문에서 사용 가능하고, @StepScope는 Tasklet이나 ItemReader, ItemWriter, ItemProcessor에서 사용할 수 있습니다.
@@ -40,18 +47,19 @@ class DBToCsvBatchConfig(
     private val jobBuilderFactory: JobBuilderFactory,
     private val stepBuilderFactory: StepBuilderFactory,
     //private val entityManagerFactory: EntityManagerFactory,
+    @Suppress("SpringJavaInjectionPointsAutowiringInspection")
     private val dataSource: DataSource,
     private val resourceLoader: ResourceLoader,
 ) {
 
-    private val log = KotlinLogging.logger {  }
+    private val log = KotlinLogging.logger { }
     private val chunkSize = 10
 
 
     @Bean
     fun jdbcPagingItemReaderJob(): Job {
         return jobBuilderFactory["jdbcPagingItemReaderJob"]
-            .listener(DBToCsvJobListner())
+            .listener(CommonJobListner())
             .incrementer(RunIdIncrementer())
             .start(jdbcPagingItemReaderStep())
             .build()
@@ -62,9 +70,9 @@ class DBToCsvBatchConfig(
     fun jdbcPagingItemReaderStep(): Step {
         return stepBuilderFactory["jdbcPagingItemReaderStep"]
             .listener(StepListner())
-            .chunk<CustomMember, CustomMember>(chunkSize)
+            .chunk<CustomMember, CsvMember>(chunkSize)
             .reader(jdbcPagingItemReader())
-            .processor(CustomMemberProcessor())
+            .processor(CustomMemberToCsvMemberProcessor())
             .writer(flatFileMemberItemWriter())
             .build()
     }
@@ -116,7 +124,8 @@ class DBToCsvBatchConfig(
         val queryProvider = SqlPagingQueryProviderFactoryBean()
         queryProvider.setDataSource(dataSource) // Database에 맞는 PagingQueryProvider를 선택하기 위해
         //queryProvider.setSelectClause("m.id, m.email, m.password, m.create_at, m.update_at, m.email, m.password, m.role, GROUP_CONCAT(p.title) as postTitles")
-        queryProvider.setSelectClause("""
+        queryProvider.setSelectClause(
+            """
             m.id as id, 
             m.email as email, 
             m.password as password,  
@@ -126,13 +135,16 @@ class DBToCsvBatchConfig(
             m.role as role,  
             m.order_no as orderNo,
             GROUP_CONCAT(p.title) as postTitles
-        """.trimIndent())
-        queryProvider.setFromClause("""           
+        """.trimIndent()
+        )
+        queryProvider.setFromClause(
+            """           
             from Member m 
             left outer join 
             Post p 
             on m.id = p.member_id                
-        """.trimIndent())
+        """.trimIndent()
+        )
 
         //queryProvider.setSelectClause("m.id, m.email, m.password, m.create_at, m.update_at, m.email, m.password, m.role")
         //queryProvider.setFromClause("from Member m ")
@@ -154,7 +166,7 @@ class DBToCsvBatchConfig(
 
             for (csvMember in list) {
 
-                log.debug { "csvMember=>  $csvMember "}
+                log.debug { "csvMember=>  $csvMember " }
             }
 
         }
@@ -162,15 +174,25 @@ class DBToCsvBatchConfig(
 
 
 
-    private fun flatFileMemberItemWriter(): FlatFileItemWriter<CustomMember> {
+    private fun flatFileMemberItemWriter(): FlatFileItemWriter<CsvMember> {
 
-        return FlatFileItemWriterBuilder<CustomMember>()
+        return FlatFileItemWriterBuilder<CsvMember>()
             .name("customMemberFileWriter")
             .resource(FileSystemResource("module-batch/src/main/resources/data/output/member.csv"))
             .append(true)
-            .lineAggregator(CustomMemberCsvMapper().delimitedLineAggregator())
+            .lineAggregator(CustomMemberCsvAggregator().delimitedLineAggregator())
+//            .lineAggregator(object : DelimitedLineAggregator<CsvMember>() {
+//                init {
+//                    setDelimiter(",")
+//                    setFieldExtractor(object : BeanWrapperFieldExtractor<CsvMember>() {
+//                        init {
+//                            setNames(arrayOf("id", "email", "password", "role", "createAt", "updateAt", "deleteAt", "orderNo", "postTitles" ))
+//                        }
+//                    })
+//                }
+//            })
             .headerCallback {
-                it.write(CustomMemberCsvMapper().headerNames.joinToString { "," })
+                it.write(CustomMemberCsvAggregator().headerNames.joinToString())
             }
             .encoding(StandardCharsets.UTF_8.name())
             .build()

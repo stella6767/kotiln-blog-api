@@ -5,15 +5,13 @@ import org.springframework.batch.core.JobExecution
 import org.springframework.batch.core.JobExecutionListener
 import java.util.concurrent.TimeUnit
 
-class DBToCsvJobListner(
+class CommonJobListner(
 
 ) : JobExecutionListener {
 
     private val log = KotlinLogging.logger {  }
 
     override fun beforeJob(jobExecution: JobExecution) {
-
-
         log.debug { "beforeJob" }
     }
 
@@ -24,11 +22,9 @@ class DBToCsvJobListner(
         val diff = end?.time?.minus(start?.time)
 
         log.debug {
-            """
-                
+            """               
                 Job 실행시간 측정!!               
-                ${diff?.let { TimeUnit.SECONDS.convert(it, TimeUnit.MILLISECONDS) }}
-                              
+                ${diff?.let { TimeUnit.MILLISECONDS.convert(it, TimeUnit.MILLISECONDS) }}                             
             """.trimIndent()
 
         }

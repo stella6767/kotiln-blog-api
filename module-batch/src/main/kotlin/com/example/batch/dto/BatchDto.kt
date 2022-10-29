@@ -14,15 +14,57 @@ data class CustomMember(
     var postTitles:String?,
 ){
 
+    fun toCsvMember(): CsvMember {
 
-    fun revisePostTitles(){
-
-        this.postTitles = this.postTitles?.replace(",".toRegex(), "#")
-
+        return CsvMember(
+            id = this.id,
+            this.email,
+            this.password,
+            this.role,
+            this.createAt,
+            this.updateAt,
+            this.deleteAt ?: "없음",
+            this.orderNo ?: 0,
+            postTitles = this.postTitles?.replace(",".toRegex(), "#") ?: "없음"
+        )
 
     }
 
-    override fun toString(): String {
-        return "CustomMember(id='$id', email='$email', password='$password', role='$role', createAt='$createAt', updateAt='$updateAt', deleteAt=$deleteAt, orderNo=$orderNo, postTitles=$postTitles)"
+
+}
+
+
+
+data class CsvMember(
+    val id:String,
+    val email: String,
+    val password: String,
+    val role: String,
+    var createAt: String,
+    val updateAt: String,
+    val deleteAt: String,
+    val orderNo: Long,
+    var postTitles:String,
+){
+    // https://stackoverflow.com/questions/69300083/bean-property-is-not-writeable-invalid-setter-method-in-kotlin
+    //data class fieldSetmapper issue
+
+
+    fun toCustomMember(): CustomMember {
+
+        return CustomMember(
+            id = this.id,
+            this.email,
+            this.password,
+            this.role,
+            this.createAt,
+            this.updateAt,
+            if (this.deleteAt == "없음") null else this.deleteAt,
+            if (this.orderNo == 0L) null else this.orderNo,
+            postTitles = this.postTitles?.replace("#".toRegex(), ",")
+        )
+
     }
+
+
 }

@@ -5,6 +5,7 @@ spring:
   batch:
     job:
       names: ${job.name:NONE}
+      # Spring Batch 특정 Job만 실행하기
   config:
     activate:
       on-profile:
