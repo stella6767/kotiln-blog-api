@@ -1,11 +1,15 @@
-package com.example.batch.config
+package com.example.batch.config.jdbc
 
-import com.example.batch.dto.CsvMember
-import com.example.batch.dto.MemberWithPost
+import com.example.batch.dto.CustomMember
+import com.example.batch.listner.job.DBToCsvJobListner
+import com.example.batch.listner.step.StepListner
+import com.example.batch.mapper.csv.CustomMemberCsvMapper
+import com.example.batch.processor.CustomMemberProcessor
 import mu.KotlinLogging
 import org.springframework.batch.core.Job
 import org.springframework.batch.core.Step
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
+import org.springframework.batch.core.configuration.annotation.JobScope
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory
 import org.springframework.batch.core.launch.support.RunIdIncrementer
 import org.springframework.batch.item.ItemWriter
@@ -14,16 +18,25 @@ import org.springframework.batch.item.database.Order
 import org.springframework.batch.item.database.PagingQueryProvider
 import org.springframework.batch.item.database.builder.JdbcPagingItemReaderBuilder
 import org.springframework.batch.item.database.support.SqlPagingQueryProviderFactoryBean
+import org.springframework.batch.item.file.FlatFileItemWriter
+import org.springframework.batch.item.file.builder.FlatFileItemWriterBuilder
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.core.io.FileSystemResource
 import org.springframework.core.io.ResourceLoader
-import org.springframework.jdbc.core.BeanPropertyRowMapper
 import org.springframework.jdbc.core.DataClassRowMapper
+import java.nio.charset.StandardCharsets
 import javax.sql.DataSource
+
+/**
+ * @JobScope는 Step 선언문에서 사용 가능하고, @StepScope는 Tasklet이나 ItemReader, ItemWriter, ItemProcessor에서 사용할 수 있습니다.
+ *
+ * https://cheese10yun.github.io/spring-batch-basic/
+ */
 
 
 @Configuration
-class JdbcBatchConfig(
+class DBToCsvBatchConfig(
     private val jobBuilderFactory: JobBuilderFactory,
     private val stepBuilderFactory: StepBuilderFactory,
     //private val entityManagerFactory: EntityManagerFactory,
@@ -38,19 +51,21 @@ class JdbcBatchConfig(
     @Bean
     fun jdbcPagingItemReaderJob(): Job {
         return jobBuilderFactory["jdbcPagingItemReaderJob"]
+            .listener(DBToCsvJobListner())
             .incrementer(RunIdIncrementer())
             .start(jdbcPagingItemReaderStep())
             .build()
     }
 
     @Bean
-    //@JobScope
+    @JobScope
     fun jdbcPagingItemReaderStep(): Step {
         return stepBuilderFactory["jdbcPagingItemReaderStep"]
-            .chunk<CsvMember, CsvMember>(chunkSize)
+            .listener(StepListner())
+            .chunk<CustomMember, CustomMember>(chunkSize)
             .reader(jdbcPagingItemReader())
-            //.processor(MemberWithPostProcessor())
-            .writer(jdbcPagingItemWriter())
+            .processor(CustomMemberProcessor())
+            .writer(flatFileMemberItemWriter())
             .build()
     }
 
@@ -62,18 +77,18 @@ class JdbcBatchConfig(
     // https://stackoverflow.com/questions/62864662/spring-jdbc-beanpropertyrowmapper-with-kotlin
 
     @Bean
-    fun jdbcPagingItemReader(): JdbcPagingItemReader<CsvMember> {
+    fun jdbcPagingItemReader(): JdbcPagingItemReader<CustomMember> {
 
         // DataClassRowMapper 를 사용!
 
         val parameterValues: MutableMap<String, Any> = HashMap()
         //parameterValues["amount"] = 10
-        return JdbcPagingItemReaderBuilder<CsvMember>()
+        return JdbcPagingItemReaderBuilder<CustomMember>()
             .pageSize(chunkSize)
             .fetchSize(chunkSize)
             .dataSource(dataSource)
             //.rowMapper(BeanPropertyRowMapper(CsvMember::class.java))
-            .rowMapper(DataClassRowMapper(CsvMember::class.java))
+            .rowMapper(DataClassRowMapper(CustomMember::class.java))
 //            .rowMapper(RowMapper { rs, rowNum ->
 //
 //                val id = rs.getInt("id")
@@ -109,7 +124,8 @@ class JdbcBatchConfig(
             m.delete_at as deleteAt, 
             m.update_at as updateAt,  
             m.role as role,  
-            m.order_no as orderNo
+            m.order_no as orderNo,
+            GROUP_CONCAT(p.title) as postTitles
         """.trimIndent())
         queryProvider.setFromClause("""           
             from Member m 
@@ -133,8 +149,8 @@ class JdbcBatchConfig(
 
 //
 
-    private fun jdbcPagingItemWriter(): ItemWriter<CsvMember> {
-        return ItemWriter<CsvMember> { list ->
+    private fun jdbcPagingItemWriter(): ItemWriter<CustomMember> {
+        return ItemWriter<CustomMember> { list ->
 
             for (csvMember in list) {
 
@@ -142,6 +158,23 @@ class JdbcBatchConfig(
             }
 
         }
+    }
+
+
+
+    private fun flatFileMemberItemWriter(): FlatFileItemWriter<CustomMember> {
+
+        return FlatFileItemWriterBuilder<CustomMember>()
+            .name("customMemberFileWriter")
+            .resource(FileSystemResource("module-batch/src/main/resources/data/output/member.csv"))
+            .append(true)
+            .lineAggregator(CustomMemberCsvMapper().delimitedLineAggregator())
+            .headerCallback {
+                it.write(CustomMemberCsvMapper().headerNames.joinToString { "," })
+            }
+            .encoding(StandardCharsets.UTF_8.name())
+            .build()
+
     }
 
 

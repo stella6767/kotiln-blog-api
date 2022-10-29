@@ -1,7 +1,8 @@
 package com.example.batch.dto
 
 
-data class MemberWithPost(
+
+data class CustomMember(
     val id:String,
     val email: String,
     val password: String,
@@ -10,22 +11,18 @@ data class MemberWithPost(
     val updateAt: String,
     val deleteAt: String?,
     val orderNo: Long?,
-    //val postTitles:List<String>,
-)
-
-
-data class CsvMember(
-    val id:String,
-    val email: String,
-    val password: String,
-    val role: String,
-    var createAt: String,
-    val updateAt: String,
-    val deleteAt: String?,
-    val orderNo: Long?,
+    var postTitles:String?,
 ){
 
+
+    fun revisePostTitles(){
+
+        this.postTitles = this.postTitles?.replace(",".toRegex(), "#")
+
+
+    }
+
     override fun toString(): String {
-        return "CsvMember(id='$id', email='$email', password='$password', role='$role', createAt='$createAt', updateAt='$updateAt', deleteAt=$deleteAt, orderNo=$orderNo)"
+        return "CustomMember(id='$id', email='$email', password='$password', role='$role', createAt='$createAt', updateAt='$updateAt', deleteAt=$deleteAt, orderNo=$orderNo, postTitles=$postTitles)"
     }
 }
