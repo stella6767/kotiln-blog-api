@@ -2,6 +2,7 @@ package com.example.simpleblog.core.domain.member
 
 import com.example.simpleblog.core.domain.AuditingEntity
 import com.example.simpleblog.core.domain.member.Member.Role
+import java.time.LocalDateTime
 import java.util.*
 import javax.persistence.*
 
@@ -43,7 +44,32 @@ class BatchMember(
     }
 
     override fun toString(): String {
-        return "Member(id=$id, email='$email', password='$password', role=$role, createdAt=$createAt, updatedAt=$updateAt)"
+        return "BatchMember(id=$id, email='$email', password='$password', role=$role, postTitles=$postTitles)"
+    }
+
+    companion object {
+
+        fun of(
+            id: Long = 0,
+            createAt:LocalDateTime,
+            deletedAt: LocalDateTime,
+            updateAt:LocalDateTime,
+            orderNo:Long,
+            email: String,
+            password: String,
+            role: Role = Role.USER,
+            postTitles: MutableList<String> = mutableListOf<String>()
+        ): BatchMember {
+            val member = BatchMember(
+                id, email, password, role, postTitles
+            )
+            member.createAt = createAt
+            member.deleteAt = deletedAt
+            member.updateAt = updateAt
+            member.orderNo = orderNo
+            return member
+        }
+
     }
 
 
