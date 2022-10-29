@@ -1,5 +1,6 @@
 package com.example.simpleblog.core.domain.member
 
+import com.example.simpleblog.core.domain.member.Member.Role
 import com.example.simpleblog.core.util.dto.BaseResponseDto
 
 

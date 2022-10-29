@@ -45,11 +45,12 @@ class Member(
             return member
         }
     }
-}
+
+    enum class Role {
+        USER, ADMIN
+    }
 
 
-enum class Role {
-    USER, ADMIN
 }
 
 

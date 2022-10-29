@@ -116,6 +116,10 @@ class CsvToDbBatchConfig(
 
     fun writer(): JdbcBatchItemWriter<CustomMember> {
 
+        /**
+         * 왜 npm ??????
+         */
+
         return JdbcBatchItemWriterBuilder<CustomMember>()
 //            .itemSqlParameterSourceProvider(
 //                BeanPropertyItemSqlParameterSourceProvider<CustomMember>()

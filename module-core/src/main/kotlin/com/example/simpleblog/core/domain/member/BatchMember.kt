@@ -1,6 +1,7 @@
 package com.example.simpleblog.core.domain.member
 
 import com.example.simpleblog.core.domain.AuditingEntity
+import com.example.simpleblog.core.domain.member.Member.Role
 import java.util.*
 import javax.persistence.*
 
