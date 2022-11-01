@@ -23,5 +23,7 @@ dependencies {
     //implementation("org.springframework.boot:spring-boot-starter-websocket")
     testImplementation("org.springframework.security:spring-security-test")
     //testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
+    testImplementation("org.testcontainers:mariadb:1.17.5")
+
 
 }

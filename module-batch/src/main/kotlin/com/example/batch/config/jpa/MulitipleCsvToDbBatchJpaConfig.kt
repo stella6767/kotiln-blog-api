@@ -61,7 +61,6 @@ class MulitipleCsvToDbBatchJpaConfig(
 
                 val list = line.split(",")
 
-
                 BatchMember.of(
                     list[0].toLong(),
                     LocalDateTime.parse(list[1]),
@@ -72,7 +71,6 @@ class MulitipleCsvToDbBatchJpaConfig(
                     list[6],
                     Member.Role.valueOf(list[7]),
                     list[8].split(",").toMutableList(),
-
                 )
 
             }

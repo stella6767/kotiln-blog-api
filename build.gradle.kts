@@ -99,7 +99,8 @@ subprojects {
         implementation("io.github.microutils:kotlin-logging:2.1.23")
         implementation("org.springframework.boot:spring-boot-starter-aop:2.7.0")
         //implementation("org.springframework.boot:spring-boot-starter-actuator")
-
+        runtimeOnly("com.h2database:h2")
+        runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
 
         implementation("org.springframework.boot:spring-boot-starter-cache")
         implementation("org.jetbrains.kotlin:kotlin-reflect")

@@ -4,7 +4,7 @@ package com.example.simpleblog.mvc.config
 import com.example.simpleblog.core.domain.commenet.CommentRepository
 import com.example.simpleblog.core.domain.member.Member
 import com.example.simpleblog.core.domain.member.MemberRepository
-import com.example.simpleblog.core.domain.member.Role
+import com.example.simpleblog.core.domain.member.Member.Role
 import com.example.simpleblog.core.domain.post.Post
 import com.example.simpleblog.core.domain.post.PostRepository
 import com.example.simpleblog.core.domain.post.PostType

@@ -1,7 +1,7 @@
 package com.example.simpleblog.mvc.web.dto
 
 import com.example.simpleblog.core.domain.member.Member
-import com.example.simpleblog.core.domain.member.Role
+import com.example.simpleblog.core.domain.member.Member.Role
 import com.example.simpleblog.mvc.config.MVCBeanAccesseor
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import javax.validation.constraints.NotNull

@@ -6,6 +6,7 @@ package com.example.simpleblog.mvc
 
 import com.example.simpleblog.mvc.service.CacheService
 import com.example.simpleblog.mvc.service.comment.CommentService
+import com.example.simpleblog.mvc.setup.TestDataSource
 import com.example.simpleblog.mvc.setup.TestRedisConfiguration
 import com.example.simpleblog.mvc.web.dto.CommentSaveReq
 import mu.KotlinLogging
@@ -16,11 +17,14 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.cache.CacheManager
 import org.springframework.cache.caffeine.CaffeineCache
+import org.springframework.context.annotation.Import
 import org.springframework.test.context.TestConstructor
+import javax.sql.DataSource
+
 
 
 @SpringBootTest(
-    classes = [TestRedisConfiguration::class],
+    classes = [TestRedisConfiguration::class, TestDataSource::class],
     properties = ["spring.profiles.active=test"]
 )
 @TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
@@ -30,6 +34,7 @@ internal class SimpleBlogModuleMvcApplicationTests(
     private val cacheManager: CacheManager,
     private val cacheService: CacheService,
     private val autocompleteRepository: AutocompleteRepository,
+    private val dataSource: DataSource
 ) {
 
 
@@ -38,6 +43,14 @@ internal class SimpleBlogModuleMvcApplicationTests(
 
     @Test
     fun contextLoads() {
+
+    }
+
+
+    @Test
+    fun testDataSourceTest(){
+
+        log.info { dataSource.connection.metaData.url }
 
     }
 
