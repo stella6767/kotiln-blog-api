@@ -21,8 +21,8 @@ spring:
       enabled: always
   datasource:
     url: jdbc:mariadb://localhost:3306/kotilnblog?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8
-    username: test
-    password: Test@12345678
+    username: root
+    password: 1234
   jpa:
     hibernate:
       ddl-auto: update

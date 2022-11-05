@@ -6,27 +6,36 @@ package com.example.simpleblog.mvc
 
 import com.example.simpleblog.mvc.service.CacheService
 import com.example.simpleblog.mvc.service.comment.CommentService
-import com.example.simpleblog.mvc.setup.TestDataSource
+import com.example.simpleblog.mvc.setup.TestContainerSetup
 import com.example.simpleblog.mvc.setup.TestRedisConfiguration
 import com.example.simpleblog.mvc.web.dto.CommentSaveReq
 import mu.KotlinLogging
 import net.okihouse.autocomplete.repository.AutocompleteRepository
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInstance
 import org.springframework.beans.factory.support.DefaultListableBeanFactory
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.cache.CacheManager
 import org.springframework.cache.caffeine.CaffeineCache
 import org.springframework.context.annotation.Import
+import org.springframework.core.io.ClassPathResource
+import org.springframework.jdbc.datasource.init.ScriptUtils
 import org.springframework.test.context.TestConstructor
 import javax.sql.DataSource
 
 
+//, TestDataSource::class
+
 
 @SpringBootTest(
-    classes = [TestRedisConfiguration::class, TestDataSource::class],
+    classes = [TestRedisConfiguration::class],
     properties = ["spring.profiles.active=test"]
 )
+//@ExtendWith(TestContainerSetup::class)
+@Import(TestContainerSetup::class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
 internal class SimpleBlogModuleMvcApplicationTests(
     private val df: DefaultListableBeanFactory,
@@ -35,10 +44,21 @@ internal class SimpleBlogModuleMvcApplicationTests(
     private val cacheService: CacheService,
     private val autocompleteRepository: AutocompleteRepository,
     private val dataSource: DataSource
-) {
+)  {
 
 
     private val log = KotlinLogging.logger {  }
+
+
+    @BeforeAll
+    fun setupAll(){
+
+        dataSource.connection.use { conn ->
+            log.info("TEST!!!!!!!!!!!@@@@@@@=>${conn.metaData.url}")
+            ScriptUtils.executeSqlScript(conn, ClassPathResource("/static/sql/testinit.sql"))
+        }
+
+    }
 
 
     @Test

@@ -27,13 +27,9 @@ class InitData(
     val faker = faker { }
     private val log = KotlinLogging.logger {}
 
-
-
     @EventListener(ApplicationReadyEvent::class)
     private fun init(){
-
         //initMemberAndPosts()
-
     }
 
     private fun initMemberAndPosts() {

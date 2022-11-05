@@ -11,7 +11,8 @@ import java.time.LocalDateTime
 import javax.persistence.*
 
 
-@EntityListeners(value = [AuditingEntityListener::class, OrderNoInitListner::class])
+//, OrderNoInitListner::class
+@EntityListeners(value = [AuditingEntityListener::class])
 @MappedSuperclass
 abstract class AuditingEntity(
     id:Long
