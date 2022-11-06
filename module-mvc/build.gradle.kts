@@ -1,6 +1,5 @@
 
 
-
 dependencies {
 
     implementation(project(":module-core"))
@@ -11,12 +10,6 @@ dependencies {
     implementation("net.jodah:expiringmap:0.5.10")
     implementation("io.findify:s3mock_2.13:0.2.6")
 
-    // https://mvnrepository.com/artifact/org.dhatim/fastexcel
-    implementation("org.dhatim:fastexcel:0.14.0")
-// https://mvnrepository.com/artifact/org.dhatim/fastexcel-reader
-    implementation("org.dhatim:fastexcel-reader:0.14.0")
-
-
 
     // https://mvnrepository.com/artifact/io.github.serpro69/kotlin-faker
     implementation("io.github.serpro69:kotlin-faker:1.11.0")
@@ -26,6 +19,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("it.ozimov:embedded-redis:0.7.3") { exclude(group = "org.slf4j", module = "slf4j-simple") }
+
+
 
     //implementation("org.springframework.boot:spring-boot-starter-websocket")
     testImplementation("org.springframework.security:spring-security-test")

@@ -1,0 +1,29 @@
+
+server:
+  servlet:
+    context-path: /
+    encoding:
+      charset: utf-8
+      enabled: true
+
+
+spring:
+  application:
+    name: blog-api
+
+  data:
+    redis:
+      repositories:
+        enabled: false
+  profiles:
+    active: local
+
+  output:
+    ansi:
+      enabled: always
+
+
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true

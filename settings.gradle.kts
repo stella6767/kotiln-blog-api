@@ -1,3 +1,4 @@
 rootProject.name = "simple-blog"
 
-include("module-core", "module-mvc", "module-batch")
+include("module-core", "module-mvc",
+    "module-batch")
