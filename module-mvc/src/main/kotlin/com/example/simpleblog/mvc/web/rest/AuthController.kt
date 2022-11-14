@@ -1,4 +1,4 @@
-package com.example.simpleblog.mvc.web
+package com.example.simpleblog.mvc.web.rest
 
 import com.example.simpleblog.mvc.service.AuthService
 import com.example.simpleblog.mvc.web.dto.LoginDto

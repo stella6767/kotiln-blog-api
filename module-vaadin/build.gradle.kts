@@ -23,15 +23,21 @@ vaadin {
     optimizeBundle = false
     productionMode = true
     //generateBundle = true
+
 }
+
+
+
+
+
 
 
 
 dependencies {
 
     implementation(project(":module-core"))
-
-    compileOnly("org.springframework.boot:spring-boot-devtools")
+    implementation("com.github.mvysny.karibudsl:karibu-dsl:1.1.3")
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
     // https://mvnrepository.com/artifact/org.dhatim/fastexcel
     implementation("org.dhatim:fastexcel:0.14.0")
     implementation("org.dhatim:fastexcel-reader:0.14.0")

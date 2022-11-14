@@ -1,9 +1,8 @@
-package com.example.simpleblog.mvc.web
+package com.example.simpleblog.mvc.web.rest
 
 import com.example.simpleblog.core.util.dto.SearchCondition
 import com.example.simpleblog.core.util.dto.SearchCondition.SearchType
 import com.example.simpleblog.mvc.service.post.PostQueryService
-import com.example.simpleblog.mvc.service.post.PostService
 import mu.KotlinLogging
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam

@@ -1,4 +1,4 @@
-package com.example.simpleblog.mvc.web
+package com.example.simpleblog.mvc.web.rest
 
 import com.example.simpleblog.mvc.service.member.MemberQueryService
 import com.example.simpleblog.mvc.service.member.MemberService

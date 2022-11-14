@@ -1,0 +1,48 @@
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head th:fragment="common_header(title,links)">-->
+
+<!--  <title th:replace="${title}">레이아웃 타이틀</title>-->
+
+<!--  &lt;!&ndash; 공통 &ndash;&gt;-->
+<!--  <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/awesomeapp.css}">-->
+<!--  <link rel="shortcut icon" th:href="@{/images/favicon.ico}">-->
+<!--  <script type="text/javascript" th:src="@{/sh/scripts/codebase.js}"></script>-->
+
+<!--  &lt;!&ndash; 추가 &ndash;&gt;-->
+<!--  <th:block th:replace="${links}" />-->
+
+<!--</head>-->
+
+
+<!DOCTYPE html>
+<html
+        lagn="ko"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>기본 레이아웃</title>
+  <!--Bootstrap JS-->
+  <script type="text/javascript" th:src="@{/webjars/bootstrap/dist/js/bootstrap.js}"></script>
+  <!--HTMX-->
+  <script type="text/javascript" th:src="@{/webjars/htmx.org/dist/htmx.min.js}"></script>
+  <!--alpine.js-->
+  <script type="text/javascript" th:src="@{/webjars/alpinejs/dist/cdn.js}"></script>
+
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/dist/css/bootstrap.css}"></script>
+
+
+
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<div layout:fragment="content">
+
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
